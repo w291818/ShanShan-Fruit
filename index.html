@@ -5,51 +5,84 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>山山水果公司 - 新鮮空運 | 壞果包賠</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"微軟雅黑",sans-serif;}
-body{background:#f5efe6;color:#333;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"微軟雅黑",system-ui,sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background:#f5efe6;
+    color:#333;
+    line-height:1.75;
+}
 
-.header{background:#f5efe6;color:#333;padding:15px 0;}
+/* 頂部導航 吸頂毛玻璃 */
+.header{
+    background:rgba(245, 239, 230, 0.93);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top:0;
+    z-index:999;
+    box-shadow: 0 2px 12px rgba(46, 125, 50, 0.07);
+}
 .head-top{
     max-width:1200px;
     margin:0 auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 20px;
+    padding:14px 20px;
 }
-.logo h1{font-size:22px;color:#2e7d32;}
-.logo p{font-size:14px;color:#666;}
-
-/* 導航重寫 去除衝突定位 */
+.logo h1{
+    font-size:24px;
+    color:#2e7d32;
+    letter-spacing:1px;
+}
+.logo p{
+    font-size:14px;
+    color:#666;
+    margin-top:3px;
+}
 .nav-bar{
     display:flex;
-    gap:12px;
+    gap:14px;
+    flex-wrap: wrap;
 }
 .nav-bar a{
     color:#333;
     text-decoration:none;
     font-size:16px;
-    padding:8px 16px;
-    background:#fff;
-    border-radius:50px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.06);
-    cursor:pointer;
-    z-index:99;
+    padding:9px 18px;
+    background:#ffffff;
+    border-radius:99px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
-.nav-bar a::before{
-    content:"🍎";
-    margin-right:6px;
-}
+.nav-bar a:nth-child(1)::before{content:"🍓";margin-right:6px;}
+.nav-bar a:nth-child(2)::before{content:"🍊";margin-right:6px;}
+.nav-bar a:nth-child(3)::before{content:"🧺";margin-right:6px;}
+.nav-bar a:nth-child(4)::before{content:"📞";margin-right:6px;}
 .nav-bar a:hover{
-    background:#fff7e8;
-    transform:translateY(-2px);
-    transition:0.3s;
+    background:#f1f8e9;
+    transform:translateY(-3px);
+    box-shadow:0 4px 14px rgba(46, 125, 50, 0.15);
+    border-color:#c8e6c9;
 }
 
+/* 高級橫幅Banner 真實水果背景 */
 .banner{
     width:100%;
-    height:220px;
-    background:linear-gradient(135deg,#4CAF50,#81d46e);
+    height:320px;
+    background:
+        linear-gradient(135deg, rgba(46, 125, 50, 0.72), rgba(76, 175, 80, 0.63)),
+        url("https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=1400&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center center;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -57,79 +90,255 @@ body{background:#f5efe6;color:#333;}
     color:#fff;
     text-align:center;
     padding:20px;
+    position:relative;
+    overflow:hidden;
 }
-.banner h2{font-size:28px;margin-bottom:10px;}
-.banner p{font-size:16px;line-height:1.8;}
+.banner::before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    right:6%;
+    top:12%;
+    background:radial-gradient(circle, rgba(255,255,255,0.13), transparent 72%);
+    border-radius:50%;
+    animation: float 11s ease-in-out infinite;
+}
+.banner::after{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    left:7%;
+    bottom:10%;
+    background:radial-gradient(circle, rgba(255,255,255,0.1), transparent 75%);
+    border-radius:50%;
+    animation: float 13s ease-in-out infinite reverse;
+}
+@keyframes float{
+    0%{transform: translateY(0px) rotate(0deg);}
+    50%{transform: translateY(-16px) rotate(2deg);}
+    100%{transform: translateY(0px) rotate(0deg);}
+}
+.banner h2{
+    font-size:36px;
+    margin-bottom:12px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.26);
+    letter-spacing:2px;
+    font-weight:700;
+}
+.banner p{
+    font-size:18px;
+    opacity:0.93;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.22);
+}
 
-.container{max-width:1200px;margin:0 auto;padding:20px;}
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:20px;
+}
 
+/* 區塊標題 */
 .title{
     text-align:center;
-    font-size:24px;
+    font-size:26px;
     color:#2e7d32;
-    margin:60px 0 20px;
+    margin:70px 0 28px;
     background:#fff;
-    padding:12px 24px;
-    border-radius:50px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    padding:14px 28px;
+    border-radius:99px;
+    box-shadow:0 4px 14px rgba(46, 125, 50, 0.09);
     display:table;
     margin-left:auto;
     margin-right:auto;
 }
-.title::before{content:"🍎 🥝 🍇";margin-right:8px;}
-.title::after{content:"🍊 🍓 🥭";margin-left:8px;}
+.title::before{content:"🍎 🥝 🍇";margin-right:10px;}
+.title::after{content:"🍊 🍓 🥭";margin-left:10px;}
 
-.history-box{
+/* 三大服務卡片模塊 */
+.service-wrap{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap:22px;
+    margin-bottom:60px;
+}
+.service-card{
     background:#fff;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+    padding:28px 20px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,0.06);
+    transition:0.35s ease;
+}
+.service-card:hover{
+    transform: translateY(-7px);
+    box-shadow:0 9px 22px rgba(46, 125, 50, 0.13);
+}
+.service-card h3{
+    color:#2e7d32;
+    margin:12px 0;
+    font-size:19px;
+}
+.service-card p{
+    color:#555;
+    font-size:15px;
+}
+.service-icon{
+    font-size:44px;
+}
+
+/* 升級：品牌故事卡片 高級背景樣式 */
+.history-box{
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.8), transparent 35%),
+        linear-gradient(135deg,#fffdf8,#f8f3e9);
+    padding:42px;
+    border-radius:20px;
+    box-shadow:
+        0 4px 20px rgba(46, 125, 50, 0.08),
+        inset 0 0 0 1px rgba(218, 165, 32, 0.08);
     line-height:2;
     font-size:16px;
     color:#444;
-    max-width:900px;
-    margin:0 auto 40px;
+    max-width:920px;
+    margin:0 auto 50px;
+    position:relative;
+    overflow:hidden;
 }
-.history-box h3{
-    color:#2e7d32;
-    margin-bottom:15px;
+.history-box::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    right:-30px;
+    top:-30px;
+    background:radial-gradient(circle, rgba(46, 125, 50, 0.06), transparent 70%);
+    border-radius:50%;
+}
+.history-box::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    left:-20px;
+    bottom:-20px;
+    background:radial-gradient(circle, rgba(218, 165, 32, 0.05), transparent 70%);
+    border-radius:50%;
+}
+.brand-header{
     text-align:center;
+    margin-bottom:24px;
+    position:relative;
+    z-index:1;
+}
+.brand-leaf{
+    font-size:48px;
+    line-height:1;
+    margin-bottom:8px;
+}
+.brand-header h3{
+    color:#2e7d32;
+    margin-bottom:8px;
+    text-align:center;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+.brand-subtitle{
+    color:#b58835;
+    font-size:15px;
+    font-weight:500;
+    letter-spacing:0.5px;
+}
+.brand-quote{
+    margin:28px 0;
+    padding:18px 24px;
+    background:
+        linear-gradient(135deg, rgba(46, 125, 50, 0.04), rgba(218, 165, 32, 0.04));
+    border-left:4px solid #2e7d32;
+    border-right:4px solid #daa520;
+    border-radius:12px;
+    text-align:center;
+    font-size:17px;
+    font-weight:600;
+    color:#2e7d32;
+    font-style:italic;
 }
 
+/* 頁尾樣式 */
 .footer{
-    background:#222;
-    color:#aaa;
+    background:#1e1e1e;
+    color:#bbbbbb;
     text-align:center;
-    padding:30px 20px;
+    padding:38px 20px;
     font-size:14px;
-    margin-top:40px;
+    margin-top:60px;
 }
-.footer-social{margin-bottom:15px;}
+.footer-social{
+    margin-bottom:18px;
+}
 .footer-social a{
     color:#fff;
     text-decoration:none;
-    margin:0 10px;
+    margin:0 12px;
     font-size:15px;
     display:inline-flex;
     align-items:center;
-    gap:6px;
-    cursor:pointer;
+    gap:7px;
+    transition:0.25s;
 }
-.footer-social img{
-    width:20px;
-    height:20px;
-    vertical-align:middle;
+.footer-social a:hover{
+    color:#81d46e;
 }
 
+/* 手機響應式適配 */
 @media(max-width:768px){
-    .head-top{flex-direction:column;gap:15px;padding:15px 20px;}
-    .banner h2{font-size:22px;}
-    .title{font-size:20px;padding:10px 18px;}
-    .nav-bar{flex-wrap:wrap;justify-content:center;}
+    .head-top{
+        flex-direction:column;
+        gap:16px;
+        padding:16px 20px;
+    }
+    .banner{
+        height:260px;
+    }
+    .banner h2{
+        font-size:28px;
+    }
+    .title{
+        font-size:22px;
+        padding:12px 22px;
+    }
+    .nav-bar{
+        justify-content:center;
+    }
 }
 @media(max-width:480px){
-    .nav-bar a{font-size:14px;padding:6px 12px;}
-    .footer-social a{display:block;margin:8px 0;}
+    .nav-bar a{
+        font-size:14px;
+        padding:7px 13px;
+    }
+    .banner h2{
+        font-size:22px;
+        letter-spacing:1px;
+    }
+    .banner p{
+        font-size:16px;
+    }
+    .footer-social a{
+        display:block;
+        margin:9px 0;
+    }
+    .history-box{
+        padding:26px;
+    }
+    .brand-header h3{
+        font-size:20px;
+    }
+    .brand-quote{
+        font-size:16px;
+        padding:14px 18px;
+    }
 }
 </style>
 </head>
@@ -141,45 +350,68 @@ body{background:#f5efe6;color:#333;}
             <p>新鮮空運 · 當日新鮮 · 极速配送</p>
         </div>
         <nav class="nav-bar">
-            <a href="season.html" target="_blank">當季水果</a>
-            <a href="category.html" target="_blank">水果分類</a>
-            <a href="booking.html" target="_blank">聚餐預定</a>
-            <a href="contact.html" target="_blank">聯絡我們</a>
+            <a href="season.html">當季水果</a>
+            <a href="category.html">水果分類</a>
+            <a href="booking.html">聚餐預定</a>
+            <a href="contact.html">聯絡我們</a>
         </nav>
     </div>
 </div>
 
 <div class="banner">
-    <h2>每日現摘現發 新鮮不隔夜</h2>
-    <p>門店自取｜企業團購｜壞果包賠</p>
+    <h2>每日嚴選新鮮水果</h2>
+    <p>產地直送｜品質把關｜壞果包賠 · 沙田本地20年老店</p>
 </div>
 
 <div class="container">
+    <!-- 三大核心服務模塊 -->
+    <div class="service-wrap">
+        <div class="service-card">
+            <div class="service-icon">🚚</div>
+            <h3>速遞配送</h3>
+            <p>沙田區滿額免運，當日訂單儘快送達府上</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">✅</div>
+            <h3>壞果包賠</h3>
+            <p>收到損傷水果，憑實拍照片免費更換或全額退款</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎁</div>
+            <h3>禮盒定制</h3>
+            <p>節日果籃、聚會果盤、企業團購一對一搭配設計</p>
+        </div>
+    </div>
+
     <div class="title">本店歷史</div>
     <div class="history-box">
-        <h3>山山水果公司｜20年紮根沙田，用心挑選每一粒水果</h3>
+        <div class="brand-header">
+            <div class="brand-leaf">🍃</div>
+            <h3>山山水果公司</h3>
+            <p class="brand-subtitle">20年紮根沙田 · 用心挑選每一粒水果</p>
+        </div>
+
         <p>山山水果公司前身是一間開在沙田街頭的小型水果店，由創辦人山叔於2006年創立。當時店鋪雖然不大，但我們堅持每天清晨到水果市場親自揀貨，只選成熟度適中、果身新鮮、味道自然的水果賣給客人。</p>
+
         <p>開店初期，我們主要做街坊生意。不少客人由第一次試買，變成後來每星期都來幫襯；也有不少家庭由小朋友時期吃到出來工作，仍然繼續光顧。二十年來，我們靠的不是大規模宣傳，而是新鮮、實在、唔欺客。</p>
+
         <p>隨著沙田社區發展，我們的店鋪慢慢擴展，貨品種類也由常見的蘋果、橙、西瓜，增加到進口水果、季節性水果、禮盒裝、果籃、公司下午茶訂單等。今日的山山水果公司，已經由一間街邊小店，發展成服務沙田及附近地區的綜合水果店。</p>
-        <p>二十年過去，我們仍然保持當初開店的原則：<strong>水果要新鮮、價錢要實、客人有問題要負責到底。</strong>無論你是買一斤水果回家食，還是預備幾十人的聚餐果盤，我們都會認真對待。</p>
+
+        <div class="brand-quote">
+            “水果要新鮮、價錢要實、客人有問題要負責到底。”
+        </div>
+
+        <p>二十年過去，我們仍然保持當初開店的原則。無論你是買一斤水果回家食，還是預備幾十人的聚餐果盤，我們都會認真對待。</p>
+
         <p>多謝各位街坊、老顧客、新朋友二十年來的支持。未來，山山水果公司會繼續把新鮮、好味、放心的水果，送到每一個人的餐桌上。</p>
     </div>
 </div>
 
 <div class="footer">
     <div class="footer-social">
-        <a href="#">
-            <img src="https://cdn-icons-png.flaticon.com/16/733/733585.png" alt="Wechat">
-            Wechat: 1234567
-        </a>
-        <a href="#">
-            <img src="https://cdn-icons-png.flaticon.com/16/124/124034.png" alt="WhatsApp">
-            WhatsApp: 1234567
-        </a>
-        <a href="#">
-            <img src="https://cdn-icons-png.flaticon.com/16/174/174855.png" alt="IG">
-            IG：Fruit1234567
-        </a>
+        <a href="#">Wechat: 1234567</a>
+        <a href="#">WhatsApp: 1234567</a>
+        <a href="#">IG：Fruit1234567</a>
     </div>
     <p>山山水果公司 © 2026 新鮮空運 版權所有</p>
 </div>
