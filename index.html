@@ -19,15 +19,18 @@ body{
     color:#333;
     line-height:1.75;
 }
-/* 頂部吸頂導航，店名紅色粗楷體 */
+/* 頂部吸頂浮窗：輕度遮罩，圖片清晰可見 */
 .header{
-    background:rgba(245, 239, 230, 0.93);
-    backdrop-filter: blur(10px);
+    background-image: linear-gradient(rgba(0,0,0,0.22),rgba(0,0,0,0.22)), url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/IMG_5217.jpeg');
+    background-color:#a9a9a9;
+    background-size: cover;
+    background-position: center;
     position: sticky;
     top:0;
     z-index:999;
     box-shadow: 0 2px 12px rgba(46, 125, 50, 0.07);
 }
+/* 頂部內容區：完全透明，不遮擋背景圖 */
 .head-top{
     max-width:1200px;
     margin:0 auto;
@@ -36,12 +39,14 @@ body{
     justify-content:center;
     align-items:center;
     gap:16px;
-    padding:14px 20px;
+    padding:18px 20px;
     text-align:center;
+    background:transparent;
+    backdrop-filter: none;
 }
 .logo h1{
     font-size:32px;
-    color:#c62828;
+    color:#ffffff;
     font-weight:900;
     letter-spacing:2px;
     font-family:"楷體","KaiTi","STKaiti",serif;
@@ -49,11 +54,11 @@ body{
 }
 .logo p{
     font-size:16px;
-    color:#666;
+    color:#eeeeee;
     margin-top:6px;
     text-align:center;
 }
-/* 導航按鈕樣式 */
+/* 導航按鈕：獨立白色氣泡 */
 .nav-bar{
     display:flex;
     gap:14px;
@@ -67,7 +72,7 @@ body{
     padding:9px 18px;
     background:#ffffff;
     border-radius:99px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
     border: 1px solid transparent;
 }
@@ -77,7 +82,7 @@ body{
     box-shadow:0 4px 14px rgba(46, 125, 50, 0.15);
     border-color:#c8e6c9;
 }
-/* Banner 純白色背景，移除背景圖與光影圓圈 */
+/* Banner：獨立白色背景 */
 .banner{
     width:100%;
     height:260px;
@@ -93,8 +98,7 @@ body{
     position:relative;
     overflow:hidden;
 }
-.banner::before,
-.banner::after{
+.banner::before, .banner::after{
     display:none;
 }
 @keyframes float{
@@ -134,7 +138,7 @@ body{
     margin-left:auto;
     margin-right:auto;
 }
-/* 服務卡片 hover上浮 */
+/* 服務卡片：獨立白色氣泡 */
 .service-wrap{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
@@ -146,7 +150,7 @@ body{
     padding:28px 20px;
     border-radius:16px;
     text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,0.06);
+    box-shadow:0 3px 12px rgba(0,0,0,0.10);
     transition:0.35s ease;
 }
 .service-card:hover{
@@ -165,11 +169,9 @@ body{
 .service-icon{
     font-size:44px;
 }
-/* 紙感品牌背景盒子 */
+/* 本店歷史盒子：獨立白色紙感氣泡 */
 .history-box{
-    background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.8), transparent 35%),
-        linear-gradient(135deg,#fffdf8,#f8f3e9);
+    background:#ffffff;
     padding:42px;
     border-radius:20px;
     box-shadow:
@@ -223,7 +225,7 @@ body{
     font-weight:500;
     letter-spacing:0.5px;
 }
-/* 更換超穩定老式水果店圖片，黑白復古濾鏡，兜底底色保證永不空白 */
+/* 本店歷史黑白復古照片 */
 .shatin-old-photo{
     width:100%;
     max-width:760px;
@@ -233,8 +235,8 @@ body{
     border-radius:16px;
     overflow:hidden;
     box-shadow:0 4px 16px rgba(0,0,0,0.12);
-    background-image: url('https://images.unsplash.com/photo-1593076621373-84b3de11851a?q=80&w=1400&auto=format&fit=crop');
-    background-color:#aaaaaa;
+    background-image: url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/IMG_5208.jpeg');
+    background-color:#a9a9a9;
     background-size: cover;
     background-position: center;
     filter: grayscale(100%) contrast(1.1);
@@ -242,8 +244,7 @@ body{
 .brand-quote{
     margin:28px 0;
     padding:18px 24px;
-    background:
-        linear-gradient(135deg, rgba(46, 125, 50, 0.04), rgba(218, 165, 32, 0.04));
+    background:#fafafa;
     border-left:4px solid #2e7d32;
     border-right:4px solid #daa520;
     border-radius:12px;
