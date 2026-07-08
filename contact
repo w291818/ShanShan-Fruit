@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯絡我們 | 山山水果公司</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"微軟雅黑",sans-serif;}
+body{background:#f5efe6;color:#333;}
+.header{background:#f5efe6;color:#333;padding:15px 0;}
+.head-top{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;flex-wrap:wrap;gap:15px;}
+.logo h1{font-size:22px;color:#2e7d32;}
+.logo p{font-size:14px;color:#666;}
+.nav-bar{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.nav-bar a{
+    color:#333;text-decoration:none;font-size:16px;
+    padding:8px 16px;background:#fff;border-radius:50px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+.nav-bar a:hover{background:#fff7e8;transition:0.3s;}
+.container{max-width:800px;margin:0 auto;padding:20px;}
+.page-title{text-align:center;font-size:26px;color:#2e7d32;margin:30px 0;}
+.contact-card{background:#fff;padding:30px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.06);line-height:2;}
+.footer{background:#222;color:#aaa;text-align:center;padding:30px 20px;font-size:14px;margin-top:60px;}
+.footer-social a{color:#fff;text-decoration:none;margin:0 10px;}
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="head-top">
+        <div class="logo">
+            <h1>山山水果公司</h1>
+            <p>新鮮空運 · 當日新鮮 · 极速配送</p>
+        </div>
+        <nav class="nav-bar">
+            <a href="index.html">首頁</a>
+            <a href="season.html">當季水果</a>
+            <a href="category.html">水果分類</a>
+            <a href="booking.html">聚餐預定</a>
+        </nav>
+    </div>
+</div>
+<div class="container">
+    <h2 class="page-title">門店資訊 & 聯繫方式</h2>
+    <div class="contact-card">
+        <p><strong>門店地址：</strong>香港沙田站大堂 山山水果公司</p>
+        <p><strong>營業時間：</strong>每日 08:00 - 22:00</p>
+        <p><strong>微信：</strong>1234567</p>
+        <p><strong>WhatsApp：</strong>1234567</p>
+        <p><strong>IG賬號：</strong>Fruit1234567</p>
+        <p>備註：壞果拍照聯繫客服即可免費補換</p>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-social">
+        <a href="#">Wechat: 1234567</a>
+        <a href="#">WhatsApp: 1234567</a>
+        <a href="#">IG：Fruit1234567</a>
+    </div>
+    <p>山山水果公司 © 2026 新鮮空運 版權所有</p>
+</div>
+</body>
+</html>
