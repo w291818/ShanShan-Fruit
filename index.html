@@ -15,8 +15,8 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background: #060a12;
-      color: #e8ecf1;
+      background: #f8f9fc;
+      color: #1a1e2b;
       line-height: 1.5;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -28,13 +28,13 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
-      background: rgba(6, 10, 18, 0.85);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(30px);
       -webkit-backdrop-filter: blur(30px);
       border-radius: 60px;
       padding: 8px 14px;
       border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       animation: floatIn 1s ease-out;
     }
 
@@ -53,17 +53,17 @@
     .logo-area h1 {
       font-size: 1.4rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #1a1e2b;
       letter-spacing: 2px;
     }
     .logo-area h1 span {
-      color: #d4af37;
+      color: #b8941f;
       font-weight: 600;
       font-size: 1.4rem;
     }
     .nav-bar { display: flex; gap: 4px; }
     .nav-bar a {
-      color: #b0b8c5;
+      color: #4a4f5c;
       text-decoration: none;
       font-size: 0.78rem;
       font-weight: 500;
@@ -73,9 +73,9 @@
       letter-spacing: 0.5px;
     }
     .nav-bar a:hover {
-      background: #d4af37;
-      color: #060a12;
-      box-shadow: 0 0 22px rgba(212, 175, 55, 0.5);
+      background: #b8941f;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(184, 148, 31, 0.3);
       transform: translateY(-1px);
     }
 
@@ -83,7 +83,7 @@
       width: 100%;
       height: 100vh;
       min-height: 700px;
-      background: linear-gradient(160deg, rgba(6, 10, 18, 0.05) 0%, rgba(6, 10, 18, 0.55) 65%, rgba(6, 10, 18, 0.92) 100%),
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.0) 0%, rgba(255, 255, 255, 0.2) 65%, rgba(255, 255, 255, 0.8) 100%),
         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
@@ -108,34 +108,30 @@
       font-weight: 700;
       color: #ffffff;
       line-height: 1.05;
-      text-shadow: 0 8px 35px rgba(0, 0, 0, 0.8);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
       margin-bottom: 16px;
       letter-spacing: -0.5px;
     }
     .hero-text-block .highlight {
-      color: #d4af37;
+      color: #b8941f;
       display: block;
       font-size: clamp(1.4rem, 3.5vw, 2.3rem);
-      font-weight: 500;
+      font-weight: 600;
       margin-top: 6px;
-      animation: goldGlow 2.5s infinite alternate;
-    }
-    @keyframes goldGlow {
-      0% { text-shadow: 0 0 8px rgba(212, 175, 55, 0.3); }
-      100% { text-shadow: 0 0 28px rgba(212, 175, 55, 0.8); }
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
     }
     .hero-text-block p {
       font-size: 1.1rem;
-      color: #d5dce5;
+      color: #ffffff;
       max-width: 520px;
       font-weight: 300;
       margin-top: 22px;
       backdrop-filter: blur(8px);
-      background: rgba(6, 10, 18, 0.5);
+      background: rgba(0, 0, 0, 0.3);
       display: inline-block;
       padding: 12px 28px;
       border-radius: 40px;
-      border-left: 3px solid #d4af37;
+      border-left: 3px solid #b8941f;
       animation: slideInLeft 1.6s ease-out;
     }
     @keyframes slideInLeft {
@@ -146,20 +142,20 @@
     .transition-wave {
       width: 100%;
       height: 40px;
-      background: linear-gradient(180deg, rgba(6, 10, 18, 0.9) 0%, #060a12 100%);
+      background: linear-gradient(180deg, rgba(248, 249, 252, 0.9) 0%, #f8f9fc 100%);
       margin-top: -1px;
     }
 
     .stats-section {
-      background: #060a12;
-      padding: 25px 20px 15px;
+      background: #f8f9fc;
+      padding: 30px 20px 20px;
       text-align: center;
     }
     .stats-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 50px;
+      gap: 60px;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -170,65 +166,64 @@
     }
     .stat-item.visible { opacity: 1; transform: translateY(0); }
     .stat-number {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
-      color: #d4af37;
+      color: #b8941f;
       line-height: 1;
     }
     .stat-label {
       color: #6b7280;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       letter-spacing: 2px;
       margin-top: 4px;
       text-transform: uppercase;
     }
     .stat-divider {
-      width: 25px;
+      width: 30px;
       height: 2px;
-      background: rgba(212, 175, 55, 0.5);
-      margin: 5px auto 0;
+      background: rgba(184, 148, 31, 0.5);
+      margin: 8px auto 0;
     }
 
     .gallery-section {
       max-width: 1500px;
       margin: 0 auto;
-      padding: 30px 3% 10px;
+      padding: 40px 3% 10px;
     }
     .gallery-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.8s ease;
     }
     .gallery-header.visible { opacity: 1; transform: translateY(0); }
     .gallery-header .section-num {
-      font-size: 0.75rem;
-      color: #d4af37;
+      font-size: 0.8rem;
+      color: #b8941f;
       letter-spacing: 3px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .gallery-header h2 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #1a1e2b;
       letter-spacing: 2px;
     }
     .gallery-header .line {
-      width: 40px;
+      width: 50px;
       height: 3px;
-      background: #d4af37;
-      margin: 12px auto;
+      background: #b8941f;
+      margin: 14px auto;
     }
 
-    /* 混合穿插佈局 */
     .mixed-masonry {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: minmax(110px, auto);
-      gap: 10px;
-      margin-bottom: 30px;
+      grid-auto-rows: minmax(120px, auto);
+      gap: 12px;
+      margin-bottom: 35px;
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -240,12 +235,12 @@
       overflow: hidden;
       cursor: pointer;
       transition: all 0.4s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
     .img-piece:hover {
-      transform: scale(1.04);
+      transform: scale(1.03);
       z-index: 5;
-      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
     .img-piece img {
       width: 100%;
@@ -254,9 +249,8 @@
       display: block;
       transition: transform 0.5s;
     }
-    .img-piece:hover img { transform: scale(1.1); }
+    .img-piece:hover img { transform: scale(1.08); }
 
-    /* 圖片形狀 */
     .shape-circle { clip-path: circle(46% at 50% 48%); }
     .shape-hexagon { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
     .shape-diamond { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
@@ -264,74 +258,63 @@
     .shape-parallelogram { clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); }
     .shape-arch { clip-path: ellipse(55% 75% at 50% 25%); }
     .shape-notch { clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%); }
+    .shape-soft { border-radius: 20px; }
     .shape-squircle { border-radius: 30%; }
 
-    /* 文字卡片穿插在圖片間 */
-    .text-card {
-      background: rgba(212, 175, 55, 0.06);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: 20px;
+    /* 圖片文字覆蓋層 - 大幅加強 */
+    .img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 90%);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 18px 20px;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-      min-width: 0;
-    }
-    .text-card::before {
-      content: "";
-      position: absolute;
-      top: -40%;
-      left: -40%;
-      width: 180%;
-      height: 180%;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-    .text-card:hover::before { opacity: 1; }
-    .text-card:hover {
-      border-color: #d4af37;
-      background: rgba(212, 175, 55, 0.1);
-    }
-    .text-card .tag {
-      font-size: 0.7rem;
-      color: #d4af37;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 6px;
-      position: relative;
-      z-index: 1;
-    }
-    .text-card h3 {
-      font-size: clamp(1.3rem, 2vw, 1.8rem);
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 6px;
-      position: relative;
-      z-index: 1;
-      letter-spacing: 0.5px;
-    }
-    .text-card p {
-      font-size: 0.85rem;
-      color: #b0b8c5;
-      line-height: 1.5;
-      position: relative;
-      z-index: 1;
-    }
-    .text-card .accent-dot {
-      display: inline-block;
-      width: 5px;
-      height: 5px;
-      background: #d4af37;
-      border-radius: 50%;
-      margin-right: 5px;
+      justify-content: flex-end;
+      padding: 35px 32px 28px;
+      pointer-events: none;
+      z-index: 2;
     }
 
-    /* 控制圖片與文字卡片在網格中的尺寸 */
+    .img-overlay .tag {
+      font-size: 0.9rem;
+      color: #d4af37;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .img-overlay .tag::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: #d4af37;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
+    }
+
+    .img-overlay h3 {
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+      text-shadow: 0 4px 25px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.6);
+      line-height: 1.05;
+    }
+
+    .img-overlay p {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      color: #ffffff;
+      line-height: 1.5;
+      font-weight: 400;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6);
+      max-width: 95%;
+      letter-spacing: 0.4px;
+    }
+
     .grid-span-2 { grid-column: span 2; }
     .grid-span-3 { grid-column: span 3; }
     .grid-span-4 { grid-column: span 4; }
@@ -342,9 +325,12 @@
       .mixed-masonry { grid-template-columns: repeat(4, 1fr); }
     }
     @media (max-width: 600px) {
-      .mixed-masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(90px, auto); }
+      .mixed-masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(100px, auto); }
       .grid-span-2, .grid-span-3, .grid-span-4, .grid-span-6 { grid-column: span 2; }
       .grid-row-2 { grid-row: span 1; }
+      .img-overlay { padding: 24px 20px 20px; }
+      .img-overlay h3 { font-size: 2.2rem; }
+      .img-overlay p { font-size: 1.1rem; }
     }
 
     .about-fullimage {
@@ -358,13 +344,13 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      margin-top: 20px;
+      margin-top: 40px;
     }
     .about-fullimage::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(6, 10, 18, 0.7);
+      background: rgba(255, 255, 255, 0.7);
     }
     .about-overlay {
       position: relative;
@@ -373,23 +359,23 @@
       max-width: 700px;
       padding: 0 30px;
     }
-    .about-overlay h2 { font-size: 2.5rem; color: #fff; font-weight: 700; margin-bottom: 14px; letter-spacing: 2px; }
-    .about-overlay .about-line { width: 40px; height: 3px; background: #d4af37; margin: 0 auto 18px; }
-    .about-overlay p { color: #c8d0da; font-size: 1.05rem; margin-bottom: 8px; line-height: 1.7; font-weight: 300; }
-    .brand-quote { margin-top: 18px; font-size: 1.1rem; font-weight: 600; color: #d4af37; letter-spacing: 2px; }
+    .about-overlay h2 { font-size: 2.5rem; color: #1a1e2b; font-weight: 700; margin-bottom: 14px; letter-spacing: 2px; }
+    .about-overlay .about-line { width: 40px; height: 3px; background: #b8941f; margin: 0 auto 18px; }
+    .about-overlay p { color: #3a3f4c; font-size: 1.05rem; margin-bottom: 8px; line-height: 1.7; font-weight: 400; }
+    .brand-quote { margin-top: 18px; font-size: 1.2rem; font-weight: 600; color: #b8941f; letter-spacing: 2px; }
 
     .footer {
-      background: #03060c;
-      color: #5a6070;
+      background: #f0f2f5;
+      color: #6b7280;
       text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid #141a26;
-      font-size: 0.8rem;
+      padding: 35px 20px;
+      border-top: 1px solid #e0e3e8;
+      font-size: 0.85rem;
       letter-spacing: 0.5px;
     }
-    .footer-social { margin-bottom: 10px; }
-    .footer-social a { color: #8892a4; margin: 0 14px; text-decoration: none; font-weight: 500; transition: 0.3s; }
-    .footer-social a:hover { color: #d4af37; }
+    .footer-social { margin-bottom: 12px; }
+    .footer-social a { color: #4a4f5c; margin: 0 16px; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    .footer-social a:hover { color: #b8941f; }
 
     .float-contact {
       position: fixed;
@@ -407,16 +393,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       background: #25D366;
       border-radius: 50%;
       color: white;
       text-decoration: none;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
       transition: 0.3s;
     }
-    .float-contact a:hover { background: #060a12; color: #25D366; transform: scale(1.08); }
+    .float-contact a:hover { background: #1a1e2b; color: #25D366; transform: scale(1.08); }
   </style>
 </head>
 <body>
@@ -459,67 +445,66 @@
       <div class="line"></div>
     </div>
 
-    <!-- 商業策劃混合網格 -->
+    <!-- 商業策劃 -->
     <div class="mixed-masonry">
-      <div class="img-piece grid-span-3 grid-row-2 shape-notch">
+      <div class="img-piece grid-span-3 grid-row-2 shape-soft">
         <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop" alt="商業策劃">
+        <div class="img-overlay">
+          <span class="tag">Strategy</span>
+          <h3>商業策劃</h3>
+          <p>計劃書撰寫、投資架構規劃，數據驅動精準策略。</p>
+        </div>
       </div>
-      <div class="text-card grid-span-3">
-        <span class="tag">Strategy</span>
-        <h3>商業策劃</h3>
-        <p><span class="accent-dot"></span>計劃書撰寫、投資架構規劃</p>
-        <p><span class="accent-dot"></span>可行性分析，數據驅動策略</p>
-      </div>
-      <div class="img-piece grid-span-2 shape-hexagon">
+      <div class="img-piece grid-span-3 shape-notch">
         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="團隊討論">
       </div>
-      <div class="img-piece grid-span-2 shape-diamond">
+      <div class="img-piece grid-span-2 shape-hexagon">
         <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" alt="商務會議">
       </div>
-      <div class="img-piece grid-span-2 shape-circle">
+      <div class="img-piece grid-span-2 shape-diamond">
         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="數據">
       </div>
-      <div class="img-piece grid-span-2 shape-squircle">
+      <div class="img-piece grid-span-2 shape-circle">
         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="數據分析">
       </div>
     </div>
 
-    <!-- 市場落地混合網格 -->
+    <!-- 市場落地 -->
     <div class="mixed-masonry">
-      <div class="text-card grid-span-2 grid-row-2">
-        <span class="tag">Market Entry</span>
-        <h3>市場落地</h3>
-        <p><span class="accent-dot"></span>香港市場調研</p>
-        <p><span class="accent-dot"></span>行業渠道搭建</p>
-        <p><span class="accent-dot"></span>品牌落地全流程</p>
-      </div>
       <div class="img-piece grid-span-4 grid-row-2 shape-arch">
         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="市場落地">
       </div>
-      <div class="img-piece grid-span-2 shape-parallelogram">
+      <div class="img-piece grid-span-2 grid-row-2 shape-soft">
         <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港夜景">
+        <div class="img-overlay">
+          <span class="tag">Market Entry</span>
+          <h3>市場落地</h3>
+          <p>香港市場調研、行業渠道搭建，品牌落地全流程。</p>
+        </div>
       </div>
-      <div class="img-piece grid-span-2 shape-blob">
+      <div class="img-piece grid-span-2 shape-parallelogram">
         <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="團隊協作">
       </div>
-      <div class="img-piece grid-span-2 shape-squircle">
+      <div class="img-piece grid-span-2 shape-blob">
         <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="商務簡報">
+      </div>
+      <div class="img-piece grid-span-2 shape-squircle">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港">
       </div>
     </div>
 
-    <!-- 風險與財務混合網格 -->
+    <!-- 風險與財務 -->
     <div class="mixed-masonry">
       <div class="img-piece grid-span-3 grid-row-2 shape-blob">
         <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2070&auto=format&fit=crop" alt="風險管理">
       </div>
-      <div class="img-piece grid-span-3 shape-circle">
+      <div class="img-piece grid-span-3 shape-soft">
         <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" alt="金融數據">
-      </div>
-      <div class="text-card grid-span-3">
-        <span class="tag">Risk & Finance</span>
-        <h3>風險與財務</h3>
-        <p><span class="accent-dot"></span>稅務規劃、資金優化</p>
-        <p><span class="accent-dot"></span>企業經營風險排查</p>
+        <div class="img-overlay">
+          <span class="tag">Risk & Finance</span>
+          <h3>風險與財務</h3>
+          <p>稅務規劃、資金優化，企業經營風險全面排查。</p>
+        </div>
       </div>
       <div class="img-piece grid-span-2 shape-notch">
         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop" alt="圖表分析">
