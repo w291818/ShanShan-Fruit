@@ -3,34 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>山山水果公司 - 新鮮空運 | 壞果包賠</title>
+<title>銳鋒有限公司 Top Market HK Limited｜商業諮詢專業服務</title>
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"微軟雅黑",system-ui,sans-serif;
+    font-family:"微軟雅黑",system-ui,-apple-system,sans-serif;
 }
 html{
     scroll-behavior: smooth;
 }
 body{
-    background:#f5efe6;
-    color:#333;
+    background:#f7f8fa;
+    color:#222831;
     line-height:1.75;
 }
-/* 頂部吸頂浮窗：輕度遮罩，圖片清晰可見 */
+/* 頂部吸頂導航頭部 商務深色風格 */
 .header{
-    background-image: linear-gradient(rgba(0,0,0,0.22),rgba(0,0,0,0.22)), url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/IMG_5217.jpeg');
-    background-color:#a9a9a9;
-    background-size: cover;
-    background-position: center;
+    background:#192233;
     position: sticky;
     top:0;
     z-index:999;
-    box-shadow: 0 2px 12px rgba(46, 125, 50, 0.07);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
-/* 頂部內容區：完全透明，不遮擋背景圖 */
 .head-top{
     max-width:1200px;
     margin:0 auto;
@@ -42,23 +38,27 @@ body{
     padding:18px 20px;
     text-align:center;
     background:transparent;
-    backdrop-filter: none;
 }
 .logo h1{
     font-size:32px;
     color:#ffffff;
-    font-weight:900;
+    font-weight:800;
     letter-spacing:2px;
-    font-family:"楷體","KaiTi","STKaiti",serif;
     text-align:center;
+}
+.logo h1 span{
+    color:#d4af37;
+    font-size:20px;
+    font-weight:500;
+    margin-left:12px;
 }
 .logo p{
     font-size:16px;
-    color:#eeeeee;
+    color:#b9c2d3;
     margin-top:6px;
     text-align:center;
 }
-/* 導航按鈕：獨立白色氣泡 */
+/* 導航按鈕 商務扁平化樣式 */
 .nav-bar{
     display:flex;
     gap:14px;
@@ -66,29 +66,26 @@ body{
     justify-content:center;
 }
 .nav-bar a{
-    color:#333;
+    color:#fff;
     text-decoration:none;
     font-size:16px;
-    padding:9px 18px;
-    background:#ffffff;
-    border-radius:99px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    padding:9px 22px;
+    background:transparent;
+    border:1px solid rgba(212, 175, 55, 0.6);
+    border-radius:4px;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
 }
 .nav-bar a:hover{
-    background:#f1f8e9;
-    transform:translateY(-3px);
-    box-shadow:0 4px 14px rgba(46, 125, 50, 0.15);
-    border-color:#c8e6c9;
+    background:#d4af37;
+    color:#192233;
+    border-color:#d4af37;
+    transform:translateY(-2px);
 }
-/* Banner：獨立白色背景 */
+/* Banner 商務橫幅 */
 .banner{
     width:100%;
-    height:260px;
-    background-color:#ffffff;
-    background-size:cover;
-    background-position:center 68%;
+    height:280px;
+    background:linear-gradient(135deg,#192233,#273449);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -98,27 +95,26 @@ body{
     position:relative;
     overflow:hidden;
 }
-.banner::before, .banner::after{
-    display:none;
-}
-@keyframes float{
-    0%{transform: translateY(0px) rotate(0deg);}
-    50%{transform: translateY(-16px) rotate(2deg);}
-    100%{transform: translateY(0px) rotate(0deg);}
+.banner::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border:1px solid rgba(212, 175, 55, 0.08);
+    border-radius:50%;
 }
 .banner h2{
-    font-size:36px;
+    font-size:38px;
     margin-bottom:12px;
-    color:#2e7d32;
-    letter-spacing:2px;
+    color:#ffffff;
+    letter-spacing:3px;
     font-weight:700;
-    text-shadow:none;
 }
 .banner p{
     font-size:18px;
-    color:#444;
+    color:#d4af37;
     opacity:0.95;
-    text-shadow:none;
+    max-width:700px;
 }
 .container{
     max-width:1200px;
@@ -128,59 +124,61 @@ body{
 .title{
     text-align:center;
     font-size:26px;
-    color:#2e7d32;
+    color:#192233;
     margin:70px 0 28px;
     background:#fff;
     padding:14px 28px;
-    border-radius:99px;
-    box-shadow:0 4px 14px rgba(46, 125, 50, 0.09);
+    border-left:4px solid #d4af37;
+    box-shadow:0 4px 14px rgba(25, 34, 51, 0.08);
     display:table;
     margin-left:auto;
     margin-right:auto;
+    border-radius:2px;
 }
-/* 服務卡片：獨立白色氣泡 */
+/* 業務板塊卡片 */
 .service-wrap{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap:22px;
+    gap:26px;
     margin-bottom:60px;
 }
 .service-card{
     background:#fff;
-    padding:28px 20px;
-    border-radius:16px;
+    padding:32px 24px;
+    border-radius:6px;
     text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,0.10);
+    box-shadow:0 3px 12px rgba(25, 34, 51, 0.09);
     transition:0.35s ease;
+    border-top:3px solid transparent;
 }
 .service-card:hover{
     transform: translateY(-7px);
-    box-shadow:0 9px 22px rgba(46, 125, 50, 0.13);
+    box-shadow:0 9px 22px rgba(25, 34, 51, 0.12);
+    border-top:3px solid #d4af37;
 }
 .service-card h3{
-    color:#2e7d32;
-    margin:12px 0;
-    font-size:19px;
+    color:#192233;
+    margin:14px 0;
+    font-size:20px;
 }
 .service-card p{
-    color:#555;
+    color:#505969;
     font-size:15px;
 }
 .service-icon{
-    font-size:44px;
+    font-size:46px;
+    color:#d4af37;
 }
-/* 本店歷史盒子：獨立白色紙感氣泡 */
+/* 企業介紹區塊 */
 .history-box{
     background:#ffffff;
-    padding:42px;
-    border-radius:20px;
-    box-shadow:
-        0 4px 20px rgba(46, 125, 50, 0.08),
-        inset 0 0 0 1px rgba(218, 165, 32, 0.08);
+    padding:46px;
+    border-radius:8px;
+    box-shadow: 0 4px 20px rgba(25, 34, 51, 0.07);
     line-height:2;
     font-size:16px;
-    color:#444;
-    max-width:920px;
+    color:#444b58;
+    max-width:980px;
     margin:0 auto 50px;
     position:relative;
     overflow:hidden;
@@ -188,88 +186,62 @@ body{
 .history-box::before{
     content:"";
     position:absolute;
-    width:260px;
-    height:260px;
-    right:-30px;
-    top:-30px;
-    background:radial-gradient(circle, rgba(46, 125, 50, 0.06), transparent 70%);
-    border-radius:50%;
-}
-.history-box::after{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-    left:-20px;
-    bottom:-20px;
-    background:radial-gradient(circle, rgba(218, 165, 32, 0.05), transparent 70%);
+    width:300px;
+    height:300px;
+    right:-40px;
+    top:-40px;
+    background:radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent 70%);
     border-radius:50%;
 }
 .brand-header{
     text-align:center;
-    margin-bottom:24px;
+    margin-bottom:28px;
     position:relative;
     z-index:1;
 }
 .brand-header h3{
-    color:#2e7d32;
+    color:#192233;
     margin-bottom:8px;
     text-align:center;
-    font-size:22px;
+    font-size:24px;
     font-weight:800;
     letter-spacing:1px;
 }
 .brand-subtitle{
-    color:#b58835;
+    color:#d4af37;
     font-size:15px;
     font-weight:500;
     letter-spacing:0.5px;
 }
-/* 本店歷史黑白復古照片 */
-.shatin-old-photo{
-    width:100%;
-    max-width:760px;
-    height:420px;
-    display:block;
-    margin:18px auto 24px;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 4px 16px rgba(0,0,0,0.12);
-    background-image: url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/IMG_5208.jpeg');
-    background-color:#a9a9a9;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%) contrast(1.1);
-}
 .brand-quote{
-    margin:28px 0;
-    padding:18px 24px;
-    background:#fafafa;
-    border-left:4px solid #2e7d32;
-    border-right:4px solid #daa520;
-    border-radius:12px;
+    margin:32px 0 10px;
+    padding:20px 26px;
+    background:#f7f8fa;
+    border-left:4px solid #192233;
+    border-right:4px solid #d4af37;
+    border-radius:4px;
     text-align:center;
-    font-size:17px;
+    font-size:18px;
     font-weight:600;
-    color:#2e7d32;
-    font-style:italic;
+    color:#192233;
+    font-style:normal;
 }
-/* 頁尾 */
+/* 頁尾深色商務風 */
 .footer{
-    background:#1e1e1e;
-    color:#bbbbbb;
+    background:#121824;
+    color:#a0a9b8;
     text-align:center;
-    padding:38px 20px;
+    padding:42px 20px;
     font-size:14px;
-    margin-top:60px;
+    margin-top:80px;
 }
 .footer-social{
-    margin-bottom:18px;
+    margin-bottom:22px;
 }
 .footer-social a{
     color:#fff;
     text-decoration:none;
-    margin:0 12px;
+    margin:0 14px;
     font-size:15px;
     display:inline-flex;
     align-items:center;
@@ -277,9 +249,9 @@ body{
     transition:0.25s;
 }
 .footer-social a:hover{
-    color:#81d46e;
+    color:#d4af37;
 }
-/* 手機響應式 */
+/* 手機響應式適配 */
 @media(max-width:768px){
     .head-top{
         flex-direction:column;
@@ -290,37 +262,29 @@ body{
         font-size:28px;
     }
     .banner{
-        height:220px;
-        background-position:center 72%;
+        height:240px;
     }
     .banner h2{
-        font-size:28px;
+        font-size:30px;
     }
     .title{
         font-size:22px;
         padding:12px 22px;
     }
-    .nav-bar{
-        justify-content:center;
-    }
     .history-box{
-        padding:30px 24px;
-    }
-    .shatin-old-photo{
-        height:300px;
+        padding:32px 24px;
     }
 }
 @media(max-width:480px){
     .nav-bar a{
         font-size:14px;
-        padding:7px 13px;
+        padding:7px 14px;
     }
     .banner{
-        height:200px;
-        background-position:center 76%;
+        height:210px;
     }
     .banner h2{
-        font-size:22px;
+        font-size:24px;
         letter-spacing:1px;
     }
     .banner p{
@@ -328,20 +292,17 @@ body{
     }
     .footer-social a{
         display:block;
-        margin:9px 0;
+        margin:10px 0;
     }
     .history-box{
-        padding:26px 20px;
+        padding:28px 20px;
     }
     .brand-header h3{
-        font-size:20px;
+        font-size:21px;
     }
     .brand-quote{
         font-size:16px;
-        padding:14px 18px;
-    }
-    .shatin-old-photo{
-        height:220px;
+        padding:16px 20px;
     }
 }
 </style>
@@ -350,51 +311,51 @@ body{
 <div class="header">
     <div class="head-top">
         <div class="logo">
-            <h1>山山水果公司</h1>
-            <p>新鮮空運 · 當日新鮮 · 极速配送</p>
+            <h1>銳鋒有限公司
+            <h1>Top Market HK Limited</span></h1>
+            <p>香港本土商業諮詢｜企業策劃｜公司落地一站式服務</p>
         </div>
         <nav class="nav-bar">
-            <a href="season.html">當季水果</a>
-            <a href="category.html">水果分類</a>
-            <a href="booking.html">聚餐預定</a>
-            <a href="contact.html">聯絡我們</a>
+            <a href="business.html">業務範圍</a>
+            <a href="case.html">成功案例</a>
+            <a href="team.html">顧問團隊</a>
+            <a href="contact.html">聯絡諮詢</a>
         </nav>
     </div>
 </div>
 <div class="banner">
-    <h2>每日嚴選新鮮水果</h2>
-    <p>產地直送｜品質把關｜壞果包賠 · 沙田本地20年老店</p>
+    <h2>專業商業諮詢 賦能企業成長</h2>
+    <p>專注香港市場｜定制化企業方案｜專業風險評估｜執行全流程支援</p>
 </div>
 <div class="container">
     <div class="service-wrap">
         <div class="service-card">
-            <div class="service-icon">🚚</div>
-            <h3>速遞配送</h3>
-            <p>沙田區滿額免運，當日訂單儘快送達府上</p>
+            <div class="service-icon">📊</div>
+            <h3>商業策劃服務</h3>
+            <p>商業計劃書撰寫、項目可行性分析、投資架構規劃，匹配香港本地商業規則</p>
         </div>
         <div class="service-card">
-            <div class="service-icon">✅</div>
-            <h3>壞果包賠</h3>
-            <p>收到損傷水果，憑實拍照片免費更換或全額退款</p>
+            <div class="service-icon">📈</div>
+            <h3>市場落地顧問</h3>
+            <p>港區市場調研、行業競品分析、渠道搭建、品牌入港落地全流程指導</p>
         </div>
         <div class="service-card">
-            <div class="service-icon">🎁</div>
-            <h3>禮盒定制</h3>
-            <p>節日果籃、聚會果盤、企業團購一對一搭配設計</p>
+            <div class="service-icon">⚖️</div>
+            <h3>風險與財務諮詢</h3>
+            <p>企業經營風險排查、稅務基礎規劃、資金架構優化、中小企業經營診斷</p>
         </div>
     </div>
-    <div class="title">本店歷史</div>
+    <div class="title">企業簡介</div>
     <div class="history-box">
         <div class="brand-header">
-            <h3>山山水果公司</h3>
-            <p class="brand-subtitle">20年紮根沙田 · 用心挑選每一粒水果</p>
-            <div class="shatin-old-photo"></div>
+            <h3>銳鋒有限公司 Top Market HK Limited</h3>
+            <p class="brand-subtitle">立足香港 · 聚焦實業 · 精準商業顧問服務</p>
         </div>
-        <p>山山水果公司前身是一間開在大圍嘅小型水果店，由老闆山叔於2006年創立。當時店鋪雖然不大，但我哋堅持每天清晨到果欄親自揀貨，只揀成熟度適中、果身新鮮、味道自然的水果賣給客人。</p>
-        <p>開店初期，我們主要做街坊生意。不少客人由第一次試買，變成後來每星期都來幫襯；也有不少家庭由小朋友時期食到大個，仍然繼續光顧。二十年來，我哋靠的不是大規模宣傳，而是新鮮、實在、唔欺客。</p>
-        <p>隨著沙田發展，店鋪慢慢擴展，貨品種類也由常見的蘋果、橙、西瓜，增加到進口水果、季節性水果、禮盒裝、果籃、公司下午茶訂單等。今日的山山水果公司，已經由一間街邊小店，發展成沙田街坊必買的寶藏小店。</p>
+        <p>銳鋒有限公司（Top Market HK Limited）深耕香港商業諮詢領域，匯集本地資深行業顧問、市場運營師、商業策劃人員，專注為內地入港企業、香港本土中小商家、創業團隊提供高實用價值的一體化商業諮詢服務。</p>
+        <p>公司始終摒棄空泛理論式諮詢，堅持以市場真實數據為基底，結合香港法規政策、行業環境、消費市場特徵定制方案。無論是新創項目商業搭建、成熟企業業務升級、跨地域市場進駐，或是經營痛點整改優化，我們均提供從方案設計到落地跟進的完整服務鏈。</p>
+        <p>多年以來，我們依託香港本土行業資源，服務覆蓋零售貿易、餐飲實體、跨境電商、小型工貿、服務行業等多個領域，憑藉務實、透明、高執行力的服務風格，積累大量穩定合作客戶，成為眾多創業者與中小企業信賴的商業合作顧問。</p>
         <div class="brand-quote">
-            “水果要新鮮、價錢要實、客人有問題要負責到底。”
+            以銳見洞察市場，以穩鋒支撐經營，做企業落地香港最踏實的商業夥伴
         </div>
     </div>
 </div>
@@ -402,9 +363,9 @@ body{
     <div class="footer-social">
         <a href="#">Wechat: 1234567</a>
         <a href="#">WhatsApp: 1234567</a>
-        <a href="#">IG：Fruit1234567</a>
+        <a href="#">IG：TopMarketHK</a>
     </div>
-    <p>山山水果公司 © 2026 新鮮空運 版權所有</p>
+    <p>銳鋒有限公司 Top Market HK Limited © 2026 商業諮詢服務 版權所有</p>
 </div>
 </body>
 </html>
