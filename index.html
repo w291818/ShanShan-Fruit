@@ -252,94 +252,62 @@ body{
     color:#d4af37;
 }
 
-/* ========== 右側聯絡浮窗樣式 ========== */
+/* ========== 右側WhatsApp浮窗樣式（帶下方文字） ========== */
 .float-contact{
     position: fixed;
-    right: 25px;
-    top: 70%;    /* 垂直位置：畫面70%高度，居中偏下一點 */
+    right: 24px;
+    top: 55%;
     transform: translateY(-50%);
     z-index: 998;
 }
 .float-contact a{
     display: flex;
+    flex-direction: column;
     width: 56px;
-    height: 56px;
+    height: auto;
+    min-height: 56px;
     background: #25D366;
-    border-radius: 50%;
+    border-radius: 99px;
     color: #ffffff;
-    font-size: 26px;
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    gap: 4px;
+    padding: 8px 4px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
     transition: 0.3s ease;
 }
+/* SVG圖標大小 */
+.float-contact a svg{
+    width: 28px;
+    height: 28px;
+}
+/* 下方WhatsApp小字 */
+.float-contact a span{
+    font-size: 11px;
+}
+/* 滑鼠懸停效果 */
 .float-contact a:hover{
     background: #192233;
-    color: #d4af37;
+    color: #25D366;
     transform: scale(1.12);
 }
 
-/* 手機響應式適配 */
+/* 手機端適配 */
 @media(max-width:768px){
-    .head-top{
-        flex-direction:column;
-        gap:16px;
-        padding:16px 20px;
-    }
-    .logo h1{
-        font-size:28px;
-    }
-    .banner{
-        height:240px;
-    }
-    .banner h2{
-        font-size:30px;
-    }
-    .title{
-        font-size:22px;
-        padding:12px 22px;
-    }
-    .history-box{
-        padding:32px 24px;
-    }
-    /* 手機浮窗縮小 */
     .float-contact{
         right: 16px;
     }
     .float-contact a{
         width: 48px;
-        height: 48px;
+        min-height: 48px;
     }
-}
-@media(max-width:480px){
-    .nav-bar a{
-        font-size:14px;
-        padding:7px 14px;
+    .float-contact a svg{
+        width: 24px;
+        height: 24px;
     }
-    .banner{
-        height:210px;
-    }
-    .banner h2{
-        font-size:24px;
-        letter-spacing:1px;
-    }
-    .banner p{
-        font-size:16px;
-    }
-    .footer-social a{
-        display:block;
-        margin:10px 0;
-    }
-    .history-box{
-        padding:28px 20px;
-    }
-    .brand-header h3{
-        font-size:21px;
-    }
-    .brand-quote{
-        font-size:16px;
-        padding:16px 20px;
+    .float-contact a span{
+        font-size: 9px;
     }
 }
 </style>
