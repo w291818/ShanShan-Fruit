@@ -1,438 +1,488 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>銳鋒顧問 Top Market｜商業諮詢、專業服務</title>
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"楷體",system-ui,-apple-system,sans-serif;
-}
-html{
-    scroll-behavior: smooth;
-}
-body{
-    background:#f7f8fa;
-    color:#222831;
-    line-height:1.75;
-}
-/* 頂部吸頂導航頭部 商務深色風格 */
-.header{
-    background:#192233;
-    position: sticky;
-    top:0;
-    z-index:999;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-}
-.head-top{
-    max-width:1200px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:16px;
-    padding:18px 20px;
-    text-align:center;
-    background:transparent;
-}
-.logo h1{
-    font-size:32px;
-    color:#ffffff;
-    font-weight:800;
-    letter-spacing:2px;
-    text-align:center;
-}
-.logo h1 span{
-    color:#d4af37;
-    font-size:20px;
-    font-weight:500;
-    margin-left:12px;
-}
-.logo p{
-    font-size:16px;
-    color:#b9c2d3;
-    margin-top:6px;
-    text-align:center;
-}
-/* 導航按鈕 商務扁平化樣式 */
-.nav-bar{
-    display:flex;
-    gap:14px;
-    flex-wrap: wrap;
-    justify-content:center;
-}
-.nav-bar a{
-    color:#fff;
-    text-decoration:none;
-    font-size:16px;
-    padding:9px 22px;
-    background:transparent;
-    border:1px solid rgba(212, 175, 55, 0.6);
-    border-radius:4px;
-    transition: all 0.3s ease;
-}
-.nav-bar a:hover{
-    background:#d4af37;
-    color:#192233;
-    border-color:#d4af37;
-    transform:translateY(-2px);
-}
-/* Banner 商務橫幅 */
-.banner{
-    width:100%;
-    height:280px;
-    background:linear-gradient(135deg,#192233,#273449);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    position:relative;
-    overflow:hidden;
-}
-.banner::after{
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    border:1px solid rgba(212, 175, 55, 0.08);
-    border-radius:50%;
-}
-.banner h2{
-    font-size:38px;
-    margin-bottom:12px;
-    color:#ffffff;
-    letter-spacing:3px;
-    font-weight:700;
-}
-.banner p{
-    font-size:18px;
-    color:#d4af37;
-    opacity:0.95;
-    max-width:700px;
-}
-.container{
-    max-width:1200px;
-    margin:0 auto;
-    padding:20px;
-}
-.title{
-    text-align:center;
-    font-size:26px;
-    color:#192233;
-    margin:70px 0 28px;
-    background:#fff;
-    padding:14px 28px;
-    border-left:4px solid #d4af37;
-    box-shadow:0 4px 14px rgba(25, 34, 51, 0.08);
-    display:table;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius:2px;
-}
-/* 業務板塊卡片 */
-.service-wrap{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap:26px;
-    margin-bottom:60px;
-}
-.service-card{
-    background:#fff;
-    padding:32px 24px;
-    border-radius:6px;
-    text-align:center;
-    box-shadow:0 3px 12px rgba(25, 34, 51, 0.09);
-    transition:0.35s ease;
-    border-top:3px solid transparent;
-}
-.service-card:hover{
-    transform: translateY(-7px);
-    box-shadow:0 9px 22px rgba(25, 34, 51, 0.12);
-    border-top:3px solid #d4af37;
-}
-.service-card h3{
-    color:#192233;
-    margin:14px 0;
-    font-size:20px;
-}
-.service-card p{
-    color:#505969;
-    font-size:15px;
-}
-.service-icon{
-    font-size:46px;
-    color:#d4af37;
-}
-/* 企業介紹區塊 */
-.history-box{
-    background:#ffffff;
-    padding:46px;
-    border-radius:8px;
-    box-shadow: 0 4px 20px rgba(25, 34, 51, 0.07);
-    line-height:2;
-    font-size:16px;
-    color:#444b58;
-    max-width:980px;
-    margin:0 auto 50px;
-    position:relative;
-    overflow:hidden;
-}
-.history-box::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    right:-40px;
-    top:-40px;
-    background:radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent 70%);
-    border-radius:50%;
-}
-.brand-header{
-    text-align:center;
-    margin-bottom:28px;
-    position:relative;
-    z-index:1;
-}
-.brand-header h3{
-    color:#192233;
-    margin-bottom:8px;
-    text-align:center;
-    font-size:24px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-.brand-subtitle{
-    color:#d4af37;
-    font-size:15px;
-    font-weight:500;
-    letter-spacing:0.5px;
-}
-.brand-quote{
-    margin:32px 0 10px;
-    padding:20px 26px;
-    background:#f7f8fa;
-    border-left:4px solid #192233;
-    border-right:4px solid #d4af37;
-    border-radius:4px;
-    text-align:center;
-    font-size:18px;
-    font-weight:600;
-    color:#192233;
-    font-style:normal;
-}
-/* 頁尾深色商務風 */
-.footer{
-    background:#121824;
-    color:#a0a9b8;
-    text-align:center;
-    padding:42px 20px;
-    font-size:14px;
-    margin-top:80px;
-}
-.footer-social{
-    margin-bottom:22px;
-}
-.footer-social a{
-    color:#fff;
-    text-decoration:none;
-    margin:0 14px;
-    font-size:15px;
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    transition:0.25s;
-}
-.footer-social a:hover{
-    color:#d4af37;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+  <title>銳鋒顧問 Top Market | 無限視界</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', 'Segoe UI', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+    }
 
-/* ========== 右側WhatsApp浮窗樣式（綠底+下方文字） ========== */
-.float-contact{
-    position: fixed;
-    right: 24px;
-    top: 70%;
-    transform: translateY(-50%);
-    z-index: 998;
-}
-.float-contact a{
-    display: flex;
-    flex-direction: column;
-    width: 56px;
-    height: auto;
-    min-height: 56px;
-    background: #25D366;
-    border-radius: 99px;
-    color: #ffffff;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 4px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
-    transition: 0.3s ease;
-}
-.float-contact a svg{
-    width: 28px;
-    height: 28px;
-}
-.float-contact a span{
-    font-size: 11px;
-}
-.float-contact a:hover{
-    background: #192233;
-    color: #25D366;
-    transform: scale(1.12);
-}
+    body {
+      background: #0a0a0a;
+      color: #f2ede5;
+      overflow-x: hidden;
+      cursor: default;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-/* 手機響應式適配 */
-@media(max-width:768px){
-    .head-top{
-        flex-direction:column;
-        gap:16px;
-        padding:16px 20px;
+    /* 導航 */
+    .nav-trigger {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 1001;
+      width: 44px;
+      height: 44px;
+      background: rgba(10, 10, 10, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4af37;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: 1px solid rgba(212, 175, 55, 0.6);
+      transition: all 0.3s ease;
+      user-select: none;
     }
-    .logo h1{
-        font-size:28px;
+    .nav-trigger:hover {
+      background: #d4af37;
+      color: #0a0a0a;
     }
-    .banner{
-        height:240px;
+    .nav-trigger:active {
+      transform: scale(0.94);
     }
-    .banner h2{
-        font-size:30px;
+
+    .nav-menu {
+      position: fixed;
+      top: 80px;
+      left: 24px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      padding: 10px 14px;
+      border-radius: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      min-width: 150px;
     }
-    .title{
-        font-size:22px;
-        padding:12px 22px;
+    .nav-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
-    .history-box{
-        padding:32px 24px;
+    .nav-menu a {
+      color: #e0d7cc;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 10px 14px;
+      border-radius: 14px;
+      transition: 0.2s;
+      display: block;
     }
-    .float-contact{
+    .nav-menu a:hover {
+      background: #d4af37;
+      color: #0a0a0a;
+    }
+
+    .quick-contact {
+      position: fixed;
+      top: 26px;
+      right: 24px;
+      z-index: 1001;
+    }
+    .quick-contact a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      background: rgba(10, 10, 10, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      transition: 0.2s;
+      display: inline-block;
+    }
+    .quick-contact a:hover {
+      background: #d4af37;
+      color: #0a0a0a;
+    }
+
+    /* 全屏面板 */
+    .full-panel {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .panel-hero {
+      background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+    }
+    .panel-strategy {
+      background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop');
+    }
+    .panel-market {
+      background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop');
+    }
+    .panel-risk {
+      background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop');
+    }
+    .panel-about {
+      background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop');
+    }
+
+    /* 輕微暗角讓文字可讀，但保留圖片清晰明亮 */
+    .full-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.35) 50%, rgba(10,10,10,0.55) 100%);
+      pointer-events: none;
+    }
+
+    /* 文字直接放在圖片上，無氣泡背景 */
+    .text-overlay {
+      position: absolute;
+      z-index: 2;
+      text-align: left;
+      max-width: 600px;
+      padding: 0;
+    }
+
+    .text-overlay h2 {
+      font-size: clamp(2.2rem, 5.5vw, 5rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+      margin-bottom: 12px;
+    }
+
+    .text-overlay .accent-line {
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #d4af37;
+      margin: 14px 0 18px;
+      box-shadow: 0 2px 12px rgba(212, 175, 55, 0.5);
+    }
+
+    .text-overlay p {
+      font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 300;
+      line-height: 1.6;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+      max-width: 440px;
+    }
+
+    .text-overlay .tag {
+      display: inline-block;
+      color: #d4af37;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* 桌面位置 */
+    .pos-hero {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .pos-hero .accent-line {
+      margin: 14px auto 18px;
+    }
+    .pos-hero p {
+      margin: 0 auto;
+    }
+
+    .pos-left-low {
+      left: 8%;
+      bottom: 18%;
+    }
+    .pos-right-mid {
+      right: 8%;
+      top: 28%;
+      text-align: right;
+    }
+    .pos-right-mid .accent-line {
+      margin-left: auto;
+    }
+    .pos-right-mid p {
+      margin-left: auto;
+    }
+
+    .pos-center-high {
+      top: 22%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      text-align: center;
+    }
+    .pos-center-high .accent-line {
+      margin: 14px auto 18px;
+    }
+    .pos-center-high p {
+      margin: 0 auto;
+    }
+
+    .pos-right-low {
+      right: 8%;
+      bottom: 18%;
+      text-align: right;
+    }
+    .pos-right-low .accent-line {
+      margin-left: auto;
+    }
+    .pos-right-low p {
+      margin-left: auto;
+    }
+
+    /* 小型文字標記 */
+    .mark {
+      position: absolute;
+      z-index: 2;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+    .mark::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: #d4af37;
+      margin-top: 6px;
+      transition: 0.3s;
+    }
+    .mark:hover {
+      color: #d4af37;
+    }
+    .mark:hover::after {
+      width: 40px;
+    }
+
+    .footer-bar {
+      background: #080808;
+      padding: 40px 20px;
+      text-align: center;
+      color: #666;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      border-top: 1px solid #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* 手機適配 */
+    @media (max-width: 768px) {
+      .full-panel {
+        background-attachment: scroll;
+        min-height: 100vh;
+        min-height: 100dvh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .text-overlay {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        text-align: center !important;
+        padding: 0 24px;
+        max-width: 100%;
+      }
+
+      .text-overlay h2 {
+        font-size: 2.2rem;
+      }
+      .text-overlay p {
+        font-size: 0.95rem;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .text-overlay .accent-line {
+        margin: 12px auto 16px;
+      }
+
+      .mark {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+      }
+
+      .nav-trigger {
+        top: 16px;
+        left: 16px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      .nav-menu {
+        top: 64px;
+        left: 16px;
+      }
+      .quick-contact {
+        top: 18px;
         right: 16px;
+      }
+      .quick-contact a {
+        font-size: 0.7rem;
+        padding: 8px 14px;
+      }
     }
-    .float-contact a{
-        width: 48px;
-        min-height: 48px;
+
+    @media (max-width: 380px) {
+      .text-overlay h2 {
+        font-size: 1.8rem;
+      }
+      .text-overlay p {
+        font-size: 0.85rem;
+        max-width: 250px;
+      }
     }
-    .float-contact a svg{
-        width: 24px;
-        height: 24px;
+
+    @media (min-width: 1400px) {
+      .text-overlay h2 {
+        font-size: 5.5rem;
+      }
+      .text-overlay p {
+        font-size: 1.3rem;
+        max-width: 500px;
+      }
+      .text-overlay .accent-line {
+        width: 80px;
+        height: 4px;
+      }
     }
-    .float-contact a span{
-        font-size: 9px;
-    }
-}
-@media(max-width:480px){
-    .nav-bar a{
-        font-size:14px;
-        padding:7px 14px;
-    }
-    .banner{
-        height:210px;
-    }
-    .banner h2{
-        font-size:24px;
-        letter-spacing:1px;
-    }
-    .banner p{
-        font-size:16px;
-    }
-    .footer-social a{
-        display:block;
-        margin:10px 0;
-    }
-    .history-box{
-        padding:28px 20px;
-    }
-    .brand-header h3{
-        font-size:21px;
-    }
-    .brand-quote{
-        font-size:16px;
-        padding:16px 20px;
-    }
-}
-</style>
+  </style>
 </head>
 <body>
-<div class="header">
-    <div class="head-top">
-        <div class="logo">
-            <h1>銳鋒顧問 
-            <h1>The Top Market</span></h1>
-            <p>香港本土商業諮詢｜企業策劃｜公司落地一站式服務</p>
-        </div>
-        <nav class="nav-bar">
-            <a href="business.html">業務範圍</a>
-            <a href="case.html">顧問團隊</a>
-            <a href="team.html">計劃流程</a>
-            <a href="contact.html">常見問題</a>
-            <a href="contact.html">聯絡我們</a>
-        </nav>
-    </div>
-</div>
+  <div class="nav-trigger" id="navTrigger">☰</div>
+  <div class="nav-menu" id="navMenu">
+    <a href="business.html">業務範圍</a>
+    <a href="case.html">顧問團隊</a>
+    <a href="team.html">計劃流程</a>
+    <a href="contact.html">常見問題</a>
+    <a href="contact.html">聯絡我們</a>
+  </div>
 
-<!-- WhatsApp右側浮窗：綠色圖標+下方WhatsApp文字 -->
-<div class="float-contact">
-    <a href="https://wa.me/85212345678">
-        <svg width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.357-.927l-.24-.063-2.467.643.644-2.4-.235-.07a6.56 6.56 0 0 1-6.69-11.06A6.57 6.57 0 0 1 7.994 1.46a6.566 6.566 0 0 1 6.566 6.566 6.573 6.573 0 0 1-6.566 6.495zm3.615-4.834c-.197-.099-1.17-.578-1.351-.646-.18-.065-.313.097-.443.313-.13.218-.513.673-.627.809-.113.13-.226.148-.423.05-.196-.1-1.105-.407-2.109-1.309-.78-.697-1.308-1.561-1.423-1.759-.113-.197-.01-.296.09-.416.096-.12.218-.313.328-.47.111-.156.148-.217.197-.313.06-.096.03-.178-.015-.248-.046-.07-.44-1.079-.605-1.47-.16-.39-.32-.339-.443-.344-.113-.005-.243-.006-.373.006a.729.729 0 0 0-.503.236c-.178.18-1.048 1.029-1.048 2.479 0 1.45 1.069 2.879 1.224 3.076.114.139 1.994 3.042 4.807 4.269.674.29 1.202.462 1.613.587.675.215 1.29.184 1.771.111.54-.083 1.671-.683 1.907-1.348.236-.665.236-1.234.165-1.348-.07-.114-.198-.18-.414-.297z"/>
-        </svg>
-        <span>WhatsApp</span>
-    </a>
-</div>
+  <div class="quick-contact">
+    <a href="https://wa.me/85212345678" target="_blank">WhatsApp</a>
+  </div>
 
-<div class="banner">
-    <h2>專業商業諮詢 賦能企業成長</h2>
-    <p>專注香港市場｜定制化企業方案｜專業風險評估｜執行全流程支援</p>
-</div>
-<div class="container">
-    <div class="service-wrap">
-        <div class="service-card">
-            <div class="service-icon">📊</div>
-            <h3>商業策劃服務</h3>
-            <p>商業計劃書撰寫、項目可行性分析、投資架構規劃，對接香港本地商業</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon">📈</div>
-            <h3>市場落地顧問</h3>
-            <p>香港市場調研、行業狀況分析、商業渠道搭建、品牌落地香港全流程指導</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon">⚖️</div>
-            <h3>風險與財務諮詢</h3>
-            <p>企業經營風險排查、稅務基礎規劃、資金架構優化、中小企業經營升級</p>
-        </div>
+  <!-- 面板 1：主視覺 -->
+  <div class="full-panel panel-hero">
+    <div class="text-overlay pos-hero">
+      <div class="tag">Top Market Consulting</div>
+      <h2>銳鋒</h2>
+      <div class="accent-line"></div>
+      <p>商業視野 · 無界自由 · 香港本土精準諮詢</p>
     </div>
-    <div class="title">公司簡介</div>
-    <div class="history-box">
-        <div class="brand-header">
-            <h3>銳鋒顧問 The Top Market </h3>
-            <p class="brand-subtitle">專注香港 · 聚焦實業 · 你的精準商業顧問</p>
-        </div>
-        <p>銳鋒（The Top Market ）銳鋒顧問公司深耕香港，提供專業本土商業諮詢與企業策劃服務。我們憑藉精準的市場洞察，為企業量身訂造前瞻策略，優化營運架構，全面驅動業務轉型與長遠穩健發展。
-</p>
-        <p>拒絕空泛理論式諮詢，我司堅持以市場真實數據為基底，結合香港法規政策、行業環境、消費市場的特徵去定制方案。無論是新創項目的商業啟動、成熟企業的業務升級、跨地域公司的進駐，或是經營痛點的整改優化，我們均有提供從方案設計到落地跟進的完整服務鏈及經驗。</p>
-        <p>我們亦致力推動綠色轉型，籌辦高規格學術與環保研討會。透過匯聚專家學者搭建交流平台，探討前沿課題，協助企業將可持續發展理念轉化為實質商機，履行社會責任。</p>
-        <p>針對有意進駐香港的投資者，我們提供公司落地一站式服務。範疇涵蓋註冊、開戶及稅務等所有繁瑣程序，以高效專業流程，助客戶業務迅速合法啟航，無縫對接本土商機。</p>
-        <div class="brand-quote">
-            銳鋒，以銳見洞察行業，以鋒利攻破市場，做企業最可靠的商業夥伴
-        </div>
+    <div class="mark" style="bottom: 10%; right: 8%;">專業顧問</div>
+  </div>
+
+  <!-- 面板 2：商業策劃 -->
+  <div class="full-panel panel-strategy">
+    <div class="text-overlay pos-left-low">
+      <div class="tag">Strategy</div>
+      <h2>商業策劃</h2>
+      <div class="accent-line"></div>
+      <p>計劃書撰寫、投資架構規劃、可行性分析，以數據驅動精準策略。</p>
     </div>
-</div>
-<div class="footer">
-    <div class="footer-social">
-        <a href="#">Wechat: 1234567</a>
-        <a href="#">WhatsApp: 1234567</a>
-        <a href="#">IG：TopMarketHK</a>
+    <div class="mark" style="top: 14%; right: 10%;">策略導向</div>
+  </div>
+
+  <!-- 面板 3：市場落地 -->
+  <div class="full-panel panel-market">
+    <div class="text-overlay pos-right-mid">
+      <div class="tag">Market Entry</div>
+      <h2>市場落地</h2>
+      <div class="accent-line"></div>
+      <p>香港市場調研、行業渠道搭建、品牌落地全流程指導。</p>
     </div>
-    <p>銳鋒有限公司 Top Market HK Limited © 2026 商業諮詢服務 版權所有</p>
-</div>
+    <div class="mark" style="bottom: 16%; left: 8%;">本土深耕</div>
+  </div>
+
+  <!-- 面板 4：風險財務 -->
+  <div class="full-panel panel-risk">
+    <div class="text-overlay pos-center-high">
+      <div class="tag">Risk & Finance</div>
+      <h2>風險與財務</h2>
+      <div class="accent-line"></div>
+      <p>稅務規劃 · 資金架構優化 · 企業經營風險全面排查。</p>
+    </div>
+    <div class="mark" style="bottom: 14%; left: 50%; transform: translateX(-50%);">穩健護航</div>
+  </div>
+
+  <!-- 面板 5：關於我們 -->
+  <div class="full-panel panel-about">
+    <div class="text-overlay pos-right-low">
+      <div class="tag">About Us</div>
+      <h2>關於銳鋒</h2>
+      <div class="accent-line"></div>
+      <p>以銳見洞察行業，用鋒利攻破市場。香港商業夥伴，並肩落地每一個決定。</p>
+    </div>
+    <div class="mark" style="top: 16%; left: 8%;">信任之選</div>
+  </div>
+
+  <div class="footer-bar">
+    <p>© 2026 銳鋒有限公司 Top Market HK Limited<br>商業諮詢服務</p>
+  </div>
+
+  <script>
+    const trigger = document.getElementById('navTrigger');
+    const menu = document.getElementById('navMenu');
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !trigger.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') menu.classList.remove('active');
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
+```
