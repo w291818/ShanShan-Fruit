@@ -11,11 +11,7 @@
       box-sizing: border-box;
       font-family: 'Inter', 'Segoe UI', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
     }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       background: #0c1119;
       color: #e2e8f0;
@@ -23,281 +19,91 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-
     .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(12, 17, 25, 0.92);
-      backdrop-filter: blur(12px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(12, 17, 25, 0.92); backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      transition: all 0.4s ease;
-      padding: 14px 0;
+      transition: all 0.4s ease; padding: 14px 0;
     }
-
-    .header.scrolled {
-      padding: 8px 0;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-    }
-
+    .header.scrolled { padding: 8px 0; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); }
     .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1280px; margin: 0 auto; padding: 0 40px 0 20px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    .logo {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-right: auto;
-    }
-
-    .logo a {
-      text-decoration: none;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .logo .brand-cn {
-      font-size: 2.6rem;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 2px;
-      line-height: 1;
-    }
-
-    .logo .brand-en {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #94a3b8;
-      letter-spacing: 1px;
-      opacity: 0.9;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #cbd5e1;
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-      padding: 6px 0;
-      transition: color 0.3s;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #3b82f6;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #3b82f6;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      width: 26px;
-      height: 2px;
-      background: #e2e8f0;
-      transition: 0.3s;
-    }
+    .logo { display: flex; align-items: baseline; gap: 10px; margin-right: auto; }
+    .logo a { text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
+    .logo .brand-cn { font-size: 2.6rem; font-weight: 800; color: #ffffff; letter-spacing: 2px; line-height: 1; }
+    .logo .brand-en { font-size: 1.1rem; font-weight: 600; color: #94a3b8; letter-spacing: 1px; opacity: 0.9; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #cbd5e1; font-weight: 500; font-size: 0.95rem; position: relative; padding: 6px 0; transition: color 0.3s; }
+    .nav-links a::after { content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #3b82f6; transition: width 0.3s ease; }
+    .nav-links a:hover { color: #3b82f6; }
+    .nav-links a:hover::after { width: 100%; }
+    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .menu-toggle span { width: 26px; height: 2px; background: #e2e8f0; transition: 0.3s; }
 
     .hero {
-      width: 100%;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 40px 80px;
-      position: relative;
-      overflow: hidden;
+      width: 100%; min-height: 90vh; display: flex; align-items: center;
+      padding: 120px 40px 80px; position: relative; overflow: hidden;
       background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
     }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12, 17, 25, 0.85) 0%, rgba(12, 17, 25, 0.3) 60%, rgba(12, 17, 25, 0.1) 100%); z-index: 1; pointer-events: none; }
+    .hero-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+    .hero-text { flex: 1 1 500px; }
+    .hero-text h1 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 700; color: #ffffff; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 20px; }
+    .hero-text h1 .highlight { color: #3b82f6; display: block; }
+    .hero-text p { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 35px; max-width: 500px; line-height: 1.7; }
+    .btn-primary { display: inline-block; background: #3b82f6; color: #fff; padding: 15px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; letter-spacing: 0.5px; transition: all 0.3s; border: 2px solid #3b82f6; font-size: 1rem; }
+    .btn-primary:hover { background: #2563eb; border-color: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3); }
+    .btn-outline { background: transparent; color: #3b82f6; border: 2px solid #3b82f6; margin-left: 15px; }
+    .btn-outline:hover { background: #3b82f6; color: #fff; }
 
-    .hero::after {
+    .gradient-bg { background: linear-gradient(to right, #1e3a8a 0%, #0c1119 80%); }
+    .stats { max-width: 1200px; margin: 0 auto; padding: 80px 20px 40px; display: flex; justify-content: center; gap: 100px; text-align: center; flex-wrap: wrap; }
+    .stat-item { transition: 1.8s ease; opacity: 0; transform: translateY(30px); }
+    .stat-item.visible { opacity: 1; transform: translateY(0); }
+    .stat-number { font-size: 3.2rem; font-weight: 700; color: #ffffff; line-height: 1; }
+    .stat-label { font-size: 0.9rem; color: #94a3b8; letter-spacing: 1.5px; margin-top: 6px; text-transform: uppercase; }
+
+    .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px 80px; }
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title h2 { font-size: 2.6rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; letter-spacing: -0.5px; }
+    .section-title .line { width: 60px; height: 3px; background: #3b82f6; margin: 0 auto; }
+
+    /* 優化後的卡片滾動區域 */
+    .card-scroll-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .card-scroll-wrapper::before,
+    .card-scroll-wrapper::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(12, 17, 25, 0.85) 0%, rgba(12, 17, 25, 0.3) 60%, rgba(12, 17, 25, 0.1) 100%);
-      z-index: 1;
+      top: 0;
+      bottom: 0;
+      width: 8%;
+      z-index: 10;
       pointer-events: none;
     }
-
-    .hero-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      flex-wrap: wrap;
+    .card-scroll-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(18, 25, 40, 0.8) 0%, transparent 100%);
+    }
+    .card-scroll-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(18, 25, 40, 0.8) 0%, transparent 100%);
     }
 
-    .hero-text {
-      flex: 1 1 500px;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(3rem, 6vw, 4.5rem);
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.15;
-      letter-spacing: -0.5px;
-      margin-bottom: 20px;
-    }
-
-    .hero-text h1 .highlight {
-      color: #3b82f6;
-      display: block;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      color: #cbd5e1;
-      margin-bottom: 35px;
-      max-width: 500px;
-      line-height: 1.7;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: #3b82f6;
-      color: #fff;
-      padding: 15px 40px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: all 0.3s;
-      border: 2px solid #3b82f6;
-      font-size: 1rem;
-    }
-
-    .btn-primary:hover {
-      background: #2563eb;
-      border-color: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #3b82f6;
-      border: 2px solid #3b82f6;
-      margin-left: 15px;
-    }
-
-    .btn-outline:hover {
-      background: #3b82f6;
-      color: #fff;
-    }
-
-    .gradient-bg {
-      background: linear-gradient(to right, #1e3a8a 0%, #0c1119 80%);
-    }
-
-    .stats {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px 40px;
-      display: flex;
-      justify-content: center;
-      gap: 100px;
-      text-align: center;
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      transition: 1.8s ease;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .stat-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stat-number {
-      font-size: 3.2rem;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: #94a3b8;
-      letter-spacing: 1.5px;
-      margin-top: 6px;
-      text-transform: uppercase;
-    }
-
-    .section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 15px;
-      letter-spacing: -0.5px;
-    }
-
-    .section-title .line {
-      width: 60px;
-      height: 3px;
-      background: #3b82f6;
-      margin: 0 auto;
-    }
-
-    /* 横向滚动卡片 – 左右留足空间，确保三个卡片都能完整显示 */
     .card-scroll-container {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       display: flex;
       gap: 20px;
-      padding: 20px 15%;
+      padding: 20px 8%;
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
-
     .card-scroll-container::-webkit-scrollbar {
       display: none;
     }
@@ -309,28 +115,25 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      transition: all 1.8s ease;
-      opacity: 0.4;
-      transform: scale(0.9);
+      transition: all 0.4s ease;
+      opacity: 0.6;
+      transform: scale(0.92);
       scroll-snap-align: center;
       border: 1px solid rgba(255, 255, 255, 0.05);
       cursor: pointer;
     }
-
     .service-card.active {
       opacity: 1;
       transform: scale(1);
       border-color: rgba(59, 130, 246, 0.6);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
-
     .service-card:hover {
       opacity: 1 !important;
       transform: scale(1) !important;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
       border-color: rgba(59, 130, 246, 0.6);
     }
-
     .card-img {
       width: 100%;
       height: 220px;
@@ -338,277 +141,60 @@
       opacity: 0;
       transition: opacity 2s ease;
     }
+    .card-img.visible { opacity: 1; }
+    .card-content { padding: 30px 28px; }
+    .card-content h3 { font-size: 1.7rem; margin-bottom: 12px; color: #ffffff; }
+    .card-content p { color: #94a3b8; line-height: 1.7; margin-bottom: 20px; }
+    .card-link { color: #3b82f6; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.3s; font-size: 0.95rem; }
+    .card-link:hover { gap: 12px; }
 
-    .card-img.visible {
-      opacity: 1;
-    }
-
-    .card-content {
-      padding: 30px 28px;
-    }
-
-    .card-content h3 {
-      font-size: 1.7rem;
-      margin-bottom: 12px;
-      color: #ffffff;
-    }
-
-    .card-content p {
-      color: #94a3b8;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .card-link {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.3s;
-      font-size: 0.95rem;
-    }
-
-    .card-link:hover {
-      gap: 12px;
-    }
-
-    .why-us {
-      position: relative;
-    }
-
+    .why-us { position: relative; }
     .why-block {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      opacity: 0;
-      transition: opacity 1.8s ease;
+      width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center;
+      background-size: cover; background-position: center; position: relative;
+      opacity: 0; transition: opacity 1.8s ease;
     }
+    .why-block.visible { opacity: 1; }
+    .why-block::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.45); z-index: 1; }
+    .why-text { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 0 20px; color: #fff; }
+    .why-text h3 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .why-text p { font-size: 1.3rem; line-height: 1.8; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
 
-    .why-block.visible {
-      opacity: 1;
-    }
-
-    .why-block::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 1;
-    }
-
-    .why-text {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 800px;
-      padding: 0 20px;
-      color: #fff;
-    }
-
-    .why-text h3 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    .why-text p {
-      font-size: 1.3rem;
-      line-height: 1.8;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    }
-
-    .case-studies {
-      background: #0c1119;
-      padding: 80px 20px;
-    }
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .case-card {
-      background: #1a202c;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: 0.4s ease;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      opacity: 0;
-      transform: translateX(30px);
-    }
-
-    .case-card.visible {
-      opacity: 1;
-      transform: translateX(0);
-      transition: 1.8s ease;
-    }
-
-    .case-card:hover {
-      transform: translateX(0) scale(1.03);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-      border-color: rgba(59, 130, 246, 0.3);
-    }
-
-    .case-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-
+    .case-studies { background: #0c1119; padding: 80px 20px; }
+    .case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+    .case-card { background: #1a202c; border-radius: 8px; overflow: hidden; transition: 0.4s ease; border: 1px solid rgba(255, 255, 255, 0.05); opacity: 0; transform: translateX(30px); }
+    .case-card.visible { opacity: 1; transform: translateX(0); transition: 1.8s ease; }
+    .case-card:hover { transform: translateX(0) scale(1.03); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); border-color: rgba(59, 130, 246, 0.3); }
+    .case-card img { width: 100%; height: 200px; object-fit: cover; opacity: 0; transition: opacity 2s ease; }
     .case-card img.visible { opacity: 1; }
-
-    .case-card .case-content {
-      padding: 25px;
-    }
-
-    .case-card h4 {
-      font-size: 1.3rem;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-
-    .case-card p {
-      color: #94a3b8;
-      font-size: 0.95rem;
-    }
+    .case-card .case-content { padding: 25px; }
+    .case-card h4 { font-size: 1.3rem; color: #ffffff; margin-bottom: 10px; }
+    .case-card p { color: #94a3b8; font-size: 0.95rem; }
 
     .about {
-      width: 100%;
-      height: 500px;
+      width: 100%; height: 500px;
       background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      position: relative;
+      display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative;
     }
+    .about::before { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.15); z-index: 1; }
+    .about-content { position: relative; z-index: 2; max-width: 700px; opacity: 0; transform: translateY(20px); transition: 1.8s ease; }
+    .about-content.visible { opacity: 1; transform: translateY(0); }
+    .about-content h2 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+    .about-content .line { width: 60px; height: 3px; background: #3b82f6; margin: 0 auto 25px; }
+    .about-content p { font-size: 1.2rem; margin-bottom: 30px; line-height: 1.8; font-weight: 300; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .about-content .quote { font-size: 1.3rem; font-weight: 600; color: #ffffff; letter-spacing: 2px; border: 1px solid rgba(255,255,255,0.6); display: inline-block; padding: 10px 25px; border-radius: 50px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
 
-    .about::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.15);
-      z-index: 1;
-    }
+    .text-reveal { opacity: 0; transform: translateY(30px); transition: opacity 1.8s cubic-bezier(0.25, 1, 0.5, 1), transform 1.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .text-reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .about-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 1.8s ease;
-    }
-
-    .about-content.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .about-content h2 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-    }
-
-    .about-content .line {
-      width: 60px;
-      height: 3px;
-      background: #3b82f6;
-      margin: 0 auto 25px;
-    }
-
-    .about-content p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      line-height: 1.8;
-      font-weight: 300;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    .about-content .quote {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: 2px;
-      border: 1px solid rgba(255,255,255,0.6);
-      display: inline-block;
-      padding: 10px 25px;
-      border-radius: 50px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-
-    .text-reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1.8s cubic-bezier(0.25, 1, 0.5, 1), transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .text-reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .footer {
-      background: #ffffff;
-      color: #1a202c;
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 25px;
-    }
-
-    .footer-social a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: color 0.3s;
-    }
-
-    .footer-social a:hover {
-      color: #2563eb;
-    }
-
-    .copyright {
-      font-size: 0.9rem;
-      color: #555;
-    }
+    .footer { background: #ffffff; color: #1a202c; padding: 50px 20px; text-align: center; }
+    .footer-social { display: flex; justify-content: center; gap: 40px; margin-bottom: 25px; }
+    .footer-social a { color: #333; text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+    .footer-social a:hover { color: #2563eb; }
+    .copyright { font-size: 0.9rem; color: #555; }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #0c1119;
-        padding: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-      }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #0c1119; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
       .nav-links.active { display: flex; }
       .menu-toggle { display: flex; }
       .hero { min-height: auto; padding: 100px 20px 60px; }
@@ -618,7 +204,7 @@
       .why-text h3 { font-size: 2.2rem; }
       .why-text p { font-size: 1.1rem; }
       .service-card { flex: 0 0 80%; }
-      .card-scroll-container { padding: 20px 10%; }
+      .card-scroll-container { padding: 20px 5%; }
     }
   </style>
 </head>
@@ -676,29 +262,31 @@
         <h2 class="text-reveal">核心服務</h2>
         <div class="line"></div>
       </div>
-      <div class="card-scroll-container">
-        <div class="service-card" data-card="1">
-          <img class="card-img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop" alt="商業策劃">
-          <div class="card-content">
-            <h3 class="text-reveal">商業策劃</h3>
-            <p class="text-reveal">從計劃書到投資架構，我們以數據驅動的策略，為你的業務注入清晰方向。</p>
-            <a href="business.html" class="card-link text-reveal">了解更多 →</a>
+      <div class="card-scroll-wrapper">
+        <div class="card-scroll-container">
+          <div class="service-card" data-card="1">
+            <img class="card-img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop" alt="商業策劃">
+            <div class="card-content">
+              <h3 class="text-reveal">商業策劃</h3>
+              <p class="text-reveal">從計劃書到投資架構，我們以數據驅動的策略，為你的業務注入清晰方向。</p>
+              <a href="business.html" class="card-link text-reveal">了解更多 →</a>
+            </div>
           </div>
-        </div>
-        <div class="service-card" data-card="2">
-          <img class="card-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop" alt="市場數據分析與調研">
-          <div class="card-content">
-            <h3 class="text-reveal">市場數據分析與調研</h3>
-            <p class="text-reveal">運用大數據與行業洞察，提供精準的市場分析、消費者行為研究及競爭情報。</p>
-            <a href="business.html" class="card-link text-reveal">了解更多 →</a>
+          <div class="service-card" data-card="2">
+            <img class="card-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop" alt="市場數據分析與調研">
+            <div class="card-content">
+              <h3 class="text-reveal">市場數據分析與調研</h3>
+              <p class="text-reveal">運用大數據與行業洞察，提供精準的市場分析、消費者行為研究及競爭情報。</p>
+              <a href="business.html" class="card-link text-reveal">了解更多 →</a>
+            </div>
           </div>
-        </div>
-        <div class="service-card" data-card="3">
-          <img class="card-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop" alt="市場落地">
-          <div class="card-content">
-            <h3 class="text-reveal">市場落地</h3>
-            <p class="text-reveal">香港市場調研、渠道搭建、品牌落地全流程，讓每一次進入都強而有力。</p>
-            <a href="business.html" class="card-link text-reveal">了解更多 →</a>
+          <div class="service-card" data-card="3">
+            <img class="card-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop" alt="市場落地">
+            <div class="card-content">
+              <h3 class="text-reveal">市場落地</h3>
+              <p class="text-reveal">香港市場調研、渠道搭建、品牌落地全流程，讓每一次進入都強而有力。</p>
+              <a href="business.html" class="card-link text-reveal">了解更多 →</a>
+            </div>
           </div>
         </div>
       </div>
@@ -817,8 +405,18 @@
     if (scrollContainer) {
       scrollContainer.addEventListener('scroll', updateActiveCard);
       window.addEventListener('resize', updateActiveCard);
-      setTimeout(updateActiveCard, 500);
     }
+
+    function initCenterCard() {
+      if (!scrollContainer || cards.length === 0) return;
+      const targetCard = cards[1];
+      const containerWidth = scrollContainer.offsetWidth;
+      const cardWidth = targetCard.offsetWidth;
+      const scrollLeft = targetCard.offsetLeft - (containerWidth / 2) + (cardWidth / 2);
+      scrollContainer.scrollTo({ left: scrollLeft, behavior: 'auto' });
+      updateActiveCard();
+    }
+    setTimeout(initCenterCard, 200);
 
     const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -30px 0px" };
     const observer = new IntersectionObserver((entries) => {
