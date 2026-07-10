@@ -1,4 +1,4 @@
-TYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
@@ -360,92 +360,64 @@ TYPE html>
       gap: 12px;
     }
 
-    /* 為什麼選擇我們 – 三個大板塊 */
+    /* 為什麼選擇我們 – 全屏背景區塊 */
     .why-us {
-      background: #111720;
-      padding: 80px 20px;
-    }
-
-    .why-blocks {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
+      position: relative;
     }
 
     .why-block {
+      width: 100%;
+      height: 100vh;
       display: flex;
       align-items: center;
-      gap: 40px;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: opacity 1s ease;
     }
 
     .why-block.visible {
       opacity: 1;
-      transform: translateY(0);
     }
 
-    .why-block:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-
-    .why-images {
-      flex: 1 1 45%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 200px 200px;
-      gap: 12px;
-    }
-
-    .why-img {
-      border-radius: 8px;
-      overflow: hidden;
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-
-    .why-img.visible {
-      opacity: 1;
-    }
-
-    .why-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .why-img:first-child {
-      grid-column: span 2;
+    .why-block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
     }
 
     .why-text {
-      flex: 1 1 45%;
-      padding: 20px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+      color: #fff;
     }
 
     .why-text h3 {
-      font-size: 2rem;
-      color: #ffffff;
-      margin-bottom: 15px;
+      font-size: 3rem;
       font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     .why-text p {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
     @media (max-width: 768px) {
-      .why-block,
-      .why-block:nth-child(even) {
-        flex-direction: column;
+      .why-text h3 {
+        font-size: 2.2rem;
       }
-      .why-images {
-        grid-template-rows: 180px 180px;
+      .why-text p {
+        font-size: 1.1rem;
       }
     }
 
@@ -510,24 +482,30 @@ TYPE html>
       font-size: 0.95rem;
     }
 
-    /* 關於我們 */
+    /* 關於我們 – 背景更清晰 */
     .about {
       width: 100%;
       height: 500px;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.4)),
-        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1400&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center 30%;
-      background-attachment: fixed;
+      background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: #fff;
-      padding: 0 20px;
+      position: relative;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
     }
 
     .about-content {
+      position: relative;
+      z-index: 2;
       max-width: 700px;
       opacity: 0;
       transform: translateY(20px);
@@ -554,7 +532,6 @@ TYPE html>
 
     .about-content p {
       font-size: 1.2rem;
-      opacity: 0.9;
       margin-bottom: 30px;
       line-height: 1.8;
       font-weight: 300;
@@ -565,7 +542,7 @@ TYPE html>
       font-weight: 600;
       color: #ffffff;
       letter-spacing: 2px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       display: inline-block;
       padding: 10px 25px;
       border-radius: 50px;
@@ -636,10 +613,6 @@ TYPE html>
       .btn-outline {
         margin-left: 0;
         margin-top: 15px;
-      }
-      .about {
-        height: 400px;
-        background-attachment: scroll;
       }
     }
   </style>
@@ -717,45 +690,24 @@ TYPE html>
   </section>
 
   <section class="why-us">
-    <div class="section-title">
-      <h2>為什麼選擇我們</h2>
-      <div class="line"></div>
+    <div class="why-block" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop');">
+      <div class="why-text">
+        <h3>數據驅動</h3>
+        <p>以真實數據為基底，結合行業洞察，制定可執行的策略方案。我們的分析團隊擅長從複雜數據中提煉關鍵信號，確保每一次決策都有據可依。</p>
+      </div>
     </div>
-    <div class="why-blocks">
-      <div class="why-block">
-        <div class="why-images">
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop" alt="數據分析"></div>
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop" alt="圖表"></div>
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&auto=format&fit=crop" alt="報告"></div>
-        </div>
-        <div class="why-text">
-          <h3>數據驅動</h3>
-          <p>以真實數據為基底，結合行業洞察，制定可執行的策略方案。我們的分析團隊擅長從複雜數據中提煉關鍵信號，確保每一次決策都有據可依。</p>
-        </div>
-      </div>
 
-      <div class="why-block">
-        <div class="why-images">
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&auto=format&fit=crop" alt="香港市場"></div>
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&auto=format&fit=crop" alt="團隊"></div>
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&auto=format&fit=crop" alt="會議"></div>
-        </div>
-        <div class="why-text">
-          <h3>本地深耕</h3>
-          <p>扎根香港，熟悉本地法規與商業環境，提供接地氣的專業建議。我們的本地網絡與經驗能幫助企業快速適應市場變化，降低風險。</p>
-        </div>
+    <div class="why-block" style="background-image: url('https://images.unsplash.com/photo-1565967511849-76a60a516170?q=80&w=1600&auto=format&fit=crop');">
+      <div class="why-text">
+        <h3>本地深耕</h3>
+        <p>扎根香港，熟悉本地法規與商業環境，提供接地氣的專業建議。我們的本地網絡與經驗能幫助企業快速適應市場變化，降低風險。</p>
       </div>
+    </div>
 
-      <div class="why-block">
-        <div class="why-images">
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&auto=format&fit=crop" alt="敏捷反應"></div>
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&auto=format&fit=crop" alt="團隊合作"></div>
-          <div class="why-img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&auto=format&fit=crop" alt="商務"></div>
-        </div>
-        <div class="why-text">
-          <h3>敏捷反應</h3>
-          <p>快速響應市場變化，為客戶提供靈活且高效的解決方案。我們保持敏銳的市場觸覺，隨時調整策略以應對突發狀況。</p>
-        </div>
+    <div class="why-block" style="background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=1600&auto=format&fit=crop');">
+      <div class="why-text">
+        <h3>敏捷反應</h3>
+        <p>快速響應市場變化，為客戶提供靈活且高效的解決方案。我們保持敏銳的市場觸覺，隨時調整策略以應對突發狀況。</p>
       </div>
     </div>
   </section>
@@ -824,7 +776,7 @@ TYPE html>
       navLinks.classList.toggle('active');
     });
 
-    const observerOptions = { threshold: 0.12, rootMargin: "0px 0px -30px 0px" };
+    const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -30px 0px" };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -850,4 +802,3 @@ TYPE html>
   </script>
 </body>
 </html>
-```
