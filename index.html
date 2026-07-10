@@ -22,61 +22,168 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .header {
+    /* ===== 左上角品牌文字 ===== */
+    .brand-logo {
       position: fixed;
       top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 24px;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border-radius: 60px;
-      padding: 8px 14px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      animation: floatIn 1s ease-out;
-    }
-
-    @keyframes floatIn {
-      0% { opacity: 0; top: -30px; }
-      100% { opacity: 1; top: 20px; }
-    }
-
-    .head-top {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      padding: 12px 24px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(201, 168, 44, 0.35);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(201,168,44,0.12);
+      transition: all 0.35s ease;
+    }
+    .brand-logo:hover {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(201, 168, 44, 0.65);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1), 0 0 18px rgba(201,168,44,0.2);
+      transform: translateY(-1px);
+    }
+    .brand-logo h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1a1e2b;
+      letter-spacing: 1.5px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .brand-logo h1 span {
+      color: #c9a82c;
+      font-weight: 900;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(201,168,44,0.3), 0 0 2px rgba(201,168,44,0.2);
+      transition: text-shadow 0.3s;
+    }
+    .brand-logo:hover h1 span {
+      text-shadow: 0 4px 14px rgba(201,168,44,0.45), 0 0 6px rgba(201,168,44,0.3);
+    }
+    .brand-logo .dot {
+      width: 7px;
+      height: 7px;
+      background: #c9a82c;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 4px;
+      box-shadow: 0 0 10px rgba(201,168,44,0.6);
+      animation: dotPulse 2s infinite;
+    }
+    @keyframes dotPulse {
+      0%,100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* ===== 右上角導航浮窗 ===== */
+    .nav-float {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .nav-trigger {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1.5px solid rgba(201, 168, 44, 0.35);
+      color: #3a3f4c;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-    }
-    .logo-area h1 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #1a1e2b;
-      letter-spacing: 2px;
-    }
-    .logo-area h1 span {
-      color: #b8941f;
-      font-weight: 600;
-      font-size: 1.4rem;
-    }
-    .nav-bar { display: flex; gap: 4px; }
-    .nav-bar a {
-      color: #4a4f5c;
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 30px;
+      cursor: pointer;
       transition: all 0.3s ease;
-      letter-spacing: 0.5px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
     }
-    .nav-bar a:hover {
-      background: #b8941f;
-      color: #ffffff;
-      box-shadow: 0 4px 15px rgba(184, 148, 31, 0.3);
-      transform: translateY(-1px);
+    .nav-trigger:hover {
+      background: #c9a82c;
+      border-color: #c9a82c;
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(201,168,44,0.35);
+      transform: scale(1.05);
+    }
+    .nav-trigger.active {
+      background: #c9a82c;
+      border-color: #c9a82c;
+      color: #fff;
+    }
+    .nav-trigger svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu {
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-radius: 24px;
+      padding: 8px;
+      border: 1.5px solid rgba(201, 168, 44, 0.25);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(201,168,44,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 170px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .nav-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-menu a {
+      color: #3a3f4c;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.88rem;
+      padding: 12px 18px;
+      border-radius: 16px;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.5px;
+      background: transparent;
+      border: 1px solid transparent;
+    }
+    .nav-menu a:hover {
+      background: rgba(201,168,44,0.08);
+      border-color: rgba(201,168,44,0.25);
+      color: #c9a82c;
+      transform: translateX(6px);
+    }
+    .nav-menu a .dot {
+      width: 5px;
+      height: 5px;
+      background: #c9a82c;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px rgba(201,168,44,0.4);
     }
 
     .hero-fullscreen {
@@ -113,7 +220,7 @@
       letter-spacing: -0.5px;
     }
     .hero-text-block .highlight {
-      color: #b8941f;
+      color: #c9a82c;
       display: block;
       font-size: clamp(1.4rem, 3.5vw, 2.3rem);
       font-weight: 600;
@@ -131,7 +238,7 @@
       display: inline-block;
       padding: 12px 28px;
       border-radius: 40px;
-      border-left: 3px solid #b8941f;
+      border-left: 3px solid #c9a82c;
       animation: slideInLeft 1.6s ease-out;
     }
     @keyframes slideInLeft {
@@ -168,7 +275,7 @@
     .stat-number {
       font-size: 3rem;
       font-weight: 700;
-      color: #b8941f;
+      color: #c9a82c;
       line-height: 1;
     }
     .stat-label {
@@ -181,7 +288,7 @@
     .stat-divider {
       width: 30px;
       height: 2px;
-      background: rgba(184, 148, 31, 0.5);
+      background: rgba(201, 168, 44, 0.5);
       margin: 8px auto 0;
     }
 
@@ -200,7 +307,7 @@
     .gallery-header.visible { opacity: 1; transform: translateY(0); }
     .gallery-header .section-num {
       font-size: 0.8rem;
-      color: #b8941f;
+      color: #c9a82c;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 6px;
@@ -214,7 +321,7 @@
     .gallery-header .line {
       width: 50px;
       height: 3px;
-      background: #b8941f;
+      background: #c9a82c;
       margin: 14px auto;
     }
 
@@ -330,9 +437,14 @@
       .img-overlay { padding: 24px 20px 20px; }
       .img-overlay h3 { font-size: 2.2rem; }
       .img-overlay p { font-size: 1.1rem; }
+      .brand-logo { top: 10px; left: 10px; padding: 8px 16px; }
+      .brand-logo h1 { font-size: 1.4rem; }
+      .brand-logo h1 span { font-size: 1.8rem; }
+      .nav-float { top: 10px; right: 10px; }
+      .nav-trigger { width: 42px; height: 42px; }
     }
 
-    /* 關於我們區域 - 改為白色背景與金色邊框卡片 */
+    /* 關於我們區域 */
     .about-section {
       background: #f8f9fc;
       padding: 60px 20px;
@@ -345,7 +457,7 @@
       max-width: 800px;
       width: 100%;
       background: #ffffff;
-      border: 2px solid #b8941f;
+      border: 2px solid #c9a82c;
       border-radius: 24px;
       padding: 50px 40px;
       text-align: center;
@@ -361,14 +473,14 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: #b8941f;
+      background: #c9a82c;
       border-radius: 0 0 8px 8px;
     }
 
     .about-card .gold-line {
       width: 60px;
       height: 3px;
-      background: #b8941f;
+      background: #c9a82c;
       margin: 0 auto 24px;
     }
 
@@ -392,11 +504,11 @@
       margin-top: 28px;
       font-size: 1.3rem;
       font-weight: 600;
-      color: #b8941f;
+      color: #c9a82c;
       letter-spacing: 2px;
       display: inline-block;
-      border-top: 1px solid rgba(184,148,31,0.3);
-      border-bottom: 1px solid rgba(184,148,31,0.3);
+      border-top: 1px solid rgba(201,168,44,0.3);
+      border-bottom: 1px solid rgba(201,168,44,0.3);
       padding: 10px 20px;
     }
 
@@ -409,24 +521,24 @@
       font-size: 0.85rem;
       letter-spacing: 0.5px;
     }
-    .footer-social { 
-      margin-bottom: 16px; 
+    .footer-social { 
+      margin-bottom: 16px; 
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
     }
-    .footer-social a { 
-      color: #4a4f5c; 
-      text-decoration: none; 
-      font-weight: 500; 
-      transition: 0.3s; 
+    .footer-social a { 
+      color: #4a4f5c; 
+      text-decoration: none; 
+      font-weight: 500; 
+      transition: 0.3s; 
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 0.9rem;
     }
-    .footer-social a:hover { color: #b8941f; }
+    .footer-social a:hover { color: #c9a82c; }
     .footer-social a svg {
       width: 20px;
       height: 20px;
@@ -462,25 +574,31 @@
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="head-top">
-      <div class="logo-area">
-        <h1><span>The Top Market</span></h1>
-      </div>
-      <nav class="nav-bar">
-        <a href="business.html">業務</a>
-        <a href="case.html">團隊</a>
-        <a href="team.html">流程</a>
-        <a href="contact.html">常見問題</a>
-        <a href="contact.html">聯絡</a>
-      </nav>
+  <div class="brand-logo">
+    <h1><span>The Top Market</span><span class="dot"></span></h1>
+  </div>
+
+  <div class="nav-float">
+    <div class="nav-trigger" id="navTrigger">
+      <svg viewBox="0 0 24 24">
+        <line x1="4" y1="6" x2="20" y2="6"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <a href="business.html"><span class="dot"></span> 業務範圍</a>
+      <a href="case.html"><span class="dot"></span> 顧問團隊</a>
+      <a href="team.html"><span class="dot"></span> 計劃流程</a>
+      <a href="contact.html"><span class="dot"></span> 常見問題</a>
+      <a href="contact.html"><span class="dot"></span> 聯絡我們</a>
     </div>
   </div>
 
   <div class="hero-fullscreen">
     <div class="hero-text-block">
       <h2>讓商業視野<span class="highlight">超越界限</span></h2>
-      <p>香港市場 · 精準落地 · 策略賦能</p>
+      <p>香港市場 · 精準數據 · 分析賦能</p>
     </div>
   </div>
 
@@ -496,19 +614,18 @@
 
   <div class="gallery-section">
     <div class="gallery-header">
-      <div class="section-num">01</div>
+      <div class="section-num"></div>
       <h2>核心服務</h2>
       <div class="line"></div>
     </div>
 
-    <!-- 商業策劃 -->
     <div class="mixed-masonry">
       <div class="img-piece grid-span-3 grid-row-2 shape-soft">
         <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop" alt="商業策劃">
         <div class="img-overlay">
           <span class="tag">Strategy</span>
           <h3>商業策劃</h3>
-          <p>計劃書撰寫、投資架構規劃，數據驅動精準策略。</p>
+          <p>計劃書撰寫、策略規劃，數據收集與精準分析。</p>
         </div>
       </div>
       <div class="img-piece grid-span-3 shape-notch">
@@ -525,7 +642,6 @@
       </div>
     </div>
 
-    <!-- 市場落地 -->
     <div class="mixed-masonry">
       <div class="img-piece grid-span-4 grid-row-2 shape-arch">
         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="市場落地">
@@ -534,8 +650,8 @@
         <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港夜景">
         <div class="img-overlay">
           <span class="tag">Market Entry</span>
-          <h3>市場落地</h3>
-          <p>香港市場調研、行業渠道搭建，品牌落地全流程。</p>
+          <h3>行業調研</h3>
+          <p>、資源、渠道、競品、客戶群。</p>
         </div>
       </div>
       <div class="img-piece grid-span-2 shape-parallelogram">
@@ -549,7 +665,6 @@
       </div>
     </div>
 
-    <!-- 風險與財務 -->
     <div class="mixed-masonry">
       <div class="img-piece grid-span-3 grid-row-2 shape-blob">
         <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2070&auto=format&fit=crop" alt="風險管理">
@@ -558,8 +673,8 @@
         <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" alt="金融數據">
         <div class="img-overlay">
           <span class="tag">Risk & Finance</span>
-          <h3>風險與財務</h3>
-          <p>稅務規劃、資金優化，企業經營風險全面排查。</p>
+          <h3>定制化服務</h3>
+          <p>新品上市調研、品牌差異化。</p>
         </div>
       </div>
       <div class="img-piece grid-span-2 shape-notch">
@@ -574,7 +689,6 @@
     </div>
   </div>
 
-  <!-- 關於我們區塊：白色背景＋金色邊框卡片 -->
   <div class="about-section">
     <div class="about-card">
       <h2>銳鋒顧問</h2>
@@ -596,21 +710,18 @@
   <div class="footer">
     <div class="footer-social">
       <a href="#">
-        <!-- WeChat 圖標 -->
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
           <path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
         </svg>
         WeChat
       </a>
       <a href="#">
-        <!-- WhatsApp 圖標 -->
         <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.357-.927l-.24-.063-2.467.643.644-2.4-.235-.07a6.56 6.56 0 0 1-6.69-11.06A6.57 6.57 0 0 1 7.994 1.46a6.566 6.566 0 0 1 6.566 6.566 6.573 6.573 0 0 1-6.566 6.495zm3.615-4.834c-.197-.099-1.17-.578-1.351-.646-.18-.065-.313.097-.443.313-.13.218-.513.673-.627.809-.113.13-.226.148-.423.05-.196-.1-1.105-.407-2.109-1.309-.78-.697-1.308-1.561-1.423-1.759-.113-.197-.01-.296.09-.416.096-.12.218-.313.328-.47.111-.156.148-.217.197-.313.06-.096.03-.178-.015-.248-.046-.07-.44-1.079-.605-1.47-.16-.39-.32-.339-.443-.344-.113-.005-.243-.006-.373.006a.729.729 0 0 0-.503.236c-.178.18-1.048 1.029-1.048 2.479 0 1.45 1.069 2.879 1.224 3.076.114.139 1.994 3.042 4.807 4.269.674.29 1.202.462 1.613.587.675.215 1.29.184 1.771.111.54-.083 1.671-.683 1.907-1.348.236-.665.236-1.234.165-1.348-.07-.114-.198-.18-.414-.297z"/>
         </svg>
         WhatsApp
       </a>
       <a href="#">
-        <!-- Instagram 圖標 -->
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
           <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
         </svg>
@@ -638,6 +749,44 @@
           if (el.getBoundingClientRect().top < window.innerHeight - 30) {
             el.classList.add('visible');
           }
+        });
+      });
+
+      const trigger = document.getElementById('navTrigger');
+      const menu = document.getElementById('navMenu');
+
+      function toggleMenu(e) {
+        e.stopPropagation();
+        trigger.classList.toggle('active');
+        menu.classList.toggle('active');
+      }
+
+      trigger.addEventListener('click', toggleMenu);
+
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !menu.contains(e.target)) {
+          trigger.classList.remove('active');
+          menu.classList.remove('active');
+        }
+      });
+
+      trigger.addEventListener('mouseenter', function() {
+        if (window.innerWidth > 768) {
+          trigger.classList.add('active');
+          menu.classList.add('active');
+        }
+      });
+      menu.addEventListener('mouseleave', function() {
+        if (window.innerWidth > 768) {
+          trigger.classList.remove('active');
+          menu.classList.remove('active');
+        }
+      });
+
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          trigger.classList.remove('active');
+          menu.classList.remove('active');
         });
       });
     })();
