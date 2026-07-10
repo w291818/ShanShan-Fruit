@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>業務範圍 | 銳鋒顧問 Top Market</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
+    body { background:#f8f9fc; color:#1a1e2b; line-height:1.5; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    .brand-logo { position:fixed; top:20px; left:24px; z-index:1000; display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.78); backdrop-filter:blur(22px); padding:12px 24px; border-radius:50px; border:1.5px solid rgba(201,168,44,0.35); box-shadow:0 8px 28px rgba(0,0,0,0.06); transition:0.35s; }
+    .brand-logo:hover { background:rgba(255,255,255,0.9); border-color:rgba(201,168,44,0.65); }
+    .brand-logo h1 { font-size:2rem; font-weight:800; color:#1a1e2b; letter-spacing:1.5px; margin:0; display:flex; align-items:center; gap:8px; }
+    .brand-logo h1 span { color:#c9a82c; font-weight:900; font-size:2.4rem; }
+    .brand-logo .dot { width:7px; height:7px; background:#c9a82c; border-radius:50%; margin:0 4px; animation:dotPulse 2s infinite; }
+    @keyframes dotPulse { 0%,100%{opacity:0.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
+
+    .nav-float { position:fixed; top:20px; right:24px; z-index:1001; display:flex; flex-direction:column; align-items:flex-end; }
+    .nav-trigger { background:rgba(255,255,255,0.78); backdrop-filter:blur(22px); border:1.5px solid rgba(201,168,44,0.35); color:#3a3f4c; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:0.3s; }
+    .nav-trigger:hover { background:#c9a82c; border-color:#c9a82c; color:#fff; }
+    .nav-trigger.active { background:#c9a82c; }
+    .nav-trigger svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2.2; }
+    .nav-menu { margin-top:10px; background:rgba(255,255,255,0.92); backdrop-filter:blur(30px); border-radius:24px; padding:8px; border:1.5px solid rgba(201,168,44,0.25); display:flex; flex-direction:column; gap:2px; min-width:170px; opacity:0; visibility:hidden; transform:translateY(8px); transition:0.3s; }
+    .nav-menu.active { opacity:1; visibility:visible; transform:translateY(0); }
+    .nav-menu a { color:#3a3f4c; text-decoration:none; font-weight:500; font-size:0.88rem; padding:12px 18px; border-radius:16px; transition:0.25s; display:flex; align-items:center; gap:10px; }
+    .nav-menu a:hover { background:rgba(201,168,44,0.08); border-color:rgba(201,168,44,0.25); color:#c9a82c; transform:translateX(6px); }
+    .nav-menu a .dot { width:5px; height:5px; background:#c9a82c; border-radius:50%; }
+
+    .page-content { max-width:1200px; margin:120px auto 60px; padding:0 20px; }
+    .page-title { font-size:2.5rem; font-weight:700; color:#1a1e2b; text-align:center; margin-bottom:40px; }
+    .service-detail { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+    .service-card { background:#fff; border-radius:20px; padding:30px; flex:1 1 300px; max-width:350px; box-shadow:0 8px 20px rgba(0,0,0,0.04); border:1px solid rgba(201,168,44,0.15); transition:0.3s; }
+    .service-card:hover { transform:translateY(-5px); border-color:#c9a82c; }
+    .service-card h3 { font-size:1.8rem; color:#c9a82c; margin-bottom:12px; }
+    .service-card p { color:#4a4f5c; line-height:1.7; }
+    .gold-line { width:50px; height:3px; background:#c9a82c; margin:16px 0; }
+
+    .footer { background:#f0f2f5; color:#6b7280; text-align:center; padding:40px 20px; border-top:1px solid #e0e3e8; font-size:0.85rem; letter-spacing:0.5px; }
+    .footer-social { margin-bottom:16px; display:flex; justify-content:center; gap:30px; }
+    .footer-social a { color:#4a4f5c; text-decoration:none; font-weight:500; transition:0.3s; display:flex; align-items:center; gap:8px; font-size:0.9rem; }
+    .footer-social a:hover { color:#c9a82c; }
+    .footer-social a svg { width:20px; height:20px; fill:currentColor; }
+  </style>
+</head>
+<body>
+  <a href="index.html" style="text-decoration:none; color:inherit;"><div class="brand-logo"><h1><span>The Top Market</span><span class="dot"></span></h1></div></a>
+  <div class="nav-float">
+    <div class="nav-trigger" id="navTrigger"><svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg></div>
+    <div class="nav-menu" id="navMenu">
+      <a href="business.html"><span class="dot"></span> 業務範圍</a>
+      <a href="case.html"><span class="dot"></span> 顧問團隊</a>
+      <a href="team.html"><span class="dot"></span> 計劃流程</a>
+      <a href="faq.html"><span class="dot"></span> 常見問題</a>
+      <a href="contact.html"><span class="dot"></span> 聯絡我們</a>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <h1 class="page-title">業務範圍</h1>
+    <div class="service-detail">
+      <div class="service-card"><h3>商業策劃</h3><div class="gold-line"></div><p>為初創及成熟企業提供商業計劃書撰寫、投資架構規劃、可行性分析。我們以數據為基礎，結合香港本地市場特性，制定精準策略。</p></div>
+      <div class="service-card"><h3>市場落地</h3><div class="gold-line"></div><p>提供香港市場調研、行業渠道搭建、品牌落地全流程指導。協助客戶快速融入本地商業環境，降低進入門檻。</p></div>
+      <div class="service-card"><h3>風險與財務諮詢</h3><div class="gold-line"></div><p>稅務規劃、資金架構優化、企業經營風險排查。建立穩健的財務管理體系，護航企業長遠發展。</p></div>
+      <div class="service-card"><h3>定制化調研</h3><div class="gold-line"></div><p>針對特定行業或項目，提供深度市場調研、消費者洞察、競品分析，支持商業決策。</p></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-social">
+      <a href="#"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg> WeChat</a>
+      <a href="#"><svg viewBox="0 0 16 16" width="20" height="20"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.357-.927l-.24-.063-2.467.643.644-2.4-.235-.07a6.56 6.56 0 0 1-6.69-11.06A6.57 6.57 0 0 1 7.994 1.46a6.566 6.566 0 0 1 6.566 6.566 6.573 6.573 0 0 1-6.566 6.495z"/></svg> WhatsApp</a>
+      <a href="#"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8z"/></svg> Instagram</a>
+    </div>
+    <p>© 2026 銳鋒有限公司 Top Market HK Limited</p>
+  </div>
+
+  <script>
+    const trigger=document.getElementById('navTrigger'), menu=document.getElementById('navMenu');
+    function toggle(e){ e.stopPropagation(); trigger.classList.toggle('active'); menu.classList.toggle('active'); }
+    trigger.addEventListener('click',toggle);
+    document.addEventListener('click',e=>{ if(!trigger.contains(e.target)&&!menu.contains(e.target)){ trigger.classList.remove('active'); menu.classList.remove('active'); } });
+    trigger.addEventListener('mouseenter',()=>{ if(window.innerWidth>768){ trigger.classList.add('active'); menu.classList.add('active'); } });
+    menu.addEventListener('mouseleave',()=>{ if(window.innerWidth>768){ trigger.classList.remove('active'); menu.classList.remove('active'); } });
+    menu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{ trigger.classList.remove('active'); menu.classList.remove('active'); }));
+  </script>
+</body>
+</html>
