@@ -261,7 +261,6 @@
     .shape-soft { border-radius: 20px; }
     .shape-squircle { border-radius: 30%; }
 
-    /* 圖片文字覆蓋層 - 大幅加強 */
     .img-overlay {
       position: absolute;
       inset: 0;
@@ -333,49 +332,106 @@
       .img-overlay p { font-size: 1.1rem; }
     }
 
-    .about-fullimage {
-      width: 100%;
-      height: 450px;
-      background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center 30%;
-      background-attachment: fixed;
+    /* 關於我們區域 - 改為白色背景與金色邊框卡片 */
+    .about-section {
+      background: #f8f9fc;
+      padding: 60px 20px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      position: relative;
-      margin-top: 40px;
+      align-items: center;
     }
-    .about-fullimage::before {
+
+    .about-card {
+      max-width: 800px;
+      width: 100%;
+      background: #ffffff;
+      border: 2px solid #b8941f;
+      border-radius: 24px;
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    }
+
+    .about-card::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.7);
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #b8941f;
+      border-radius: 0 0 8px 8px;
     }
-    .about-overlay {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 700px;
-      padding: 0 30px;
+
+    .about-card .gold-line {
+      width: 60px;
+      height: 3px;
+      background: #b8941f;
+      margin: 0 auto 24px;
     }
-    .about-overlay h2 { font-size: 2.5rem; color: #1a1e2b; font-weight: 700; margin-bottom: 14px; letter-spacing: 2px; }
-    .about-overlay .about-line { width: 40px; height: 3px; background: #b8941f; margin: 0 auto 18px; }
-    .about-overlay p { color: #3a3f4c; font-size: 1.05rem; margin-bottom: 8px; line-height: 1.7; font-weight: 400; }
-    .brand-quote { margin-top: 18px; font-size: 1.2rem; font-weight: 600; color: #b8941f; letter-spacing: 2px; }
+
+    .about-card h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #1a1e2b;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .about-card p {
+      font-size: 1.1rem;
+      color: #3a3f4c;
+      margin-bottom: 12px;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .about-card .brand-quote {
+      margin-top: 28px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #b8941f;
+      letter-spacing: 2px;
+      display: inline-block;
+      border-top: 1px solid rgba(184,148,31,0.3);
+      border-bottom: 1px solid rgba(184,148,31,0.3);
+      padding: 10px 20px;
+    }
 
     .footer {
       background: #f0f2f5;
       color: #6b7280;
       text-align: center;
-      padding: 35px 20px;
+      padding: 40px 20px;
       border-top: 1px solid #e0e3e8;
       font-size: 0.85rem;
       letter-spacing: 0.5px;
     }
-    .footer-social { margin-bottom: 12px; }
-    .footer-social a { color: #4a4f5c; margin: 0 16px; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    .footer-social { 
+      margin-bottom: 16px; 
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .footer-social a { 
+      color: #4a4f5c; 
+      text-decoration: none; 
+      font-weight: 500; 
+      transition: 0.3s; 
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
     .footer-social a:hover { color: #b8941f; }
+    .footer-social a svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
 
     .float-contact {
       position: fixed;
@@ -518,10 +574,11 @@
     </div>
   </div>
 
-  <div class="about-fullimage">
-    <div class="about-overlay">
+  <!-- 關於我們區塊：白色背景＋金色邊框卡片 -->
+  <div class="about-section">
+    <div class="about-card">
       <h2>銳鋒顧問</h2>
-      <div class="about-line"></div>
+      <div class="gold-line"></div>
       <p>深耕香港，以銳見洞察行業，用鋒利攻破市場。</p>
       <p>我們不只是顧問，更是你並肩的商業夥伴。</p>
       <div class="brand-quote">精準 · 務實 · 可持續</div>
@@ -538,9 +595,27 @@
 
   <div class="footer">
     <div class="footer-social">
-      <a href="#">Wechat</a>
-      <a href="#">WhatsApp</a>
-      <a href="#">Instagram</a>
+      <a href="#">
+        <!-- WeChat 圖標 -->
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+        </svg>
+        WeChat
+      </a>
+      <a href="#">
+        <!-- WhatsApp 圖標 -->
+        <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.357-.927l-.24-.063-2.467.643.644-2.4-.235-.07a6.56 6.56 0 0 1-6.69-11.06A6.57 6.57 0 0 1 7.994 1.46a6.566 6.566 0 0 1 6.566 6.566 6.573 6.573 0 0 1-6.566 6.495zm3.615-4.834c-.197-.099-1.17-.578-1.351-.646-.18-.065-.313.097-.443.313-.13.218-.513.673-.627.809-.113.13-.226.148-.423.05-.196-.1-1.105-.407-2.109-1.309-.78-.697-1.308-1.561-1.423-1.759-.113-.197-.01-.296.09-.416.096-.12.218-.313.328-.47.111-.156.148-.217.197-.313.06-.096.03-.178-.015-.248-.046-.07-.44-1.079-.605-1.47-.16-.39-.32-.339-.443-.344-.113-.005-.243-.006-.373.006a.729.729 0 0 0-.503.236c-.178.18-1.048 1.029-1.048 2.479 0 1.45 1.069 2.879 1.224 3.076.114.139 1.994 3.042 4.807 4.269.674.29 1.202.462 1.613.587.675.215 1.29.184 1.771.111.54-.083 1.671-.683 1.907-1.348.236-.665.236-1.234.165-1.348-.07-.114-.198-.18-.414-.297z"/>
+        </svg>
+        WhatsApp
+      </a>
+      <a href="#">
+        <!-- Instagram 圖標 -->
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+        </svg>
+        Instagram
+      </a>
     </div>
     <p>© 2026 銳鋒有限公司 Top Market HK Limited</p>
   </div>
@@ -569,4 +644,3 @@
   </script>
 </body>
 </html>
-```
