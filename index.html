@@ -5,359 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>銳鋒顧問 Top Market | 商業諮詢・專業服務</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', 'Segoe UI', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif; }
     html { scroll-behavior: smooth; }
+    body { background: #f8f9fc; color: #1a1e2b; line-height: 1.5; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-    body {
-      background: #f8f9fc;
-      color: #1a1e2b;
-      line-height: 1.5;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
+    .brand-logo { position: fixed; top: 20px; left: 24px; z-index: 1000; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.78); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); padding: 12px 24px; border-radius: 50px; border: 1.5px solid rgba(201,168,44,0.35); box-shadow: 0 8px 28px rgba(0,0,0,0.06), 0 0 0 1px rgba(201,168,44,0.12); transition: all 0.35s; }
+    .brand-logo:hover { background: rgba(255,255,255,0.9); border-color: rgba(201,168,44,0.65); box-shadow: 0 14px 35px rgba(0,0,0,0.1), 0 0 18px rgba(201,168,44,0.2); transform: translateY(-1px); }
+    .brand-logo h1 { font-size: 2rem; font-weight: 800; color: #1a1e2b; letter-spacing: 1.5px; margin: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; line-height: 1; }
+    .brand-logo h1 span { color: #c9a82c; font-weight: 900; font-size: 2.4rem; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(201,168,44,0.3), 0 0 2px rgba(201,168,44,0.2); }
+    .brand-logo .dot { width: 7px; height: 7px; background: #c9a82c; border-radius: 50%; display: inline-block; margin: 0 4px; box-shadow: 0 0 10px rgba(201,168,44,0.6); animation: dotPulse 2s infinite; }
+    @keyframes dotPulse { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
 
-    /* ===== 左上角品牌文字 ===== */
-    .brand-logo {
-      position: fixed;
-      top: 20px;
-      left: 24px;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      padding: 12px 24px;
-      border-radius: 50px;
-      border: 1.5px solid rgba(201, 168, 44, 0.35);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(201,168,44,0.12);
-      transition: all 0.35s ease;
-    }
-    .brand-logo:hover {
-      background: rgba(255, 255, 255, 0.9);
-      border-color: rgba(201, 168, 44, 0.65);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1), 0 0 18px rgba(201,168,44,0.2);
-      transform: translateY(-1px);
-    }
-    .brand-logo h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #1a1e2b;
-      letter-spacing: 1.5px;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      line-height: 1;
-    }
-    .brand-logo h1 span {
-      color: #c9a82c;
-      font-weight: 900;
-      font-size: 2.4rem;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 8px rgba(201,168,44,0.3), 0 0 2px rgba(201,168,44,0.2);
-      transition: text-shadow 0.3s;
-    }
-    .brand-logo:hover h1 span {
-      text-shadow: 0 4px 14px rgba(201,168,44,0.45), 0 0 6px rgba(201,168,44,0.3);
-    }
-    .brand-logo .dot {
-      width: 7px;
-      height: 7px;
-      background: #c9a82c;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0 4px;
-      box-shadow: 0 0 10px rgba(201,168,44,0.6);
-      animation: dotPulse 2s infinite;
-    }
-    @keyframes dotPulse {
-      0%,100% { opacity: 0.6; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.3); }
-    }
+    .nav-float { position: fixed; top: 20px; right: 24px; z-index: 1001; display: flex; flex-direction: column; align-items: flex-end; }
+    .nav-trigger { background: rgba(255,255,255,0.78); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1.5px solid rgba(201,168,44,0.35); color: #3a3f4c; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 22px rgba(0,0,0,0.05); }
+    .nav-trigger:hover { background: #c9a82c; border-color: #c9a82c; color: #fff; box-shadow: 0 12px 28px rgba(201,168,44,0.35); transform: scale(1.05); }
+    .nav-trigger.active { background: #c9a82c; border-color: #c9a82c; color: #fff; }
+    .nav-trigger svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; }
+    .nav-menu { margin-top: 10px; background: rgba(255,255,255,0.92); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-radius: 24px; padding: 8px; border: 1.5px solid rgba(201,168,44,0.25); box-shadow: 0 15px 35px rgba(0,0,0,0.06), 0 0 0 1px rgba(201,168,44,0.1); display: flex; flex-direction: column; gap: 2px; min-width: 170px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.3s cubic-bezier(0.23,1,0.32,1); }
+    .nav-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-menu a { color: #3a3f4c; text-decoration: none; font-weight: 500; font-size: 0.88rem; padding: 12px 18px; border-radius: 16px; transition: all 0.25s; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; background: transparent; border: 1px solid transparent; }
+    .nav-menu a:hover { background: rgba(201,168,44,0.08); border-color: rgba(201,168,44,0.25); color: #c9a82c; transform: translateX(6px); }
+    .nav-menu a .dot { width: 5px; height: 5px; background: #c9a82c; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 6px rgba(201,168,44,0.4); }
 
-    /* ===== 右上角導航浮窗 ===== */
-    .nav-float {
-      position: fixed;
-      top: 20px;
-      right: 24px;
-      z-index: 1001;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
+    .hero-fullscreen { width: 100%; height: 100vh; min-height: 700px; background: linear-gradient(160deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 65%, rgba(255,255,255,0.8) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: flex-start; padding: 0 8% 10% 8%; position: relative; animation: heroZoom 1.6s ease-out; }
+    @keyframes heroZoom { 0% { transform: scale(1.06); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    .hero-text-block { max-width: 800px; animation: revealText 1.4s cubic-bezier(0.2,0.9,0.3,1); }
+    @keyframes revealText { 0% { opacity: 0; transform: translateY(50px); } 100% { opacity: 1; transform: translateY(0); } }
+    .hero-text-block h2 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.05; text-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 16px; letter-spacing: -0.5px; }
+    .hero-text-block .highlight { color: #c9a82c; display: block; font-size: clamp(1.4rem, 3.5vw, 2.3rem); font-weight: 600; margin-top: 6px; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+    .hero-text-block p { font-size: 1.1rem; color: #fff; max-width: 520px; font-weight: 300; margin-top: 22px; backdrop-filter: blur(8px); background: rgba(0,0,0,0.3); display: inline-block; padding: 12px 28px; border-radius: 40px; border-left: 3px solid #c9a82c; animation: slideInLeft 1.6s ease-out; }
+    @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-40px); } 100% { opacity: 1; transform: translateX(0); } }
 
-    .nav-trigger {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border: 1.5px solid rgba(201, 168, 44, 0.35);
-      color: #3a3f4c;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
-    }
-    .nav-trigger:hover {
-      background: #c9a82c;
-      border-color: #c9a82c;
-      color: #fff;
-      box-shadow: 0 12px 28px rgba(201,168,44,0.35);
-      transform: scale(1.05);
-    }
-    .nav-trigger.active {
-      background: #c9a82c;
-      border-color: #c9a82c;
-      color: #fff;
-    }
-    .nav-trigger svg {
-      width: 22px;
-      height: 22px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2.2;
-      transition: all 0.3s ease;
-    }
-
-    .nav-menu {
-      margin-top: 10px;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border-radius: 24px;
-      padding: 8px;
-      border: 1.5px solid rgba(201, 168, 44, 0.25);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(201,168,44,0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 170px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .nav-menu.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .nav-menu a {
-      color: #3a3f4c;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.88rem;
-      padding: 12px 18px;
-      border-radius: 16px;
-      transition: all 0.25s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      letter-spacing: 0.5px;
-      background: transparent;
-      border: 1px solid transparent;
-    }
-    .nav-menu a:hover {
-      background: rgba(201,168,44,0.08);
-      border-color: rgba(201,168,44,0.25);
-      color: #c9a82c;
-      transform: translateX(6px);
-    }
-    .nav-menu a .dot {
-      width: 5px;
-      height: 5px;
-      background: #c9a82c;
-      border-radius: 50%;
-      flex-shrink: 0;
-      box-shadow: 0 0 6px rgba(201,168,44,0.4);
-    }
-
-    .hero-fullscreen {
-      width: 100%;
-      height: 100vh;
-      min-height: 700px;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.0) 0%, rgba(255, 255, 255, 0.2) 65%, rgba(255, 255, 255, 0.8) 100%),
-        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      padding: 0 8% 10% 8%;
-      position: relative;
-      animation: heroZoom 1.6s ease-out;
-    }
-    @keyframes heroZoom {
-      0% { transform: scale(1.06); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .hero-text-block { max-width: 800px; animation: revealText 1.4s cubic-bezier(0.2, 0.9, 0.3, 1); }
-    @keyframes revealText {
-      0% { opacity: 0; transform: translateY(50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .hero-text-block h2 {
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.05;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-    .hero-text-block .highlight {
-      color: #c9a82c;
-      display: block;
-      font-size: clamp(1.4rem, 3.5vw, 2.3rem);
-      font-weight: 600;
-      margin-top: 6px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
-    }
-    .hero-text-block p {
-      font-size: 1.1rem;
-      color: #ffffff;
-      max-width: 520px;
-      font-weight: 300;
-      margin-top: 22px;
-      backdrop-filter: blur(8px);
-      background: rgba(0, 0, 0, 0.3);
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 40px;
-      border-left: 3px solid #c9a82c;
-      animation: slideInLeft 1.6s ease-out;
-    }
-    @keyframes slideInLeft {
-      0% { opacity: 0; transform: translateX(-40px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-
-    .transition-wave {
-      width: 100%;
-      height: 40px;
-      background: linear-gradient(180deg, rgba(248, 249, 252, 0.9) 0%, #f8f9fc 100%);
-      margin-top: -1px;
-    }
-
-    .stats-section {
-      background: #f8f9fc;
-      padding: 30px 20px 20px;
-      text-align: center;
-    }
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 60px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .stat-item {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.7s ease;
-    }
+    .transition-wave { width: 100%; height: 40px; background: linear-gradient(180deg, rgba(248,249,252,0.9) 0%, #f8f9fc 100%); margin-top: -1px; }
+    .stats-section { background: #f8f9fc; padding: 30px 20px 20px; text-align: center; }
+    .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; max-width: 900px; margin: 0 auto; }
+    .stat-item { opacity: 0; transform: translateY(30px); transition: all 0.7s; }
     .stat-item.visible { opacity: 1; transform: translateY(0); }
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #c9a82c;
-      line-height: 1;
-    }
-    .stat-label {
-      color: #6b7280;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      margin-top: 4px;
-      text-transform: uppercase;
-    }
-    .stat-divider {
-      width: 30px;
-      height: 2px;
-      background: rgba(201, 168, 44, 0.5);
-      margin: 8px auto 0;
-    }
+    .stat-number { font-size: 3rem; font-weight: 700; color: #c9a82c; line-height: 1; }
+    .stat-label { color: #6b7280; font-size: 0.75rem; letter-spacing: 2px; margin-top: 4px; text-transform: uppercase; }
+    .stat-divider { width: 30px; height: 2px; background: rgba(201,168,44,0.5); margin: 8px auto 0; }
 
-    .gallery-section {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 40px 3% 10px;
-    }
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 40px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
+    .gallery-section { max-width: 1500px; margin: 0 auto; padding: 40px 3% 10px; }
+    .gallery-header { text-align: center; margin-bottom: 40px; opacity: 0; transform: translateY(20px); transition: all 0.8s; }
     .gallery-header.visible { opacity: 1; transform: translateY(0); }
-    .gallery-header .section-num {
-      font-size: 0.8rem;
-      color: #c9a82c;
-      letter-spacing: 3px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .gallery-header h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1a1e2b;
-      letter-spacing: 2px;
-    }
-    .gallery-header .line {
-      width: 50px;
-      height: 3px;
-      background: #c9a82c;
-      margin: 14px auto;
-    }
+    .gallery-header .section-num { font-size: 0.8rem; color: #c9a82c; letter-spacing: 3px; font-weight: 600; margin-bottom: 6px; }
+    .gallery-header h2 { font-size: 2.5rem; font-weight: 700; color: #1a1e2b; letter-spacing: 2px; }
+    .gallery-header .line { width: 50px; height: 3px; background: #c9a82c; margin: 14px auto; }
 
-    .mixed-masonry {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-auto-rows: minmax(120px, auto);
-      gap: 12px;
-      margin-bottom: 35px;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
+    .mixed-masonry { display: grid; grid-template-columns: repeat(6,1fr); grid-auto-rows: minmax(120px,auto); gap: 12px; margin-bottom: 35px; opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.23,1,0.32,1); }
     .mixed-masonry.visible { opacity: 1; transform: translateY(0); }
-
-    .img-piece {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-    .img-piece:hover {
-      transform: scale(1.03);
-      z-index: 5;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    }
-    .img-piece img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s;
-    }
+    .img-piece { position: relative; overflow: hidden; cursor: pointer; transition: all 0.4s; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .img-piece:hover { transform: scale(1.03); z-index: 5; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+    .img-piece img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
     .img-piece:hover img { transform: scale(1.08); }
-
     .shape-circle { clip-path: circle(46% at 50% 48%); }
     .shape-hexagon { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
     .shape-diamond { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
@@ -368,229 +68,53 @@
     .shape-soft { border-radius: 20px; }
     .shape-squircle { border-radius: 30%; }
 
-    .img-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 90%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 35px 32px 28px;
-      pointer-events: none;
-      z-index: 2;
-    }
+    .img-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 90%); display: flex; flex-direction: column; justify-content: flex-end; padding: 35px 32px 28px; pointer-events: none; z-index: 2; }
+    .img-overlay .tag { font-size: 0.9rem; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); display: flex; align-items: center; gap: 10px; }
+    .img-overlay .tag::before { content: ""; width: 24px; height: 2px; background: #d4af37; display: inline-block; box-shadow: 0 0 10px rgba(212,175,55,0.9); }
+    .img-overlay h3 { font-size: clamp(2.8rem, 5.5vw, 4.5rem); font-weight: 900; color: #fff; letter-spacing: 1.5px; margin-bottom: 14px; text-shadow: 0 4px 25px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.6); line-height: 1.05; }
+    .img-overlay p { font-size: clamp(1.2rem, 2vw, 1.5rem); color: #fff; line-height: 1.5; font-weight: 400; text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6); max-width: 95%; letter-spacing: 0.4px; }
 
-    .img-overlay .tag {
-      font-size: 0.9rem;
-      color: #d4af37;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .img-overlay .tag::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      background: #d4af37;
-      display: inline-block;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
-    }
+    .grid-span-2 { grid-column: span 2; } .grid-span-3 { grid-column: span 3; } .grid-span-4 { grid-column: span 4; } .grid-span-6 { grid-column: span 6; } .grid-row-2 { grid-row: span 2; }
 
-    .img-overlay h3 {
-      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 1.5px;
-      margin-bottom: 14px;
-      text-shadow: 0 4px 25px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.6);
-      line-height: 1.05;
-    }
+    @media (max-width: 900px) { .mixed-masonry { grid-template-columns: repeat(4,1fr); } }
+    @media (max-width: 600px) { .mixed-masonry { grid-template-columns: repeat(2,1fr); grid-auto-rows: minmax(100px,auto); } .grid-span-2,.grid-span-3,.grid-span-4,.grid-span-6 { grid-column: span 2; } .grid-row-2 { grid-row: span 1; } .img-overlay { padding: 24px 20px 20px; } .img-overlay h3 { font-size: 2.2rem; } .img-overlay p { font-size: 1.1rem; } .brand-logo { top: 10px; left: 10px; padding: 8px 16px; } .brand-logo h1 { font-size: 1.4rem; } .brand-logo h1 span { font-size: 1.8rem; } .nav-float { top: 10px; right: 10px; } .nav-trigger { width: 42px; height: 42px; } }
 
-    .img-overlay p {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      color: #ffffff;
-      line-height: 1.5;
-      font-weight: 400;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6);
-      max-width: 95%;
-      letter-spacing: 0.4px;
-    }
+    .about-section { background: #f8f9fc; padding: 60px 20px; display: flex; justify-content: center; align-items: center; }
+    .about-card { max-width: 800px; width: 100%; background: #fff; border: 2px solid #c9a82c; border-radius: 24px; padding: 50px 40px; text-align: center; position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
+    .about-card::before { content: ""; position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: #c9a82c; border-radius: 0 0 8px 8px; }
+    .about-card .gold-line { width: 60px; height: 3px; background: #c9a82c; margin: 0 auto 24px; }
+    .about-card h2 { font-size: 2.8rem; font-weight: 700; color: #1a1e2b; margin-bottom: 16px; letter-spacing: 2px; }
+    .about-card p { font-size: 1.1rem; color: #3a3f4c; margin-bottom: 12px; line-height: 1.8; font-weight: 400; }
+    .about-card .brand-quote { margin-top: 28px; font-size: 1.3rem; font-weight: 600; color: #c9a82c; letter-spacing: 2px; display: inline-block; border-top: 1px solid rgba(201,168,44,0.3); border-bottom: 1px solid rgba(201,168,44,0.3); padding: 10px 20px; }
 
-    .grid-span-2 { grid-column: span 2; }
-    .grid-span-3 { grid-column: span 3; }
-    .grid-span-4 { grid-column: span 4; }
-    .grid-span-6 { grid-column: span 6; }
-    .grid-row-2 { grid-row: span 2; }
-
-    @media (max-width: 900px) {
-      .mixed-masonry { grid-template-columns: repeat(4, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .mixed-masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(100px, auto); }
-      .grid-span-2, .grid-span-3, .grid-span-4, .grid-span-6 { grid-column: span 2; }
-      .grid-row-2 { grid-row: span 1; }
-      .img-overlay { padding: 24px 20px 20px; }
-      .img-overlay h3 { font-size: 2.2rem; }
-      .img-overlay p { font-size: 1.1rem; }
-      .brand-logo { top: 10px; left: 10px; padding: 8px 16px; }
-      .brand-logo h1 { font-size: 1.4rem; }
-      .brand-logo h1 span { font-size: 1.8rem; }
-      .nav-float { top: 10px; right: 10px; }
-      .nav-trigger { width: 42px; height: 42px; }
-    }
-
-    /* 關於我們區域 */
-    .about-section {
-      background: #f8f9fc;
-      padding: 60px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .about-card {
-      max-width: 800px;
-      width: 100%;
-      background: #ffffff;
-      border: 2px solid #c9a82c;
-      border-radius: 24px;
-      padding: 50px 40px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-    }
-
-    .about-card::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: #c9a82c;
-      border-radius: 0 0 8px 8px;
-    }
-
-    .about-card .gold-line {
-      width: 60px;
-      height: 3px;
-      background: #c9a82c;
-      margin: 0 auto 24px;
-    }
-
-    .about-card h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #1a1e2b;
-      margin-bottom: 16px;
-      letter-spacing: 2px;
-    }
-
-    .about-card p {
-      font-size: 1.1rem;
-      color: #3a3f4c;
-      margin-bottom: 12px;
-      line-height: 1.8;
-      font-weight: 400;
-    }
-
-    .about-card .brand-quote {
-      margin-top: 28px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #c9a82c;
-      letter-spacing: 2px;
-      display: inline-block;
-      border-top: 1px solid rgba(201,168,44,0.3);
-      border-bottom: 1px solid rgba(201,168,44,0.3);
-      padding: 10px 20px;
-    }
-
-    .footer {
-      background: #f0f2f5;
-      color: #6b7280;
-      text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid #e0e3e8;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-    }
-    .footer-social { 
-      margin-bottom: 16px; 
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    .footer-social a { 
-      color: #4a4f5c; 
-      text-decoration: none; 
-      font-weight: 500; 
-      transition: 0.3s; 
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-    }
+    .footer { background: #f0f2f5; color: #6b7280; text-align: center; padding: 40px 20px; border-top: 1px solid #e0e3e8; font-size: 0.85rem; letter-spacing: 0.5px; }
+    .footer-social { margin-bottom: 16px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+    .footer-social a { color: #4a4f5c; text-decoration: none; font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
     .footer-social a:hover { color: #c9a82c; }
-    .footer-social a svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
+    .footer-social a svg { width: 20px; height: 20px; fill: currentColor; }
 
-    .float-contact {
-      position: fixed;
-      right: 24px;
-      bottom: 36px;
-      z-index: 998;
-      animation: softBounce 2.5s infinite ease-in-out;
-    }
-    @keyframes softBounce {
-      0%,100% { transform: translateY(0); }
-      30% { transform: translateY(-12px); }
-      60% { transform: translateY(-4px); }
-    }
-    .float-contact a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      background: #25D366;
-      border-radius: 50%;
-      color: white;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-      transition: 0.3s;
-    }
+    .float-contact { position: fixed; right: 24px; bottom: 36px; z-index: 998; animation: softBounce 2.5s infinite ease-in-out; }
+    @keyframes softBounce { 0%,100% { transform: translateY(0); } 30% { transform: translateY(-12px); } 60% { transform: translateY(-4px); } }
+    .float-contact a { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: #25D366; border-radius: 50%; color: white; text-decoration: none; box-shadow: 0 10px 25px rgba(37,211,102,0.4); transition: 0.3s; }
     .float-contact a:hover { background: #1a1e2b; color: #25D366; transform: scale(1.08); }
   </style>
 </head>
 <body>
-  <div class="brand-logo">
-    <h1><span>The Top Market</span><span class="dot"></span></h1>
-  </div>
+  <a href="index.html" style="text-decoration: none; color: inherit;">
+    <div class="brand-logo">
+      <h1><span>The Top Market</span><span class="dot"></span></h1>
+    </div>
+  </a>
 
   <div class="nav-float">
     <div class="nav-trigger" id="navTrigger">
-      <svg viewBox="0 0 24 24">
-        <line x1="4" y1="6" x2="20" y2="6"></line>
-        <line x1="4" y1="12" x2="20" y2="12"></line>
-        <line x1="4" y1="18" x2="20" y2="18"></line>
-      </svg>
+      <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
     </div>
     <div class="nav-menu" id="navMenu">
       <a href="business.html"><span class="dot"></span> 業務範圍</a>
       <a href="case.html"><span class="dot"></span> 顧問團隊</a>
       <a href="team.html"><span class="dot"></span> 計劃流程</a>
-      <a href="contact.html"><span class="dot"></span> 常見問題</a>
+      <a href="faq.html"><span class="dot"></span> 常見問題</a>
       <a href="contact.html"><span class="dot"></span> 聯絡我們</a>
     </div>
   </div>
@@ -614,7 +138,7 @@
 
   <div class="gallery-section">
     <div class="gallery-header">
-      <div class="section-num"></div>
+      <div class="section-num">01</div>
       <h2>核心服務</h2>
       <div class="line"></div>
     </div>
@@ -622,70 +146,34 @@
     <div class="mixed-masonry">
       <div class="img-piece grid-span-3 grid-row-2 shape-soft">
         <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop" alt="商業策劃">
-        <div class="img-overlay">
-          <span class="tag">Strategy</span>
-          <h3>商業策劃</h3>
-          <p>計劃書撰寫、策略規劃，數據收集與精準分析。</p>
-        </div>
+        <div class="img-overlay"><span class="tag">Strategy</span><h3>商業策劃</h3><p>計劃書撰寫、投資架構規劃，數據驅動精準策略。</p></div>
       </div>
-      <div class="img-piece grid-span-3 shape-notch">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="團隊討論">
-      </div>
-      <div class="img-piece grid-span-2 shape-hexagon">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" alt="商務會議">
-      </div>
-      <div class="img-piece grid-span-2 shape-diamond">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="數據">
-      </div>
-      <div class="img-piece grid-span-2 shape-circle">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="數據分析">
-      </div>
+      <div class="img-piece grid-span-3 shape-notch"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="團隊討論"></div>
+      <div class="img-piece grid-span-2 shape-hexagon"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" alt="商務會議"></div>
+      <div class="img-piece grid-span-2 shape-diamond"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="數據"></div>
+      <div class="img-piece grid-span-2 shape-circle"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="數據分析"></div>
     </div>
 
     <div class="mixed-masonry">
-      <div class="img-piece grid-span-4 grid-row-2 shape-arch">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="市場落地">
-      </div>
+      <div class="img-piece grid-span-4 grid-row-2 shape-arch"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="市場落地"></div>
       <div class="img-piece grid-span-2 grid-row-2 shape-soft">
         <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港夜景">
-        <div class="img-overlay">
-          <span class="tag">Market Entry</span>
-          <h3>行業調研</h3>
-          <p>、資源、渠道、競品、客戶群。</p>
-        </div>
+        <div class="img-overlay"><span class="tag">Market Entry</span><h3>行業調研</h3><p>資源、渠道、競品、客戶群。</p></div>
       </div>
-      <div class="img-piece grid-span-2 shape-parallelogram">
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="團隊協作">
-      </div>
-      <div class="img-piece grid-span-2 shape-blob">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="商務簡報">
-      </div>
-      <div class="img-piece grid-span-2 shape-squircle">
-        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港">
-      </div>
+      <div class="img-piece grid-span-2 shape-parallelogram"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="團隊協作"></div>
+      <div class="img-piece grid-span-2 shape-blob"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="商務簡報"></div>
+      <div class="img-piece grid-span-2 shape-squircle"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港"></div>
     </div>
 
     <div class="mixed-masonry">
-      <div class="img-piece grid-span-3 grid-row-2 shape-blob">
-        <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2070&auto=format&fit=crop" alt="風險管理">
-      </div>
+      <div class="img-piece grid-span-3 grid-row-2 shape-blob"><img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2070&auto=format&fit=crop" alt="風險管理"></div>
       <div class="img-piece grid-span-3 shape-soft">
         <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" alt="金融數據">
-        <div class="img-overlay">
-          <span class="tag">Risk & Finance</span>
-          <h3>定制化服務</h3>
-          <p>新品上市調研、品牌差異化。</p>
-        </div>
+        <div class="img-overlay"><span class="tag">Risk & Finance</span><h3>定制化服務</h3><p>新品上市調研、品牌差異化。</p></div>
       </div>
-      <div class="img-piece grid-span-2 shape-notch">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop" alt="圖表分析">
-      </div>
-      <div class="img-piece grid-span-2 shape-hexagon">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" alt="團隊合作">
-      </div>
-      <div class="img-piece grid-span-2 shape-diamond">
-        <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" alt="分析">
-      </div>
+      <div class="img-piece grid-span-2 shape-notch"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop" alt="圖表分析"></div>
+      <div class="img-piece grid-span-2 shape-hexagon"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" alt="團隊合作"></div>
+      <div class="img-piece grid-span-2 shape-diamond"><img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" alt="分析"></div>
     </div>
   </div>
 
@@ -700,96 +188,30 @@
   </div>
 
   <div class="float-contact">
-    <a href="https://wa.me/85212345678" target="_blank" aria-label="WhatsApp">
-      <svg width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/>
-      </svg>
-    </a>
+    <a href="https://wa.me/85212345678" target="_blank" aria-label="WhatsApp"><svg width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg></a>
   </div>
 
   <div class="footer">
     <div class="footer-social">
-      <a href="#">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
-        </svg>
-        WeChat
-      </a>
-      <a href="#">
-        <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.357-.927l-.24-.063-2.467.643.644-2.4-.235-.07a6.56 6.56 0 0 1-6.69-11.06A6.57 6.57 0 0 1 7.994 1.46a6.566 6.566 0 0 1 6.566 6.566 6.573 6.573 0 0 1-6.566 6.495zm3.615-4.834c-.197-.099-1.17-.578-1.351-.646-.18-.065-.313.097-.443.313-.13.218-.513.673-.627.809-.113.13-.226.148-.423.05-.196-.1-1.105-.407-2.109-1.309-.78-.697-1.308-1.561-1.423-1.759-.113-.197-.01-.296.09-.416.096-.12.218-.313.328-.47.111-.156.148-.217.197-.313.06-.096.03-.178-.015-.248-.046-.07-.44-1.079-.605-1.47-.16-.39-.32-.339-.443-.344-.113-.005-.243-.006-.373.006a.729.729 0 0 0-.503.236c-.178.18-1.048 1.029-1.048 2.479 0 1.45 1.069 2.879 1.224 3.076.114.139 1.994 3.042 4.807 4.269.674.29 1.202.462 1.613.587.675.215 1.29.184 1.771.111.54-.083 1.671-.683 1.907-1.348.236-.665.236-1.234.165-1.348-.07-.114-.198-.18-.414-.297z"/>
-        </svg>
-        WhatsApp
-      </a>
-      <a href="#">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-        </svg>
-        Instagram
-      </a>
+      <a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg> WeChat</a>
+      <a href="#"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.357-.927l-.24-.063-2.467.643.644-2.4-.235-.07a6.56 6.56 0 0 1-6.69-11.06A6.57 6.57 0 0 1 7.994 1.46a6.566 6.566 0 0 1 6.566 6.566 6.573 6.573 0 0 1-6.566 6.495zm3.615-4.834c-.197-.099-1.17-.578-1.351-.646-.18-.065-.313.097-.443.313-.13.218-.513.673-.627.809-.113.13-.226.148-.423.05-.196-.1-1.105-.407-2.109-1.309-.78-.697-1.308-1.561-1.423-1.759-.113-.197-.01-.296.09-.416.096-.12.218-.313.328-.47.111-.156.148-.217.197-.313.06-.096.03-.178-.015-.248-.046-.07-.44-1.079-.605-1.47-.16-.39-.32-.339-.443-.344-.113-.005-.243-.006-.373.006a.729.729 0 0 0-.503.236c-.178.18-1.048 1.029-1.048 2.479 0 1.45 1.069 2.879 1.224 3.076.114.139 1.994 3.042 4.807 4.269.674.29 1.202.462 1.613.587.675.215 1.29.184 1.771.111.54-.083 1.671-.683 1.907-1.348.236-.665.236-1.234.165-1.348-.07-.114-.198-.18-.414-.297z"/></svg> WhatsApp</a>
+      <a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg> Instagram</a>
     </div>
     <p>© 2026 銳鋒有限公司 Top Market HK Limited</p>
   </div>
 
   <script>
-    (function() {
-      const elements = document.querySelectorAll('.mixed-masonry, .stat-item, .gallery-header');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    const trigger = document.getElementById('navTrigger');
+    const menu = document.getElementById('navMenu');
+    function toggleMenu(e) { e.stopPropagation(); trigger.classList.toggle('active'); menu.classList.toggle('active'); }
+    trigger.addEventListener('click', toggleMenu);
+    document.addEventListener('click', function(e) { if (!trigger.contains(e.target) && !menu.contains(e.target)) { trigger.classList.remove('active'); menu.classList.remove('active'); } });
+    trigger.addEventListener('mouseenter', function() { if (window.innerWidth > 768) { trigger.classList.add('active'); menu.classList.add('active'); } });
+    menu.addEventListener('mouseleave', function() { if (window.innerWidth > 768) { trigger.classList.remove('active'); menu.classList.remove('active'); } });
+    menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { trigger.classList.remove('active'); menu.classList.remove('active'); }); });
 
-      elements.forEach(el => observer.observe(el));
-      window.addEventListener('load', () => {
-        elements.forEach(el => {
-          if (el.getBoundingClientRect().top < window.innerHeight - 30) {
-            el.classList.add('visible');
-          }
-        });
-      });
-
-      const trigger = document.getElementById('navTrigger');
-      const menu = document.getElementById('navMenu');
-
-      function toggleMenu(e) {
-        e.stopPropagation();
-        trigger.classList.toggle('active');
-        menu.classList.toggle('active');
-      }
-
-      trigger.addEventListener('click', toggleMenu);
-
-      document.addEventListener('click', function(e) {
-        if (!trigger.contains(e.target) && !menu.contains(e.target)) {
-          trigger.classList.remove('active');
-          menu.classList.remove('active');
-        }
-      });
-
-      trigger.addEventListener('mouseenter', function() {
-        if (window.innerWidth > 768) {
-          trigger.classList.add('active');
-          menu.classList.add('active');
-        }
-      });
-      menu.addEventListener('mouseleave', function() {
-        if (window.innerWidth > 768) {
-          trigger.classList.remove('active');
-          menu.classList.remove('active');
-        }
-      });
-
-      menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          trigger.classList.remove('active');
-          menu.classList.remove('active');
-        });
-      });
-    })();
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    document.querySelectorAll('.mixed-masonry, .stat-item, .gallery-header').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
