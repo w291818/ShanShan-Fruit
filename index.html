@@ -287,13 +287,13 @@
       margin: 0 auto;
     }
 
-    /* 横向滚动卡片 - 调整宽度，增加内边距 */
+    /* 横向滚动卡片 – 左右留足空间，确保三个卡片都能完整显示 */
     .card-scroll-container {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       display: flex;
       gap: 20px;
-      padding: 20px 5%;
+      padding: 20px 15%;
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
@@ -303,7 +303,7 @@
     }
 
     .service-card {
-      flex: 0 0 70%;
+      flex: 0 0 60%;
       max-width: 460px;
       background: #1a202c;
       border-radius: 12px;
@@ -617,7 +617,8 @@
       .btn-outline { margin-left: 0; margin-top: 15px; }
       .why-text h3 { font-size: 2.2rem; }
       .why-text p { font-size: 1.1rem; }
-      .service-card { flex: 0 0 85%; }
+      .service-card { flex: 0 0 80%; }
+      .card-scroll-container { padding: 20px 10%; }
     }
   </style>
 </head>
