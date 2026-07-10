@@ -1,3 +1,6 @@
+我們已將「為什麼選擇我們」重新設計為三個大區塊，每個區塊突出一個原因並搭配精選圖片。同時將所有圖片的淡入動畫延長至 2 秒，使進場效果更從容優雅。
+
+```html
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -5,213 +8,849 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>銳鋒顧問 Top Market | 商業諮詢・專業服務</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { background: #f8f9fc; color: #1a1e2b; line-height: 1.5; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', 'Segoe UI', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+    }
 
-    .brand-logo { position: fixed; top: 20px; left: 24px; z-index: 1000; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.78); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); padding: 12px 24px; border-radius: 50px; border: 1.5px solid rgba(201,168,44,0.35); box-shadow: 0 8px 28px rgba(0,0,0,0.06), 0 0 0 1px rgba(201,168,44,0.12); transition: all 0.35s; }
-    .brand-logo:hover { background: rgba(255,255,255,0.9); border-color: rgba(201,168,44,0.65); box-shadow: 0 14px 35px rgba(0,0,0,0.1), 0 0 18px rgba(201,168,44,0.2); transform: translateY(-1px); }
-    .brand-logo h1 { font-size: 2rem; font-weight: 800; color: #1a1e2b; letter-spacing: 1.5px; margin: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; line-height: 1; }
-    .brand-logo h1 span { color: #c9a82c; font-weight: 900; font-size: 2.4rem; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(201,168,44,0.3), 0 0 2px rgba(201,168,44,0.2); }
-    .brand-logo .dot { width: 7px; height: 7px; background: #c9a82c; border-radius: 50%; display: inline-block; margin: 0 4px; box-shadow: 0 0 10px rgba(201,168,44,0.6); animation: dotPulse 2s infinite; }
-    @keyframes dotPulse { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+    html {
+      scroll-behavior: smooth;
+    }
 
-    .nav-float { position: fixed; top: 20px; right: 24px; z-index: 1001; display: flex; flex-direction: column; align-items: flex-end; }
-    .nav-trigger { background: rgba(255,255,255,0.78); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1.5px solid rgba(201,168,44,0.35); color: #3a3f4c; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 22px rgba(0,0,0,0.05); }
-    .nav-trigger:hover { background: #c9a82c; border-color: #c9a82c; color: #fff; box-shadow: 0 12px 28px rgba(201,168,44,0.35); transform: scale(1.05); }
-    .nav-trigger.active { background: #c9a82c; border-color: #c9a82c; color: #fff; }
-    .nav-trigger svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; }
-    .nav-menu { margin-top: 10px; background: rgba(255,255,255,0.92); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-radius: 24px; padding: 8px; border: 1.5px solid rgba(201,168,44,0.25); box-shadow: 0 15px 35px rgba(0,0,0,0.06), 0 0 0 1px rgba(201,168,44,0.1); display: flex; flex-direction: column; gap: 2px; min-width: 170px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.3s cubic-bezier(0.23,1,0.32,1); }
-    .nav-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
-    .nav-menu a { color: #3a3f4c; text-decoration: none; font-weight: 500; font-size: 0.88rem; padding: 12px 18px; border-radius: 16px; transition: all 0.25s; display: flex; align-items: center; gap: 10px; letter-spacing: 0.5px; background: transparent; border: 1px solid transparent; }
-    .nav-menu a:hover { background: rgba(201,168,44,0.08); border-color: rgba(201,168,44,0.25); color: #c9a82c; transform: translateX(6px); }
-    .nav-menu a .dot { width: 5px; height: 5px; background: #c9a82c; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 6px rgba(201,168,44,0.4); }
+    body {
+      background: #0c1119;
+      color: #e2e8f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    .hero-fullscreen { width: 100%; height: 100vh; min-height: 700px; background: linear-gradient(160deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 65%, rgba(255,255,255,0.8) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: flex-start; padding: 0 8% 10% 8%; position: relative; animation: heroZoom 1.6s ease-out; }
-    @keyframes heroZoom { 0% { transform: scale(1.06); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-    .hero-text-block { max-width: 800px; animation: revealText 1.4s cubic-bezier(0.2,0.9,0.3,1); }
-    @keyframes revealText { 0% { opacity: 0; transform: translateY(50px); } 100% { opacity: 1; transform: translateY(0); } }
-    .hero-text-block h2 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.05; text-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 16px; letter-spacing: -0.5px; }
-    .hero-text-block .highlight { color: #c9a82c; display: block; font-size: clamp(1.4rem, 3.5vw, 2.3rem); font-weight: 600; margin-top: 6px; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
-    .hero-text-block p { font-size: 1.1rem; color: #fff; max-width: 520px; font-weight: 300; margin-top: 22px; backdrop-filter: blur(8px); background: rgba(0,0,0,0.3); display: inline-block; padding: 12px 28px; border-radius: 40px; border-left: 3px solid #c9a82c; animation: slideInLeft 1.6s ease-out; }
-    @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-40px); } 100% { opacity: 1; transform: translateX(0); } }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(12, 17, 25, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.4s ease;
+      padding: 14px 0;
+    }
 
-    .transition-wave { width: 100%; height: 40px; background: linear-gradient(180deg, rgba(248,249,252,0.9) 0%, #f8f9fc 100%); margin-top: -1px; }
-    .stats-section { background: #f8f9fc; padding: 30px 20px 20px; text-align: center; }
-    .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; max-width: 900px; margin: 0 auto; }
-    .stat-item { opacity: 0; transform: translateY(30px); transition: all 0.7s; }
-    .stat-item.visible { opacity: 1; transform: translateY(0); }
-    .stat-number { font-size: 3rem; font-weight: 700; color: #c9a82c; line-height: 1; }
-    .stat-label { color: #6b7280; font-size: 0.75rem; letter-spacing: 2px; margin-top: 4px; text-transform: uppercase; }
-    .stat-divider { width: 30px; height: 2px; background: rgba(201,168,44,0.5); margin: 8px auto 0; }
+    .header.scrolled {
+      padding: 8px 0;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    }
 
-    .gallery-section { max-width: 1500px; margin: 0 auto; padding: 40px 3% 10px; }
-    .gallery-header { text-align: center; margin-bottom: 40px; opacity: 0; transform: translateY(20px); transition: all 0.8s; }
-    .gallery-header.visible { opacity: 1; transform: translateY(0); }
-    .gallery-header .section-num { font-size: 0.8rem; color: #c9a82c; letter-spacing: 3px; font-weight: 600; margin-bottom: 6px; }
-    .gallery-header h2 { font-size: 2.5rem; font-weight: 700; color: #1a1e2b; letter-spacing: 2px; }
-    .gallery-header .line { width: 50px; height: 3px; background: #c9a82c; margin: 14px auto; }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    .mixed-masonry { display: grid; grid-template-columns: repeat(6,1fr); grid-auto-rows: minmax(120px,auto); gap: 12px; margin-bottom: 35px; opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.23,1,0.32,1); }
-    .mixed-masonry.visible { opacity: 1; transform: translateY(0); }
-    .img-piece { position: relative; overflow: hidden; cursor: pointer; transition: all 0.4s; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-    .img-piece:hover { transform: scale(1.03); z-index: 5; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-    .img-piece img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
-    .img-piece:hover img { transform: scale(1.08); }
-    .shape-circle { clip-path: circle(46% at 50% 48%); }
-    .shape-hexagon { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
-    .shape-diamond { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
-    .shape-blob { clip-path: polygon(50% 0%, 90% 10%, 100% 50%, 90% 90%, 50% 100%, 10% 90%, 0% 50%, 10% 10%); }
-    .shape-parallelogram { clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); }
-    .shape-arch { clip-path: ellipse(55% 75% at 50% 25%); }
-    .shape-notch { clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%); }
-    .shape-soft { border-radius: 20px; }
-    .shape-squircle { border-radius: 30%; }
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
 
-    .img-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 90%); display: flex; flex-direction: column; justify-content: flex-end; padding: 35px 32px 28px; pointer-events: none; z-index: 2; }
-    .img-overlay .tag { font-size: 0.9rem; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); display: flex; align-items: center; gap: 10px; }
-    .img-overlay .tag::before { content: ""; width: 24px; height: 2px; background: #d4af37; display: inline-block; box-shadow: 0 0 10px rgba(212,175,55,0.9); }
-    .img-overlay h3 { font-size: clamp(2.8rem, 5.5vw, 4.5rem); font-weight: 900; color: #fff; letter-spacing: 1.5px; margin-bottom: 14px; text-shadow: 0 4px 25px rgba(0,0,0,0.95), 0 0 40px rgba(0,0,0,0.6); line-height: 1.05; }
-    .img-overlay p { font-size: clamp(1.2rem, 2vw, 1.5rem); color: #fff; line-height: 1.5; font-weight: 400; text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.6); max-width: 95%; letter-spacing: 0.4px; }
+    .logo a {
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
 
-    .grid-span-2 { grid-column: span 2; } .grid-span-3 { grid-column: span 3; } .grid-span-4 { grid-column: span 4; } .grid-span-6 { grid-column: span 6; } .grid-row-2 { grid-row: span 2; }
+    .logo .brand-cn {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
 
-    @media (max-width: 900px) { .mixed-masonry { grid-template-columns: repeat(4,1fr); } }
-    @media (max-width: 600px) { .mixed-masonry { grid-template-columns: repeat(2,1fr); grid-auto-rows: minmax(100px,auto); } .grid-span-2,.grid-span-3,.grid-span-4,.grid-span-6 { grid-column: span 2; } .grid-row-2 { grid-row: span 1; } .img-overlay { padding: 24px 20px 20px; } .img-overlay h3 { font-size: 2.2rem; } .img-overlay p { font-size: 1.1rem; } .brand-logo { top: 10px; left: 10px; padding: 8px 16px; } .brand-logo h1 { font-size: 1.4rem; } .brand-logo h1 span { font-size: 1.8rem; } .nav-float { top: 10px; right: 10px; } .nav-trigger { width: 42px; height: 42px; } }
+    .logo .brand-en {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #94a3b8;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
 
-    .about-section { background: #f8f9fc; padding: 60px 20px; display: flex; justify-content: center; align-items: center; }
-    .about-card { max-width: 800px; width: 100%; background: #fff; border: 2px solid #c9a82c; border-radius: 24px; padding: 50px 40px; text-align: center; position: relative; box-shadow: 0 15px 40px rgba(0,0,0,0.06); }
-    .about-card::before { content: ""; position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: #c9a82c; border-radius: 0 0 8px 8px; }
-    .about-card .gold-line { width: 60px; height: 3px; background: #c9a82c; margin: 0 auto 24px; }
-    .about-card h2 { font-size: 2.8rem; font-weight: 700; color: #1a1e2b; margin-bottom: 16px; letter-spacing: 2px; }
-    .about-card p { font-size: 1.1rem; color: #3a3f4c; margin-bottom: 12px; line-height: 1.8; font-weight: 400; }
-    .about-card .brand-quote { margin-top: 28px; font-size: 1.3rem; font-weight: 600; color: #c9a82c; letter-spacing: 2px; display: inline-block; border-top: 1px solid rgba(201,168,44,0.3); border-bottom: 1px solid rgba(201,168,44,0.3); padding: 10px 20px; }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
 
-    .footer { background: #f0f2f5; color: #6b7280; text-align: center; padding: 40px 20px; border-top: 1px solid #e0e3e8; font-size: 0.85rem; letter-spacing: 0.5px; }
-    .footer-social { margin-bottom: 16px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-    .footer-social a { color: #4a4f5c; text-decoration: none; font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
-    .footer-social a:hover { color: #c9a82c; }
-    .footer-social a svg { width: 20px; height: 20px; fill: currentColor; }
+    .nav-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
 
-    .float-contact { position: fixed; right: 24px; bottom: 36px; z-index: 998; animation: softBounce 2.5s infinite ease-in-out; }
-    @keyframes softBounce { 0%,100% { transform: translateY(0); } 30% { transform: translateY(-12px); } 60% { transform: translateY(-4px); } }
-    .float-contact a { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: #25D366; border-radius: 50%; color: white; text-decoration: none; box-shadow: 0 10px 25px rgba(37,211,102,0.4); transition: 0.3s; }
-    .float-contact a:hover { background: #1a1e2b; color: #25D366; transform: scale(1.08); }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 26px;
+      height: 2px;
+      background: #e2e8f0;
+      transition: 0.3s;
+    }
+
+    .hero {
+      width: 100%;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(12, 17, 25, 0.85) 0%, rgba(12, 17, 25, 0.3) 60%, rgba(12, 17, 25, 0.1) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1 1 500px;
+      animation: fadeUp 1s ease-out;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text h1 {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 .highlight {
+      color: #3b82f6;
+      display: block;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 35px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+      border: 2px solid #3b82f6;
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+      margin-left: 15px;
+    }
+
+    .btn-outline:hover {
+      background: #3b82f6;
+      color: #fff;
+    }
+
+    .stats {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+
+    .stat-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stat-number {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #3b82f6;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      letter-spacing: 1.5px;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title .line {
+      width: 60px;
+      height: 3px;
+      background: #3b82f6;
+      margin: 0 auto;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #1a202c;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .card-img.visible {
+      opacity: 1;
+    }
+
+    .card-content {
+      padding: 30px 28px;
+    }
+
+    .card-content h3 {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .card-content p {
+      color: #94a3b8;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .card-link {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .card-link:hover {
+      gap: 12px;
+    }
+
+    /* 為什麼選擇我們 – 三個大板塊 */
+    .why-us {
+      background: #111720;
+      padding: 80px 20px;
+    }
+
+    .why-blocks {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .why-block {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .why-block.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .why-block:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .why-images {
+      flex: 1 1 45%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 12px;
+    }
+
+    .why-img {
+      border-radius: 8px;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .why-img.visible {
+      opacity: 1;
+    }
+
+    .why-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .why-img:first-child {
+      grid-column: span 2;
+    }
+
+    .why-text {
+      flex: 1 1 45%;
+      padding: 20px;
+    }
+
+    .why-text h3 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .why-text p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .why-block,
+      .why-block:nth-child(even) {
+        flex-direction: column;
+      }
+      .why-images {
+        grid-template-rows: 180px 180px;
+      }
+    }
+
+    /* 客戶案例 */
+    .case-studies {
+      background: #0c1119;
+      padding: 80px 20px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .case-card {
+      background: #1a202c;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    .case-card.visible {
+      opacity: 1;
+      transform: translateX(0);
+      transition: 0.8s ease;
+    }
+
+    .case-card:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .case-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .case-card img.visible {
+      opacity: 1;
+    }
+
+    .case-card .case-content {
+      padding: 25px;
+    }
+
+    .case-card h4 {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .case-card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* 關於我們 */
+    .about {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.4)),
+        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1400&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 30%;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+
+    .about-content {
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.8s ease;
+    }
+
+    .about-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about-content h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-content .line {
+      width: 60px;
+      height: 3px;
+      background: #3b82f6;
+      margin: 0 auto 25px;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .about-content .quote {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 2px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 50px;
+    }
+
+    .footer {
+      background: #080c12;
+      color: #94a3b8;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 25px;
+    }
+
+    .footer-social a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+    }
+
+    .footer-social a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0c1119;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .hero {
+        min-height: auto;
+        padding: 100px 20px 60px;
+      }
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text p {
+        margin: 0 auto 30px;
+      }
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 15px;
+      }
+      .about {
+        height: 400px;
+        background-attachment: scroll;
+      }
+    }
   </style>
 </head>
 <body>
-  <a href="index.html" style="text-decoration: none; color: inherit;">
-    <div class="brand-logo">
-      <h1><span>The Top Market</span><span class="dot"></span></h1>
+  <header class="header" id="header">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="brand-cn">銳鋒</span>
+          <span class="brand-en">The Top Market</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="business.html">業務範圍</a></li>
+        <li><a href="partner.html">合作夥伴</a></li>
+        <li><a href="team.html">計劃流程</a></li>
+        <li><a href="faq.html">常見問題</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-  </a>
+  </header>
 
-  <div class="nav-float">
-    <div class="nav-trigger" id="navTrigger">
-      <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>讓商業視野<span class="highlight">超越界限</span></h1>
+        <p>香港市場 · 精準數據 · 策略賦能。我們協助企業在複雜的商業環境中找到清晰方向，實現可持續增長。</p>
+        <a href="#services" class="btn-primary">探索服務</a>
+        <a href="contact.html" class="btn-primary btn-outline">聯絡我們</a>
+      </div>
     </div>
-    <div class="nav-menu" id="navMenu">
-      <a href="business.html"><span class="dot"></span> 業務範圍</a>
-      <a href="case.html"><span class="dot"></span> 顧問團隊</a>
-      <a href="team.html"><span class="dot"></span> 計劃流程</a>
-      <a href="faq.html"><span class="dot"></span> 常見問題</a>
-      <a href="contact.html"><span class="dot"></span> 聯絡我們</a>
-    </div>
-  </div>
+  </section>
 
-  <div class="hero-fullscreen">
-    <div class="hero-text-block">
-      <h2>讓商業視野<span class="highlight">超越界限</span></h2>
-      <p>香港市場 · 精準數據 · 分析賦能</p>
-    </div>
-  </div>
+  <section class="stats">
+    <div class="stat-item"><div class="stat-number">200+</div><div class="stat-label">成功案例</div></div>
+    <div class="stat-item"><div class="stat-number">15年</div><div class="stat-label">行業經驗</div></div>
+    <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">客戶滿意度</div></div>
+  </section>
 
-  <div class="transition-wave"></div>
-
-  <div class="stats-section">
-    <div class="stats-row">
-      <div class="stat-item"><div class="stat-number">200+</div><div class="stat-divider"></div><div class="stat-label">成功案例</div></div>
-      <div class="stat-item"><div class="stat-number">15年</div><div class="stat-divider"></div><div class="stat-label">行業經驗</div></div>
-      <div class="stat-item"><div class="stat-number">98%</div><div class="stat-divider"></div><div class="stat-label">客戶滿意度</div></div>
-    </div>
-  </div>
-
-  <div class="gallery-section">
-    <div class="gallery-header">
-      <div class="section-num">01</div>
+  <section class="section" id="services">
+    <div class="section-title">
       <h2>核心服務</h2>
       <div class="line"></div>
     </div>
-
-    <div class="mixed-masonry">
-      <div class="img-piece grid-span-3 grid-row-2 shape-soft">
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop" alt="商業策劃">
-        <div class="img-overlay"><span class="tag">Strategy</span><h3>商業策劃</h3><p>計劃書撰寫、投資架構規劃，數據驅動精準策略。</p></div>
+    <div class="card-grid">
+      <div class="service-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop" alt="商業策劃">
+        <div class="card-content">
+          <h3>商業策劃</h3>
+          <p>從計劃書到投資架構，我們以數據驅動的策略，為你的業務注入清晰方向。</p>
+          <a href="business.html" class="card-link">了解更多 →</a>
+        </div>
       </div>
-      <div class="img-piece grid-span-3 shape-notch"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop" alt="團隊討論"></div>
-      <div class="img-piece grid-span-2 shape-hexagon"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop" alt="商務會議"></div>
-      <div class="img-piece grid-span-2 shape-diamond"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop" alt="數據"></div>
-      <div class="img-piece grid-span-2 shape-circle"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="數據分析"></div>
-    </div>
-
-    <div class="mixed-masonry">
-      <div class="img-piece grid-span-4 grid-row-2 shape-arch"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="市場落地"></div>
-      <div class="img-piece grid-span-2 grid-row-2 shape-soft">
-        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港夜景">
-        <div class="img-overlay"><span class="tag">Market Entry</span><h3>行業調研</h3><p>資源、渠道、競品、客戶群。</p></div>
+      <div class="service-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop" alt="市場落地">
+        <div class="card-content">
+          <h3>市場落地</h3>
+          <p>香港市場調研、渠道搭建、品牌落地全流程，讓每一次進入都強而有力。</p>
+          <a href="business.html" class="card-link">了解更多 →</a>
+        </div>
       </div>
-      <div class="img-piece grid-span-2 shape-parallelogram"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="團隊協作"></div>
-      <div class="img-piece grid-span-2 shape-blob"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="商務簡報"></div>
-      <div class="img-piece grid-span-2 shape-squircle"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2070&auto=format&fit=crop" alt="香港"></div>
-    </div>
-
-    <div class="mixed-masonry">
-      <div class="img-piece grid-span-3 grid-row-2 shape-blob"><img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2070&auto=format&fit=crop" alt="風險管理"></div>
-      <div class="img-piece grid-span-3 shape-soft">
-        <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" alt="金融數據">
-        <div class="img-overlay"><span class="tag">Risk & Finance</span><h3>定制化服務</h3><p>新品上市調研、品牌差異化。</p></div>
+      <div class="service-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop" alt="風險財務">
+        <div class="card-content">
+          <h3>風險與財務</h3>
+          <p>稅務規劃、風險排查、資金優化，建立穩健的財務架構，護航長遠發展。</p>
+          <a href="business.html" class="card-link">了解更多 →</a>
+        </div>
       </div>
-      <div class="img-piece grid-span-2 shape-notch"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop" alt="圖表分析"></div>
-      <div class="img-piece grid-span-2 shape-hexagon"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" alt="團隊合作"></div>
-      <div class="img-piece grid-span-2 shape-diamond"><img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" alt="分析"></div>
     </div>
-  </div>
+  </section>
 
-  <div class="about-section">
-    <div class="about-card">
+  <section class="why-us">
+    <div class="section-title">
+      <h2>為什麼選擇我們</h2>
+      <div class="line"></div>
+    </div>
+    <div class="why-blocks">
+      <div class="why-block">
+        <div class="why-images">
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop" alt="數據分析"></div>
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop" alt="圖表"></div>
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&auto=format&fit=crop" alt="報告"></div>
+        </div>
+        <div class="why-text">
+          <h3>數據驅動</h3>
+          <p>以真實數據為基底，結合行業洞察，制定可執行的策略方案。我們的分析團隊擅長從複雜數據中提煉關鍵信號，確保每一次決策都有據可依。</p>
+        </div>
+      </div>
+
+      <div class="why-block">
+        <div class="why-images">
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&auto=format&fit=crop" alt="香港市場"></div>
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&auto=format&fit=crop" alt="團隊"></div>
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&auto=format&fit=crop" alt="會議"></div>
+        </div>
+        <div class="why-text">
+          <h3>本地深耕</h3>
+          <p>扎根香港，熟悉本地法規與商業環境，提供接地氣的專業建議。我們的本地網絡與經驗能幫助企業快速適應市場變化，降低風險。</p>
+        </div>
+      </div>
+
+      <div class="why-block">
+        <div class="why-images">
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&auto=format&fit=crop" alt="敏捷反應"></div>
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&auto=format&fit=crop" alt="團隊合作"></div>
+          <div class="why-img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&auto=format&fit=crop" alt="商務"></div>
+        </div>
+        <div class="why-text">
+          <h3>敏捷反應</h3>
+          <p>快速響應市場變化，為客戶提供靈活且高效的解決方案。我們保持敏銳的市場觸覺，隨時調整策略以應對突發狀況。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-studies section">
+    <div class="section-title">
+      <h2>客戶案例</h2>
+      <div class="line"></div>
+    </div>
+    <div class="case-grid">
+      <div class="case-card">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop" alt="案例一" class="case-img">
+        <div class="case-content">
+          <h4>科技初創市場進入</h4>
+          <p>協助一家海外科技公司成功打入香港市場，半年內營收增長120%。</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&auto=format&fit=crop" alt="案例二" class="case-img">
+        <div class="case-content">
+          <h4>零售品牌轉型策略</h4>
+          <p>為傳統零售品牌制定數字化轉型路線，實現線上線下融合。</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&auto=format&fit=crop" alt="案例三" class="case-img">
+        <div class="case-content">
+          <h4>金融機構風險管理</h4>
+          <p>為大型金融機構建立全面風險框架，有效降低合規成本。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-content" id="aboutContent">
       <h2>銳鋒顧問</h2>
-      <div class="gold-line"></div>
-      <p>深耕香港，以銳見洞察行業，用鋒利攻破市場。</p>
-      <p>我們不只是顧問，更是你並肩的商業夥伴。</p>
-      <div class="brand-quote">精準 · 務實 · 可持續</div>
+      <div class="line"></div>
+      <p>深耕香港，以銳見洞察行業，用鋒利攻破市場。我們不只是顧問，更是你並肩的商業夥伴。</p>
+      <div class="quote">精準 · 務實 · 可持續</div>
     </div>
-  </div>
+  </section>
 
-  <div class="float-contact">
-    <a href="https://wa.me/85212345678" target="_blank" aria-label="WhatsApp"><svg width="26" height="26" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg></a>
-  </div>
-
-  <div class="footer">
+  <footer class="footer">
     <div class="footer-social">
-      <a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg> WeChat</a>
-      <a href="#"><svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.357-.927l-.24-.063-2.467.643.644-2.4-.235-.07a6.56 6.56 0 0 1-6.69-11.06A6.57 6.57 0 0 1 7.994 1.46a6.566 6.566 0 0 1 6.566 6.566 6.573 6.573 0 0 1-6.566 6.495zm3.615-4.834c-.197-.099-1.17-.578-1.351-.646-.18-.065-.313.097-.443.313-.13.218-.513.673-.627.809-.113.13-.226.148-.423.05-.196-.1-1.105-.407-2.109-1.309-.78-.697-1.308-1.561-1.423-1.759-.113-.197-.01-.296.09-.416.096-.12.218-.313.328-.47.111-.156.148-.217.197-.313.06-.096.03-.178-.015-.248-.046-.07-.44-1.079-.605-1.47-.16-.39-.32-.339-.443-.344-.113-.005-.243-.006-.373.006a.729.729 0 0 0-.503.236c-.178.18-1.048 1.029-1.048 2.479 0 1.45 1.069 2.879 1.224 3.076.114.139 1.994 3.042 4.807 4.269.674.29 1.202.462 1.613.587.675.215 1.29.184 1.771.111.54-.083 1.671-.683 1.907-1.348.236-.665.236-1.234.165-1.348-.07-.114-.198-.18-.414-.297z"/></svg> WhatsApp</a>
-      <a href="#"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg> Instagram</a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg> WeChat</a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg> WhatsApp</a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2z"/></svg> Instagram</a>
     </div>
-    <p>© 2026 銳鋒有限公司 Top Market HK Limited</p>
-  </div>
+    <p class="copyright">© 2026 銳鋒有限公司 Top Market HK Limited</p>
+  </footer>
 
   <script>
-    const trigger = document.getElementById('navTrigger');
-    const menu = document.getElementById('navMenu');
-    function toggleMenu(e) { e.stopPropagation(); trigger.classList.toggle('active'); menu.classList.toggle('active'); }
-    trigger.addEventListener('click', toggleMenu);
-    document.addEventListener('click', function(e) { if (!trigger.contains(e.target) && !menu.contains(e.target)) { trigger.classList.remove('active'); menu.classList.remove('active'); } });
-    trigger.addEventListener('mouseenter', function() { if (window.innerWidth > 768) { trigger.classList.add('active'); menu.classList.add('active'); } });
-    menu.addEventListener('mouseleave', function() { if (window.innerWidth > 768) { trigger.classList.remove('active'); menu.classList.remove('active'); } });
-    menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { trigger.classList.remove('active'); menu.classList.remove('active'); }); });
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
 
-    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
-    document.querySelectorAll('.mixed-masonry, .stat-item, .gallery-header').forEach(el => observer.observe(el));
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    const observerOptions = { threshold: 0.12, rootMargin: "0px 0px -30px 0px" };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          const images = entry.target.querySelectorAll('img');
+          images.forEach(img => img.classList.add('visible'));
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.stat-item, .service-card, .why-block, .case-card, .about-content').forEach(el => observer.observe(el));
+
+    const allImages = document.querySelectorAll('img');
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    allImages.forEach(img => imageObserver.observe(img));
   </script>
 </body>
 </html>
+```
