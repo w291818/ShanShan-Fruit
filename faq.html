@@ -1,3 +1,6 @@
+我已幫您刪除了第一段前面的藍色「✓」和每個問題標題前面的藍色圓點。以下是修改後的完整代碼：
+
+```html
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -22,14 +25,12 @@
     .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
     .menu-toggle span { width:26px; height:2px; background:#e2e8f0; transition:0.3s; }
 
-    /* Hero 區域 */
     .hero-page { width:100%; height:70vh; min-height:320px; background:linear-gradient(0deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url('https://cdn.create.vista.com/api/media/medium/74716361/stock-photo-questions-and-answers-concept-keys-with-golden-keyring?token=') center/100% 100% ; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s ease-out; }
     @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
     .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.5); opacity:0; transform:translateY(20px); }
     .hero-page h1.visible { animation:fadeUp 1s ease-out forwards; }
     @keyframes fadeUp { 0% { opacity:0; transform:translateY(30px); } 100% { opacity:1; transform:translateY(0); } }
 
-    /* 內容區域 */
     .content { max-width:1100px; margin:60px auto; padding:0 20px; }
 
     .faq-intro {
@@ -41,9 +42,7 @@
     }
     .faq-intro.visible { opacity:1; transform:translateY(0); transition:0.8s ease; }
     .faq-intro p { color:#cbd5e1; font-size:1.05rem; line-height:1.9; }
-    .faq-intro p::before { content:"✓ "; color:#3b82f6; font-weight:700; }
 
-    /* 問題卡片網格 */
     .faq-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(450px,1fr)); gap:24px; margin-bottom:50px; }
 
     .faq-card {
@@ -65,14 +64,12 @@
     .faq-card.visible { opacity:1; transform:translateY(0); transition:0.8s ease; }
 
     .faq-card-content { position:relative; z-index:3; }
-    .faq-card h3 { font-size:1.4rem; color:#3b82f6; margin-bottom:15px; font-weight:700; display:flex; align-items:flex-start; gap:10px; }
-    .faq-card h3::before { content:""; width:8px; height:8px; background:#3b82f6; border-radius:50%; flex-shrink:0; margin-top:8px; box-shadow:0 0 12px rgba(59,130,246,0.6); }
+    .faq-card h3 { font-size:1.4rem; color:#3b82f6; margin-bottom:15px; font-weight:700; }
     .faq-card p { color:#e2e8f0; line-height:1.9; font-size:0.95rem; margin-bottom:10px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
     .faq-card ul { list-style:none; padding:0; margin-top:10px; }
     .faq-card ul li { color:#e2e8f0; line-height:1.9; font-size:0.95rem; padding:3px 0 3px 20px; position:relative; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
     .faq-card ul li::before { content:"✓"; position:absolute; left:0; color:#3b82f6; font-weight:700; font-size:0.85rem; }
 
-    /* 跨兩欄的大卡片 */
     .faq-card.wide { grid-column:span 2; }
     @media (max-width:900px) { .faq-card.wide { grid-column:span 1; } .faq-grid { grid-template-columns:1fr; } }
 
@@ -107,55 +104,44 @@
   <div class="hero-page"><h1 class="hero-title">常見問題</h1></div>
 
   <div class="content">
-    <!-- 前言介紹 -->
     <div class="faq-intro">
       <p>企業尋求顧問公司協助時，最常面臨的疑問包括服務價值、收費模式以及執行成效。了解常見問題有助於企業與顧問團隊建立明確的合作共識與目標。</p>
     </div>
 
-    <!-- 問題卡片網格 -->
-    <div class="content">
-      <!-- 問題一：顧問公司能為企業帶來什麼具體幫助？ -->
+    <div class="faq-grid">
       <div class="faq-card" style="background-image:url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=800&auto=format&fit=crop');">
         <div class="faq-card-content">
           <h3>顧問公司能為企業帶來什麼具體幫助？</h3>
           <p>顧問公司透過專業的分析工具與跨產業經驗，協助企業識別營運瓶頸、優化商業模式、制定策略路線圖，並在執行過程中提供持續的指導與調整，確保策略能真正落地並產生預期成效。</p>
         </div>
       </div>
-
-      <!-- 問題二：顧問不如我們熟悉自身產業，他們的專業在哪裡？ -->
       <div class="faq-card" style="background-image:url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?w=800&auto=format&fit=crop');">
         <div class="faq-card-content">
           <h3>顧問不如我們熟悉自身產業，他們的專業在哪裡？</h3>
           <p>企業主本身是自己行業的專家，但顧問專精的是商業模式、管理架構與問題解決流程。顧問的強項在於運用系統性的分析工具與跨產業的成功經驗，幫助企業跳脫既有的盲點，優化營運流程。</p>
         </div>
       </div>
-
-      <!-- 問題三：顧問公司的收費標準為何？（跨兩欄） -->
       <div class="faq-card wide" style="background-image:url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?w=1200&auto=format&fit=crop');">
         <div class="faq-card-content">
           <h3>顧問公司的收費標準為何？</h3>
           <p>收費方式依專案性質與合約而定，常見的計費模式包括：</p>
           <ul>
             <li>按時計費：適合諮詢、策略審查或問題診斷。</li>
-            <li>專案計費：針對特定目標或交付成果（如撰寫商業計畫書、導入新系統）收取固定費用。</li>
-            <li>成效抽成（分利潤）：依據顧問帶來的營收增長或成本節省比例抽成（常見於行銷或業績顧問）。</li>
+            <li>專案計費：針對特定目標或交付成果收取固定費用。</li>
+            <li>成效抽成：依據顧問帶來的營收增長或成本節省比例抽成。</li>
           </ul>
         </div>
       </div>
-
-      <!-- 問題四：合作專案的時程通常需要多久？ -->
       <div class="faq-card" style="background-image:url('https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?w=800&auto=format&fit=crop');">
         <div class="faq-card-content">
           <h3>合作專案的時程通常需要多久？</h3>
           <p>這取決於專案的複雜度。短期的診斷與策略規劃可能只需 2 至 4 週；而涉及企業轉型、系統導入或品牌重塑的深度專案，則可能需要 3 個月至 1 年不等，通常會搭配階段性的檢核點來控管進度。</p>
         </div>
       </div>
-
-      <!-- 問題五：專案結束後，成效是否能長期維持？ -->
       <div class="faq-card" style="background-image:url('https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?w=800&auto=format&fit=crop');">
         <div class="faq-card-content">
           <h3>專案結束後，成效是否能長期維持？</h3>
-          <p>顧問公司除了提供策略與路徑圖（Road map），通常也會提供人員培訓與標準作業流程。若需要持續的監督與執行支援，企業亦可選擇與顧問公司簽訂長期的「年度顧問合約」，以確保專案落地並適應市場變化。</p>
+          <p>顧問公司除了提供策略與路徑圖，通常也會提供人員培訓與標準作業流程。若需要持續的監督與執行支援，企業亦可選擇與顧問公司簽訂長期的「年度顧問合約」，以確保專案落地並適應市場變化。</p>
         </div>
       </div>
     </div>
@@ -186,12 +172,10 @@
     window.addEventListener('scroll', () => { const h = document.getElementById('header'); if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); });
     document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
 
-    // Hero 標題動畫
     const heroTitle = document.querySelector('.hero-title');
     const heroObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); heroObserver.unobserve(entry.target); } }); }, { threshold: 0.5 });
     if (heroTitle) heroObserver.observe(heroTitle);
 
-    // 通用淡入上移動畫
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -30px 0px" };
     const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, observerOptions);
     document.querySelectorAll('.faq-intro, .faq-card').forEach(el => observer.observe(el));
