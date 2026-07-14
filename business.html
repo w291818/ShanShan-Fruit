@@ -227,7 +227,7 @@
         const centerY = rect.height / 2;
         const rotateX = ((y - centerY) / centerY) * -6;
         const rotateY = ((x - centerX) / centerX) * 6;
-        card.style.transform = perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px);
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
       });
       card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
@@ -258,7 +258,7 @@
           const cardIndex = Array.from(allCards).indexOf(card);
           const delay = cardIndex * 300;
           setTimeout(() => {
-            card.classList.add(anim-${animType});
+            card.classList.add(`anim-${animType}`);
             card.classList.add('visible');
           }, delay);
           cardObserver.unobserve(card);
