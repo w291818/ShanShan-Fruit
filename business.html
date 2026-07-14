@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>業務範圍 | 銳鋒顧問 Top Market</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
+    body { background:#0c1119; color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); padding:14px 0; transition:0.4s; }
+    .header.scrolled { padding:8px 0; box-shadow:0 5px 25px rgba(0,0,0,0.3); }
+    .nav-container { max-width:1280px; margin:0 auto; padding:0 40px 0 20px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { display:flex; align-items:baseline; gap:10px; margin-right:auto; }
+    .logo a { text-decoration:none; display:flex; align-items:baseline; gap:8px; }
+    .logo .brand-cn { font-size:2.6rem; font-weight:800; color:#fff; letter-spacing:2px; }
+    .logo .brand-en { font-size:1.1rem; font-weight:600; color:#94a3b8; }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { text-decoration:none; color:#cbd5e1; font-weight:500; font-size:0.95rem; position:relative; padding:6px 0; transition:0.3s; }
+    .nav-links a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:2px; background:#3b82f6; transition:0.3s; }
+    .nav-links a:hover { color:#3b82f6; }
+    .nav-links a:hover::after { width:100%; }
+    .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .menu-toggle span { width:26px; height:2px; background:#e2e8f0; }
+
+    .hero-page { width:100%; height:55vh; min-height:380px; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.2)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop') center/cover; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s; }
+    @keyframes fadeIn { 0%{opacity:0} 100%{opacity:1} }
+    .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.5); }
+
+    .content { max-width:1200px; margin:60px auto; padding:0 20px; }
+    .section-block { margin-bottom:80px; opacity:0; transform:translateY(30px); transition:1.2s ease; }
+    .section-block.visible { opacity:1; transform:translateY(0); }
+    .section-block h2 { font-size:2.2rem; color:#3b82f6; margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:16px; }
+    .section-block h3 { font-size:1.5rem; color:#fff; margin:25px 0 15px; }
+    .zigzag { display:flex; flex-direction:column; gap:60px; }
+    .zigzag-item { display:flex; align-items:center; gap:40px; }
+    .zigzag-item:nth-child(even) { flex-direction:row-reverse; }
+    .zigzag-img { flex:1 1 45%; height:280px; border-radius:20px; overflow:hidden; opacity:0; transform:translateY(20px); transition:1.2s ease; }
+    .zigzag-img.visible { opacity:1; transform:translateY(0); }
+    .zigzag-img img { width:100%; height:100%; object-fit:cover; }
+    .zigzag-text { flex:1 1 45%; padding:20px; color:#cbd5e1; line-height:1.9; }
+    .zigzag-text ul { list-style:none; padding:0; }
+    .zigzag-text ul li { padding:4px 0 4px 20px; position:relative; }
+    .zigzag-text ul li::before { content:"✓"; position:absolute; left:0; color:#3b82f6; font-weight:700; }
+    .zigzag-text ul li ul { margin-left:16px; }
+    .zigzag-text ul li ul li::before { content:"◦"; color:#94a3b8; }
+
+    .footer { background:#fff; color:#1a202c; padding:50px 20px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; }
+    .footer-social a { color:#333; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:8px; transition:0.3s; }
+    .footer-social a:hover { color:#2563eb; }
+    .copyright { font-size:0.9rem; color:#555; }
+
+    @media (max-width:768px) {
+      .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:#0c1119; padding:20px; box-shadow:0 10px 20px rgba(0,0,0,0.3); }
+      .nav-links.active { display:flex; }
+      .menu-toggle { display:flex; }
+      .zigzag-item,.zigzag-item:nth-child(even) { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="nav-container">
+      <div class="logo"><a href="index.html"><span class="brand-cn">銳鋒</span><span class="brand-en">The Top Market</span></a></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="business.html">業務範圍</a></li>
+        <li><a href="cases.html">成功案例</a></li>
+        <li><a href="team.html">計劃流程</a></li>
+        <li><a href="faq.html">常見問題</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <div class="hero-page"><h1>業務範圍</h1></div>
+
+  <div class="content">
+    <!-- 市場調研 -->
+    <div class="section-block">
+      <h2>市場調研</h2>
+      <div class="zigzag">
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop" alt="量化調查"></div>
+          <div class="zigzag-text">
+            <h3>量化調查</h3>
+            <p>我們執行大規模量化調查，透過以下方式取得客觀且具代表性的數字結果，為後續決策提供堅實數據基礎：</p>
+            <ul>
+              <li>網上問卷：消費習慣、價格接受度、品牌認知、選購渠道偏好</li>
+              <li>電話抽樣：香港本地居民及企業採購負責人定向抽樣調查</li>
+              <li>街頭訪問：商場、街市、屋苑現場面談，取得真實消費數據</li>
+              <li>固定訪問小組數據：長期跟進一班固定消費者，記錄消費習慣轉變</li>
+            </ul>
+          </div>
+        </div>
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&auto=format&fit=crop" alt="深度採訪"></div>
+          <div class="zigzag-text">
+            <h3>深度採訪</h3>
+            <p>為挖掘消費者內心深處的真實需求，我們從質性角度補足量化數據的盲點：</p>
+            <ul>
+              <li>一對一深度面談：高消費客戶、行業從業人士、企業決策人專訪</li>
+              <li>分享會</li>
+              <li>神秘顧客：門店服務質素、產品實際體驗、標價情況、對手門店調查</li>
+              <li>實地觀察：超市、餐廳、化妝品店，觀察顧客真實行為</li>
+            </ul>
+          </div>
+        </div>
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&auto=format&fit=crop" alt="大數據收集"></div>
+          <div class="zigzag-text">
+            <h3>大數據收集</h3>
+            <p>整合公開網絡大數據，包括社交平台輿論數據（Facebook、IG、小紅書、抖音、香港討論區）、電商平台銷售數據及政府／行業公開報告。同時提供私人定制數據套裝：行業分類數據、競爭品牌對照、地區消費者特徵，讓品牌掌握市場全貌。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 市場咨詢 -->
+    <div class="section-block">
+      <h2>市場咨詢</h2>
+      <div class="zigzag">
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop" alt="品牌進入策略"></div>
+          <div class="zigzag-text">
+            <h3>品牌進入市場策略</h3>
+            <p>針對新品牌或新項目入市，我們提供：</p>
+            <ul>
+              <li>市場可行性評估：行業規模、增長速度、競爭激烈程度、入行門檻高低</li>
+              <li>選址風險評估：香港各區各商場人流、租金、同行分析</li>
+              <li>目標客戶特徵：年齡、收入水平、消費場景、購買考慮因素、消費習慣</li>
+              <li>競爭研究：競爭品牌定價模式、產品結構、宣傳推廣手法、優缺點分析</li>
+              <li>市場空白機會發掘與差異化定位建議</li>
+            </ul>
+          </div>
+        </div>
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop" alt="品牌現況分析"></div>
+          <div class="zigzag-text">
+            <h3>品牌現況與經營策略</h3>
+            <p>為現有品牌進行全面健康檢查，包括大眾認知度調查、負面口碑風險排查、定位偏差修正。針對新產品上市提供測試、試用反饋、文案測評及風險預警。同時優化宣傳內容、廣告、社交話題與會員社群營運，全方位提升品牌競爭力。</p>
+          </div>
+        </div>
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&auto=format&fit=crop" alt="消費行業專項"></div>
+          <div class="zigzag-text">
+            <h3>消費行業專項顧問</h3>
+            <p>針對消費品（食品、飲品、護膚品、日常用品）、飲食、化妝品及護膚品、嬰幼兒及家居生活用品等行業，提供深度顧問服務，包括消費潮流研究、新產品市場測試、店鋪選址分析、網上口碑分析及家庭消費決策流程調查。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 長期合作 -->
+    <div class="section-block">
+      <h2>長期合作</h2>
+      <div class="zigzag">
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&fit=crop" alt="協助落實"></div>
+          <div class="zigzag-text">
+            <h3>協助企業落實措施</h3>
+            <p>調研完成後，我們提供3至6個月的跟進服務，由策略顧問團隊協助企業將方案轉化為具體執行步驟，並根據實際情況動態調整，確保策略真正落地、產生效果。策略顧問團隊負責方案架構及營運邏輯設計，以及落地執行路線定制。</p>
+          </div>
+        </div>
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop" alt="監察市場趨勢"></div>
+          <div class="zigzag-text">
+            <h3>監察市場趨勢</h3>
+            <p>簽訂長期市場監察合約，按月或按季度更新行業數據，搭配固定消費小組持續追蹤消費者習慣變化，讓品牌隨時掌握市場潮流動向，快速應對競爭環境。同時包含量化抽樣調查及長期消費者追蹤，實時捕捉市場變化。</p>
+          </div>
+        </div>
+        <div class="zigzag-item">
+          <div class="zigzag-img"><img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=600&auto=format&fit=crop" alt="定期報告"></div>
+          <div class="zigzag-text">
+            <h3>定期報告與跟進</h3>
+            <p>我們提供標準化定期報告（含原始數據表、圖表分析、完整正式研究報告），並安排月度／季度專屬會議，與客戶團隊深入溝通分析結果。同時可為客戶內部市場人員提供數據解讀與消費者需求分析培訓，強化企業自主研判能力。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg> WeChat</a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg> WhatsApp</a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2z"/></svg> Instagram</a>
+    </div>
+    <p class="copyright">© 2026 銳鋒有限公司 Top Market HK Limited</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => { const h = document.getElementById('header'); if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); });
+    document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
+    const observer = new IntersectionObserver((e) => { e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+    document.querySelectorAll('.section-block, .zigzag-img').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
