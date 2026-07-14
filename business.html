@@ -28,16 +28,8 @@
     .block-content h2 { font-size:clamp(2.4rem,5vw,3.5rem); font-weight:700; margin-bottom:60px; text-shadow:0 4px 20px rgba(0,0,0,0.6); }
     .block-content h2 span { color:#3b82f6; }
 
-    /* 標題動畫 - 與主頁一致的淡入上移 */
-    .section-heading {
-      opacity:0;
-      transform:translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .section-heading.visible {
-      opacity:1;
-      transform:translateY(0);
-    }
+    .section-heading { opacity:0; transform:translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
+    .section-heading.visible { opacity:1; transform:translateY(0); }
 
     .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; text-align:left; }
 
@@ -54,78 +46,22 @@
     .info-card:nth-child(2) { border-radius:16px 60px 16px 60px; margin-top:-14px; }
     .info-card:nth-child(3) { border-radius:60px 16px 60px 16px; margin-top:-28px; }
 
-    /* 進場動畫類型一：下方彈出帶旋轉 */
-    .info-card.anim-bounce-up {
-      animation: bounceUp 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards;
-    }
-    @keyframes bounceUp {
-      0% { opacity:0; transform:translateY(60px) scale(0.7) rotate(-3deg); }
-      100% { opacity:1; transform:translateY(0) scale(1) rotate(0deg); }
-    }
-
-    /* 進場動畫類型二：左側滑入帶透視 */
-    .info-card.anim-slide-left {
-      animation: slideLeft 0.6s cubic-bezier(0.25,0.8,0.25,1.2) forwards;
-    }
-    @keyframes slideLeft {
-      0% { opacity:0; transform:translateX(-80px) scale(0.85); }
-      100% { opacity:1; transform:translateX(0) scale(1); }
-    }
-
-    /* 進場動畫類型三：右側翻轉進場 */
-    .info-card.anim-flip-right {
-      animation: flipRight 0.6s cubic-bezier(0.25,0.8,0.25,1.2) forwards;
-    }
-    @keyframes flipRight {
-      0% { opacity:0; transform:perspective(800px) rotateY(30deg) translateX(60px); }
-      100% { opacity:1; transform:perspective(800px) rotateY(0deg) translateX(0); }
-    }
-
-    /* 進場動畫類型四：縮放彈入 */
-    .info-card.anim-scale-in {
-      animation: scaleIn 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards;
-    }
-    @keyframes scaleIn {
-      0% { opacity:0; transform:scale(0.5); }
-      100% { opacity:1; transform:scale(1); }
-    }
-
-    /* 進場動畫類型五：上方輕落 */
-    .info-card.anim-drop {
-      animation: dropIn 0.6s cubic-bezier(0.25,0.8,0.25,1.2) forwards;
-    }
-    @keyframes dropIn {
-      0% { opacity:0; transform:translateY(-50px) scale(0.9); }
-      100% { opacity:1; transform:translateY(0) scale(1); }
-    }
-
-    /* 進場動畫類型六：模糊轉清晰 */
-    .info-card.anim-blur-in {
-      animation: blurIn 0.6s ease-out forwards;
-    }
-    @keyframes blurIn {
-      0% { opacity:0; transform:scale(0.9); filter:blur(8px); }
-      100% { opacity:1; transform:scale(1); filter:blur(0); }
-    }
-
-    /* 進場動畫類型七：旋轉展開 */
-    .info-card.anim-rotate-in {
-      animation: rotateIn 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards;
-    }
-    @keyframes rotateIn {
-      0% { opacity:0; transform:rotate(-8deg) scale(0.8); }
-      100% { opacity:1; transform:rotate(0deg) scale(1); }
-    }
-
-    /* 進場動畫類型八：彈跳進場 */
-    .info-card.anim-spring {
-      animation: springIn 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards;
-    }
-    @keyframes springIn {
-      0% { opacity:0; transform:scale(0.3) translateY(30px); }
-      60% { opacity:1; transform:scale(1.08) translateY(-5px); }
-      100% { opacity:1; transform:scale(1) translateY(0); }
-    }
+    .info-card.anim-bounce-up { animation: bounceUp 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    @keyframes bounceUp { 0% { opacity:0; transform:translateY(60px) scale(0.7) rotate(-3deg); } 100% { opacity:1; transform:translateY(0) scale(1) rotate(0deg); } }
+    .info-card.anim-slide-left { animation: slideLeft 0.6s cubic-bezier(0.25,0.8,0.25,1.2) forwards; }
+    @keyframes slideLeft { 0% { opacity:0; transform:translateX(-80px) scale(0.85); } 100% { opacity:1; transform:translateX(0) scale(1); } }
+    .info-card.anim-flip-right { animation: flipRight 0.6s cubic-bezier(0.25,0.8,0.25,1.2) forwards; }
+    @keyframes flipRight { 0% { opacity:0; transform:perspective(800px) rotateY(30deg) translateX(60px); } 100% { opacity:1; transform:perspective(800px) rotateY(0deg) translateX(0); } }
+    .info-card.anim-scale-in { animation: scaleIn 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    @keyframes scaleIn { 0% { opacity:0; transform:scale(0.5); } 100% { opacity:1; transform:scale(1); } }
+    .info-card.anim-drop { animation: dropIn 0.6s cubic-bezier(0.25,0.8,0.25,1.2) forwards; }
+    @keyframes dropIn { 0% { opacity:0; transform:translateY(-50px) scale(0.9); } 100% { opacity:1; transform:translateY(0) scale(1); } }
+    .info-card.anim-blur-in { animation: blurIn 0.6s ease-out forwards; }
+    @keyframes blurIn { 0% { opacity:0; transform:scale(0.9); filter:blur(8px); } 100% { opacity:1; transform:scale(1); filter:blur(0); } }
+    .info-card.anim-rotate-in { animation: rotateIn 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    @keyframes rotateIn { 0% { opacity:0; transform:rotate(-8deg) scale(0.8); } 100% { opacity:1; transform:rotate(0deg) scale(1); } }
+    .info-card.anim-spring { animation: springIn 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    @keyframes springIn { 0% { opacity:0; transform:scale(0.3) translateY(30px); } 60% { opacity:1; transform:scale(1.08) translateY(-5px); } 100% { opacity:1; transform:scale(1) translateY(0); } }
 
     .info-card.visible { opacity:1; }
     .info-card::before { content:""; position:absolute; top:-70%; right:-50%; width:280px; height:280px; background:radial-gradient(circle,rgba(59,130,246,0.18) 0%,transparent 70%); border-radius:50%; pointer-events:none; transition:0.8s; }
@@ -139,34 +75,20 @@
     .info-card ul li { padding:5px 0 5px 16px; position:relative; font-size:1rem; font-weight:500; letter-spacing:0.5px; color:#f0f4ff; line-height:2.1; border-left:2px solid rgba(59,130,246,0.3); margin-bottom:6px; transition:all 0.3s ease; }
     .info-card ul li:hover { border-left-color:#60a5fa; padding-left:22px; color:#ffffff; font-weight:600; text-shadow:0 0 8px rgba(59,130,246,0.3); }
 
-    .<footer class="footer">
-    <div class="footer-social">
-      <a href="#">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#07C160"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
-        WeChat
-      </a>
-      <a href="#">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.54-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <a href="#">
-        <svg width="20" height="20" viewBox="0 0 24 24"><defs><linearGradient id="igGradFooter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F58529"/><stop offset="50%" style="stop-color:#DD2A7B"/><stop offset="100%" style="stop-color:#8134AF"/></linearGradient></defs><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="url(#igGradFooter)"/></svg>
-        Instagram
-      </a>
-    </div>
-    <p class="copyright">© 2026 銳鋒有限公司 Top Market HK Limited</p>
-</footer>
+    .footer { background:#ffffff; color:#1a202c; padding:50px 20px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; flex-wrap:wrap; }
+    .footer-social a { color:#333; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:10px; transition:0.3s; font-size:0.95rem; }
+    .footer-social a:hover { color:#2563eb; transform:translateY(-2px); }
+    .footer-social a svg { width:24px; height:24px; }
     .copyright { font-size:0.9rem; color:#555; }
 
-    @media (max-width:900px) {
-      .info-grid { grid-template-columns:1fr; }
-      .info-card:nth-child(1),.info-card:nth-child(2),.info-card:nth-child(3) { border-radius:30px; margin-top:0; }
-    }
+    @media (max-width:900px) { .info-grid { grid-template-columns:1fr; } .info-card:nth-child(1),.info-card:nth-child(2),.info-card:nth-child(3) { border-radius:30px; margin-top:0; } }
     @media (max-width:768px) {
       .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:#0c1119; padding:20px; box-shadow:0 10px 20px rgba(0,0,0,0.3); }
       .nav-links.active { display:flex; }
       .menu-toggle { display:flex; }
       .fullscreen-block { padding:100px 20px 60px; }
+      .footer-social { gap:25px; }
     }
   </style>
 </head>
@@ -181,7 +103,6 @@
     </div>
   </header>
 
-  <!-- 市場調研 -->
   <div class="fullscreen-block" style="background-image:url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=1600&auto=format&fit=crop');">
     <div class="block-content">
       <h2><span class="section-heading">市場調研</span></h2>
@@ -193,7 +114,6 @@
     </div>
   </div>
 
-  <!-- 市場咨詢 -->
   <div class="fullscreen-block" style="background-image:url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?w=1600&auto=format&fit=crop');">
     <div class="block-content">
       <h2><span class="section-heading">市場咨詢</span></h2>
@@ -205,7 +125,6 @@
     </div>
   </div>
 
-  <!-- 長期合作 -->
   <div class="fullscreen-block" style="background-image:url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?w=1600&auto=format&fit=crop');">
     <div class="block-content">
       <h2><span class="section-heading">長期合作</span></h2>
@@ -219,9 +138,21 @@
 
   <footer class="footer">
     <div class="footer-social">
-      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg> WeChat</a>
-      <a href="#"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg> WhatsApp</a>
-      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2z"/></svg> Instagram</a>
+      <a href="#">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#07C160">
+          <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm-5.34 9.097c-1.446 0-2.762.512-3.803 1.362l-1.072.628a.176.176 0 0 1-.09.029c-.09 0-.16-.072-.16-.16 0-.04.012-.08.025-.12l.212-.806a.323.323 0 0 0-.116-.365C.667 15.104 0 13.732 0 12.25 0 9.508 2.586 7.286 5.776 7.286c3.19 0 5.776 2.222 5.776 4.964 0 2.742-2.586 4.964-5.776 4.964-.24 0-.477-.017-.712-.05a4.96 4.96 0 0 1-.39.018zm2.424-3.586a.902.902 0 0 1 0 1.804.902.902 0 0 1 0-1.804zm4.004 0a.902.902 0 0 1 0 1.804.902.902 0 0 1 0-1.804z"/>
+          <path d="M17.5 10.5c3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5a6.38 6.38 0 0 1-2.215-.398l-1.248.73a.206.206 0 0 1-.105.034.19.19 0 0 1-.188-.188c0-.047.014-.094.03-.141l.248-.944a.379.379 0 0 0-.136-.427C12.5 21.5 11 20.5 11 17c0-3.584 2.916-6.5 6.5-6.5zm-2.275 4.875a1.056 1.056 0 0 0 0 2.111 1.056 1.056 0 0 0 0-2.111zm4.55 0a1.056 1.056 0 0 0 0 2.111 1.056 1.056 0 0 0 0-2.111z"/>
+        </svg>
+        WeChat
+      </a>
+      <a href="https://wa.me/85212345678" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.54-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="index.html">
+        <svg width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="igGradBiz" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F58529"/><stop offset="50%" style="stop-color:#DD2A7B"/><stop offset="100%" style="stop-color:#8134AF"/></linearGradient></defs><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="url(#igGradBiz)"/></svg>
+        Instagram
+      </a>
     </div>
     <p class="copyright">© 2026 銳鋒有限公司 Top Market HK Limited</p>
   </footer>
@@ -230,54 +161,15 @@
     window.addEventListener('scroll', () => { const h = document.getElementById('header'); if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); });
     document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
 
-    // ========== 卡片 3D 視差效果 ==========
     document.querySelectorAll('.info-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -6;
-        const rotateY = ((x - centerX) / centerX) * 6;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-      });
+      card.addEventListener('mousemove', (e) => { const rect = card.getBoundingClientRect(), x = e.clientX - rect.left, y = e.clientY - rect.top, cx = rect.width / 2, cy = rect.height / 2, rx = ((y - cy) / cy) * -6, ry = ((x - cx) / cx) * 6; card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-12px)`; });
+      card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)'; });
     });
 
-    // ========== 沉穩大方動畫觀察器 ==========
     const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -40px 0px" };
-
-    // 區塊標題動畫 - 與主頁一致的淡入上移
-    const headingObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          headingObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+    const headingObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); headingObserver.unobserve(entry.target); } }); }, observerOptions);
     document.querySelectorAll('.section-heading').forEach(el => headingObserver.observe(el));
-
-    // 卡片多樣化進場動畫
-    const cardObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const card = entry.target;
-          const animType = card.dataset.anim || 'bounce-up';
-          const allCards = card.parentElement.querySelectorAll('.info-card');
-          const cardIndex = Array.from(allCards).indexOf(card);
-          const delay = cardIndex * 300;
-          setTimeout(() => {
-            card.classList.add(`anim-${animType}`);
-            card.classList.add('visible');
-          }, delay);
-          cardObserver.unobserve(card);
-        }
-      });
-    }, observerOptions);
+    const cardObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const card = entry.target; const animType = card.dataset.anim || 'bounce-up'; const allCards = card.parentElement.querySelectorAll('.info-card'); const cardIndex = Array.from(allCards).indexOf(card); const delay = cardIndex * 300; setTimeout(() => { card.classList.add(`anim-${animType}`); card.classList.add('visible'); }, delay); cardObserver.unobserve(card); } }); }, observerOptions);
     document.querySelectorAll('.info-card').forEach(el => cardObserver.observe(el));
   </script>
 </body>
