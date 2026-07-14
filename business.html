@@ -8,7 +8,6 @@
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
     body { background:#0c1119; color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 
-    /* 完全複製主頁 header 樣式 */
     .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.4s ease; padding:14px 0; }
     .header.scrolled { padding:8px 0; box-shadow:0 5px 25px rgba(0,0,0,0.3); }
     .nav-container { max-width:1280px; margin:0 auto; padding:0 40px 0 20px; display:flex; align-items:center; justify-content:space-between; }
@@ -24,27 +23,76 @@
     .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
     .menu-toggle span { width:26px; height:2px; background:#e2e8f0; transition:0.3s; }
 
-    .hero-page { width:100%; height:55vh; min-height:380px; background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.2)),url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?w=1600&auto=format&fit=crop') center/cover; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s; }
-    @keyframes fadeIn { 0%{opacity:0} 100%{opacity:1} }
-    .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.5); }
+    .fullscreen-block {
+      width:100%; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      background-size:cover; background-position:center; position:relative;
+      padding:100px 40px 60px;
+    }
+    .fullscreen-block::before { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.45); z-index:1; }
+    .block-content { position:relative; z-index:2; max-width:1200px; width:100%; text-align:center; color:#fff; }
+    .block-content h2 { font-size:clamp(2.4rem,5vw,3.5rem); font-weight:700; margin-bottom:60px; text-shadow:0 4px 20px rgba(0,0,0,0.6); }
+    .block-content h2 span { color:#3b82f6; }
 
-    .content { max-width:1200px; margin:60px auto; padding:0 20px; }
-    .section-block { margin-bottom:80px; opacity:0; transform:translateY(30px); transition:1.2s ease; }
-    .section-block.visible { opacity:1; transform:translateY(0); }
-    .section-block h2 { font-size:2.2rem; color:#3b82f6; margin-bottom:30px; border-left:4px solid #3b82f6; padding-left:16px; }
-    .section-block h3 { font-size:1.5rem; color:#fff; margin:25px 0 15px; }
-    .zigzag { display:flex; flex-direction:column; gap:60px; }
-    .zigzag-item { display:flex; align-items:center; gap:40px; }
-    .zigzag-item:nth-child(even) { flex-direction:row-reverse; }
-    .zigzag-img { flex:1 1 45%; height:280px; border-radius:20px; overflow:hidden; opacity:0; transform:translateY(20px); transition:1.2s ease; }
-    .zigzag-img.visible { opacity:1; transform:translateY(0); }
-    .zigzag-img img { width:100%; height:100%; object-fit:cover; }
-    .zigzag-text { flex:1 1 45%; padding:20px; color:#cbd5e1; line-height:1.9; }
-    .zigzag-text ul { list-style:none; padding:0; }
-    .zigzag-text ul li { padding:4px 0 4px 20px; position:relative; }
-    .zigzag-text ul li::before { content:"✓"; position:absolute; left:0; color:#3b82f6; font-weight:700; }
-    .zigzag-text ul li ul { margin-left:16px; }
-    .zigzag-text ul li ul li::before { content:"◦"; color:#94a3b8; }
+    .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; text-align:left; }
+    .info-card {
+      background:rgba(10,15,25,0.35); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px);
+      padding:45px 35px;
+      border:1px solid rgba(59,130,246,0.2);
+      box-shadow:0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(59,130,246,0.05), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition:all 0.6s cubic-bezier(0.25,0.8,0.25,1.2);
+      opacity:0; transform:translateY(30px) scale(0.95);
+      position:relative; overflow:hidden;
+      cursor:pointer;
+    }
+    .info-card:nth-child(1) { border-radius: 60px 16px 60px 16px; }
+    .info-card:nth-child(2) { border-radius: 16px 60px 16px 60px; margin-top:-14px; }
+    .info-card:nth-child(3) { border-radius: 60px 16px 60px 16px; margin-top:-28px; }
+
+    .info-card::before {
+      content:""; position:absolute; top:-70%; right:-50%;
+      width:280px; height:280px;
+      background:radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+      border-radius:50%; pointer-events:none; transition:0.8s;
+    }
+    .info-card::after {
+      content:""; position:absolute; bottom:0; left:0;
+      width:60%; height:3px;
+      background:linear-gradient(90deg, #3b82f6, #60a5fa, transparent);
+      border-radius:0 0 0 4px; pointer-events:none; transition:0.5s;
+    }
+    .info-card:hover::before { top:-40%; right:-25%; width:350px; height:350px; }
+    .info-card:hover::after { width:85%; }
+    .info-card.visible { opacity:1; transform:translateY(0) scale(1); transition:1.3s ease; }
+    .info-card:hover {
+      border-color:rgba(96,165,250,0.7);
+      box-shadow:0 30px 70px rgba(0,0,0,0.5), 0 0 50px rgba(59,130,246,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+      transform:translateY(-12px);
+    }
+    .info-card h3 {
+      font-size:1.7rem; font-weight:800; letter-spacing:1.5px;
+      margin-bottom:22px; position:relative; z-index:1;
+      display:flex; align-items:center; gap:12px;
+      color:#ffffff;
+      text-shadow:0 0 20px rgba(59,130,246,0.5);
+    }
+    .info-card h3::before {
+      content:""; width:10px; height:10px;
+      background:#3b82f6; border-radius:50%;
+      box-shadow:0 0 20px rgba(59,130,246,0.9), 0 0 40px rgba(59,130,246,0.4);
+      flex-shrink:0;
+    }
+    .info-card ul { list-style:none; padding:0; position:relative; z-index:1; }
+    .info-card ul li {
+      padding:5px 0 5px 16px; position:relative;
+      font-size:1rem; font-weight:500; letter-spacing:0.5px;
+      color:#f0f4ff; line-height:2.1;
+      border-left:2px solid rgba(59,130,246,0.3); margin-bottom:6px;
+      transition:all 0.3s ease;
+    }
+    .info-card ul li:hover {
+      border-left-color:#60a5fa; padding-left:22px;
+      color:#ffffff; font-weight:600; text-shadow:0 0 8px rgba(59,130,246,0.3);
+    }
 
     .footer { background:#ffffff; color:#1a202c; padding:50px 20px; text-align:center; }
     .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; }
@@ -52,11 +100,17 @@
     .footer-social a:hover { color:#2563eb; }
     .copyright { font-size:0.9rem; color:#555; }
 
+    @media (max-width:900px) {
+      .info-grid { grid-template-columns:1fr; }
+      .info-card:nth-child(1),
+      .info-card:nth-child(2),
+      .info-card:nth-child(3) { border-radius:30px; margin-top:0; }
+    }
     @media (max-width:768px) {
       .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:#0c1119; padding:20px; box-shadow:0 10px 20px rgba(0,0,0,0.3); }
       .nav-links.active { display:flex; }
       .menu-toggle { display:flex; }
-      .zigzag-item,.zigzag-item:nth-child(even) { flex-direction:column; }
+      .fullscreen-block { padding:100px 20px 60px; }
     }
   </style>
 </head>
@@ -75,109 +129,35 @@
     </div>
   </header>
 
-  <div class="hero-page"><h1>業務範圍</h1></div>
-
-  <div class="content">
-    <!-- 市場調研 -->
-    <div class="section-block">
-      <h2>市場調研</h2>
-      <div class="zigzag">
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=600&auto=format&fit=crop" alt="量化調查"></div>
-          <div class="zigzag-text">
-            <h3>量化調查</h3>
-            <p>我們執行大規模量化調查，透過以下方式取得客觀且具代表性的數字結果，為後續決策提供堅實數據基礎：</p>
-            <ul>
-              <li>網上問卷：消費習慣、價格接受度、品牌認知、選購渠道偏好</li>
-              <li>電話抽樣：香港本地居民及企業採購負責人定向抽樣調查</li>
-              <li>街頭訪問：商場、街市、屋苑現場面談，取得真實消費數據</li>
-              <li>固定訪問小組數據：長期跟進一班固定消費者，記錄消費習慣轉變</li>
-            </ul>
-          </div>
-        </div>
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?w=600&auto=format&fit=crop" alt="深度採訪"></div>
-          <div class="zigzag-text">
-            <h3>深度採訪</h3>
-            <p>為挖掘消費者內心深處的真實需求，我們從質性角度補足量化數據的盲點：</p>
-            <ul>
-              <li>一對一深度面談：高消費客戶、行業從業人士、企業決策人專訪</li>
-              <li>分享會</li>
-              <li>神秘顧客：門店服務質素、產品實際體驗、標價情況、對手門店調查</li>
-              <li>實地觀察：超市、餐廳、化妝品店，觀察顧客真實行為</li>
-            </ul>
-          </div>
-        </div>
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?w=600&auto=format&fit=crop" alt="大數據收集"></div>
-          <div class="zigzag-text">
-            <h3>大數據收集</h3>
-            <p>整合公開網絡大數據，包括社交平台輿論數據（Facebook、IG、小紅書、抖音、香港討論區）、電商平台銷售數據及政府／行業公開報告。同時提供私人定制數據套裝：行業分類數據、競爭品牌對照、地區消費者特徵，讓品牌掌握市場全貌。</p>
-          </div>
-        </div>
+  <div class="fullscreen-block" style="background-image:url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=1600&auto=format&fit=crop');">
+    <div class="block-content">
+      <h2><span>市場調研</span></h2>
+      <div class="info-grid">
+        <div class="info-card"><h3>量化調查</h3><ul><li>網上問卷：消費習慣、價格接受度、品牌認知、選購渠道偏好</li><li>電話抽樣：本地居民及企業採購負責人定向調查</li><li>街頭訪問：商場、街市、屋苑現場面談</li><li>固定訪問小組：長期追蹤消費者習慣轉變</li></ul></div>
+        <div class="info-card"><h3>深度採訪</h3><ul><li>一對一深度面談：高消費客戶、行業專家、企業決策人</li><li>分享會</li><li>神秘顧客：服務品質、產品體驗、競品比對</li><li>實地觀察：超市、餐廳、化妝品店場景記錄</li></ul></div>
+        <div class="info-card"><h3>大數據收集</h3><ul><li>社交平台輿論：Facebook、IG、小紅書、抖音、討論區</li><li>電商平台銷售數據：銷量、評價、熱門商品</li><li>政府／行業公開報告整合</li><li>私人定制數據套裝：行業分類、競品對照、地區特徵</li></ul></div>
       </div>
     </div>
+  </div>
 
-    <!-- 市場咨詢 -->
-    <div class="section-block">
-      <h2>市場咨詢</h2>
-      <div class="zigzag">
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?w=600&auto=format&fit=crop" alt="品牌進入策略"></div>
-          <div class="zigzag-text">
-            <h3>品牌進入市場策略</h3>
-            <p>針對新品牌或新項目入市，我們提供：</p>
-            <ul>
-              <li>市場可行性評估：行業規模、增長速度、競爭激烈程度、入行門檻高低</li>
-              <li>選址風險評估：香港各區各商場人流、租金、同行分析</li>
-              <li>目標客戶特徵：年齡、收入水平、消費場景、購買考慮因素、消費習慣</li>
-              <li>競爭研究：競爭品牌定價模式、產品結構、宣傳推廣手法、優缺點分析</li>
-              <li>市場空白機會發掘與差異化定位建議</li>
-            </ul>
-          </div>
-        </div>
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?w=600&auto=format&fit=crop" alt="品牌現況分析"></div>
-          <div class="zigzag-text">
-            <h3>品牌現況與經營策略</h3>
-            <p>為現有品牌進行全面健康檢查，包括大眾認知度調查、負面口碑風險排查、定位偏差修正。針對新產品上市提供測試、試用反饋、文案測評及風險預警。同時優化宣傳內容、廣告、社交話題與會員社群營運，全方位提升品牌競爭力。</p>
-          </div>
-        </div>
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?w=600&auto=format&fit=crop" alt="消費行業專項"></div>
-          <div class="zigzag-text">
-            <h3>消費行業專項顧問</h3>
-            <p>針對消費品（食品、飲品、護膚品、日常用品）、飲食、化妝品及護膚品、嬰幼兒及家居生活用品等行業，提供深度顧問服務，包括消費潮流研究、新產品市場測試、店鋪選址分析、網上口碑分析及家庭消費決策流程調查。</p>
-          </div>
-        </div>
+  <div class="fullscreen-block" style="background-image:url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?w=1600&auto=format&fit=crop');">
+    <div class="block-content">
+      <h2><span>市場咨詢</span></h2>
+      <div class="info-grid">
+        <div class="info-card"><h3>品牌進入市場策略</h3><ul><li>市場可行性評估：行業規模、增速、競爭度、門檻</li><li>選址風險分析：各區人流、租金、同行密度</li><li>目標客戶特徵：年齡、收入、消費場景與習慣</li><li>競爭品牌全方位拆解，制定差異化定位</li></ul></div>
+        <div class="info-card"><h3>品牌現況與經營策略</h3><ul><li>品牌健康檢查：認知度調查、口碑風險、定位修正</li><li>新產品上市：概念測試、試用反饋、文案測評</li><li>宣傳優化：廣告、直播、社交話題、會員營運</li><li>銷售渠道評估：實體門店、分銷商、網上渠道</li></ul></div>
+        <div class="info-card"><h3>消費行業專項顧問</h3><ul><li>消費品：食品、飲品、護膚品、日用品潮流研究</li><li>飲食：選址人流分析、口味偏好、回頭客方案</li><li>化妝品：消費觀念調查、熱賣產品拆解、口碑分析</li><li>母嬰家居：家庭決策流程、真實需求發掘、信任度調查</li></ul></div>
       </div>
     </div>
+  </div>
 
-    <!-- 長期合作 -->
-    <div class="section-block">
-      <h2>長期合作</h2>
-      <div class="zigzag">
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?w=600&auto=format&fit=crop" alt="協助落實"></div>
-          <div class="zigzag-text">
-            <h3>協助企業落實措施</h3>
-            <p>調研完成後，我們提供3至6個月的跟進服務，由策略顧問團隊協助企業將方案轉化為具體執行步驟，並根據實際情況動態調整，確保策略真正落地、產生效果。策略顧問團隊負責方案架構及營運邏輯設計，以及落地執行路線定制。</p>
-          </div>
-        </div>
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?w=600&auto=format&fit=crop" alt="監察市場趨勢"></div>
-          <div class="zigzag-text">
-            <h3>監察市場趨勢</h3>
-            <p>簽訂長期市場監察合約，按月或按季度更新行業數據，搭配固定消費小組持續追蹤消費者習慣變化，讓品牌隨時掌握市場潮流動向，快速應對競爭環境。同時包含量化抽樣調查及長期消費者追蹤，實時捕捉市場變化。</p>
-          </div>
-        </div>
-        <div class="zigzag-item">
-          <div class="zigzag-img"><img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?w=600&auto=format&fit=crop" alt="定期報告"></div>
-          <div class="zigzag-text">
-            <h3>定期報告與跟進</h3>
-            <p>我們提供標準化定期報告（含原始數據表、圖表分析、完整正式研究報告），並安排月度／季度專屬會議，與客戶團隊深入溝通分析結果。同時可為客戶內部市場人員提供數據解讀與消費者需求分析培訓，強化企業自主研判能力。</p>
-          </div>
-        </div>
+  <div class="fullscreen-block" style="background-image:url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?w=1600&auto=format&fit=crop');">
+    <div class="block-content">
+      <h2><span>長期合作</span></h2>
+      <div class="info-grid">
+        <div class="info-card"><h3>協助企業落實措施</h3><ul><li>調研完成後提供3至6個月跟進服務</li><li>策略顧問團隊協助轉化為具體執行步驟</li><li>根據實際情況動態調整方案</li><li>方案架構、營運邏輯設計及落地路線定制</li></ul></div>
+        <div class="info-card"><h3>監察市場趨勢</h3><ul><li>簽訂長期市場監察合約</li><li>按月或按季度更新行業數據</li><li>固定消費小組持續追蹤消費習慣變化</li><li>量化抽樣調查，實時捕捉市場變化</li></ul></div>
+        <div class="info-card"><h3>定期報告與跟進</h3><ul><li>標準化報告：原始數據表、圖表分析、完整研究報告</li><li>月度／季度專屬會議，深入溝通分析結果</li><li>企業內部培訓：市場團隊數據解讀</li><li>消費者需求分析，強化自主研判能力</li></ul></div>
       </div>
     </div>
   </div>
@@ -192,10 +172,59 @@
   </footer>
 
   <script>
+    // ========== 1. 導航滾動效果 ==========
     window.addEventListener('scroll', () => { const h = document.getElementById('header'); if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); });
     document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
+
+    // ========== 2. 資訊卡片 3D 視差效果 ==========
+    document.querySelectorAll('.info-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
+        // 移動光暈位置
+        const glow = card.querySelector('::before');
+        if (glow) {
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
+    });
+
+    // ========== 3. 滾動動畫觀察器 ==========
     const observer = new IntersectionObserver((e) => { e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
-    document.querySelectorAll('.section-block, .zigzag-img').forEach(el => observer.observe(el));
+    document.querySelectorAll('.info-card').forEach(el => observer.observe(el));
+
+    // ========== 4. 區塊標題打字機效果 ==========
+    const titles = document.querySelectorAll('.block-content h2 span');
+    const typeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const span = entry.target;
+          const text = span.textContent;
+          span.textContent = '';
+          let i = 0;
+          const typeInterval = setInterval(() => {
+            if (i < text.length) {
+              span.textContent += text.charAt(i);
+              i++;
+            } else {
+              clearInterval(typeInterval);
+            }
+          }, 100);
+          typeObserver.unobserve(span);
+        }
+      });
+    }, { threshold: 0.6 });
+    titles.forEach(title => typeObserver.observe(title));
   </script>
 </body>
 </html>
