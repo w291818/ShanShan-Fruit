@@ -6,7 +6,7 @@
   <title>常見問題 | 銳鋒顧問 Top Market</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
-    body { background:#0c1119; color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    body { background:linear-gradient(to right, #1e3a8a 0%, #0c1119 80%); color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 
     .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.0); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.4s ease; padding:14px 0; }
     .header.scrolled { padding:8px 0; box-shadow:0 5px 25px rgba(0,0,0,0.3); }
@@ -53,18 +53,16 @@
       min-height:250px;
       display:flex; flex-direction:column; justify-content:flex-end;
     }
-    .faq-card::before { content:""; position:absolute; inset:0; background:rgba(10,15,25,0.0); z-index:1; transition:0.5s; }
     .faq-card::after { content:""; position:absolute; top:-40%; right:-30%; width:180px; height:180px; background:radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%); border-radius:50%; z-index:2; pointer-events:none; transition:0.6s; }
-    .faq-card:hover::before { background:rgba(10,15,25,0.0); }
     .faq-card:hover::after { top:-25%; right:-15%; width:240px; height:240px; }
     .faq-card:hover { border-color:rgba(59,130,246,0.5); box-shadow:0 25px 55px rgba(0,0,0,0.45); transform:translateY(-8px); }
     .faq-card.visible { opacity:1; transform:translateY(0); transition:0.8s ease; }
 
     .faq-card-content { position:relative; z-index:3; }
-    .faq-card h3 { font-size:1.4rem; color:#3b82f6; margin-bottom:15px; font-weight:700; }
-    .faq-card p { color:#e2e8f0; line-height:1.9; font-size:0.95rem; margin-bottom:10px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
+    .faq-card h3 { font-size:1.4rem; color:#3b82f6; margin-bottom:15px; font-weight:700; text-shadow:0 2px 10px rgba(0,0,0,0.7); }
+    .faq-card p { color:#ffffff; line-height:1.9; font-size:0.95rem; margin-bottom:10px; text-shadow:0 2px 10px rgba(0,0,0,0.7); }
     .faq-card ul { list-style:none; padding:0; margin-top:10px; }
-    .faq-card ul li { color:#e2e8f0; line-height:1.9; font-size:0.95rem; padding:3px 0 3px 20px; position:relative; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
+    .faq-card ul li { color:#ffffff; line-height:1.9; font-size:0.95rem; padding:3px 0 3px 20px; position:relative; text-shadow:0 2px 10px rgba(0,0,0,0.7); }
     .faq-card ul li::before { content:"✓"; position:absolute; left:0; color:#3b82f6; font-weight:700; font-size:0.85rem; }
 
     .faq-card.wide { grid-column:span 2; }
