@@ -90,7 +90,7 @@
 
     .case-studies { background:#0c1119; padding:80px 20px; }
     .case-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; max-width:1100px; margin:0 auto; }
-    .case-card { background:#1a202c; border-radius:8px; overflow:hidden; transition:0.4s ease; border:1px solid rgba(255,255,255,0.05); opacity:0; transform:translateY(30px); }
+    .case-card { background:#1a202c; border-radius:8px; overflow:hidden; transition:0.4s ease; border:1px solid rgba(255,255,255,0.05); opacity:0; transform:translateY(30px); cursor:pointer; }
     .case-card.visible { animation:fadeUp 0.8s ease-out forwards; }
     .case-card:nth-child(2).visible { animation-delay:0.2s; }
     .case-card:nth-child(3).visible { animation-delay:0.4s; }
@@ -111,9 +111,10 @@
     .about-content .quote { font-size:1.3rem; font-weight:600; color:#ffffff; letter-spacing:2px; border:1px solid rgba(255,255,255,0.6); display:inline-block; padding:10px 25px; border-radius:50px; text-shadow:0 2px 8px rgba(0,0,0,0.4); }
 
     .footer { background:#ffffff; color:#1a202c; padding:50px 20px; text-align:center; }
-    .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; }
-    .footer-social a { color:#333; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:8px; transition:0.3s; }
-    .footer-social a:hover { color:#2563eb; }
+    .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; flex-wrap:wrap; }
+    .footer-social a { color:#333; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:10px; transition:0.3s; font-size:0.95rem; }
+    .footer-social a:hover { color:#2563eb; transform:translateY(-2px); }
+    .footer-social a svg { width:24px; height:24px; }
     .copyright { font-size:0.9rem; color:#555; }
 
     @media (max-width:768px) {
@@ -155,8 +156,8 @@
 
   <div class="gradient-bg">
     <div class="stats">
-      <div class="stat-item"><div class="stat-number">100+</div><div class="stat-label">成功案例</div></div>
-      <div class="stat-item"><div class="stat-number">3年</div><div class="stat-label">行業經驗</div></div>
+      <div class="stat-item"><div class="stat-number">200+</div><div class="stat-label">成功案例</div></div>
+      <div class="stat-item"><div class="stat-number">15年</div><div class="stat-label">行業經驗</div></div>
       <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">客戶滿意度</div></div>
     </div>
     <div class="section" id="services">
@@ -170,52 +171,66 @@
   </div>
 
   <section class="why-us">
-    <div class="why-block" style="background-image:url('https://mcit.gov.af/sites/default/files/inline-images/WhatisBigData.jpg');"><div class="why-text"><h3 class="why-title">數據驅動</h3><p class="why-desc">以真實數據為基底，結合行業洞察，制定可執行的策略方案。我們的分析團隊擅長從複雜數據中提煉關鍵信號，確保每一次決策都有據可依。</p></div></div>
-    <!-- 本地深耕 - 使用您提供的新圖片 -->
-    <div class="why-block" style="background-image:url('https://img3.wallspic.com/crops/0/5/7/8/5/158750/158750-xiang_gang-zi_se_de-dian_li-ta_kuai-ren_ti_nei_de_shui-3840x2160.jpg');"><div class="why-text"><h3 class="why-title">本地深耕</h3><p class="why-desc">扎根香港，熟悉本地法規與商業環境，提供接地氣的專業建議。我們的本地網絡與經驗能幫助企業快速適應市場變化，降低風險。</p></div></div>
+    <div class="why-block" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop');"><div class="why-text"><h3 class="why-title">數據驅動</h3><p class="why-desc">以真實數據為基底，結合行業洞察，制定可執行的策略方案。我們的分析團隊擅長從複雜數據中提煉關鍵信號，確保每一次決策都有據可依。</p></div></div>
+    <div class="why-block" style="background-image:url('https://img3.wallspic.com/crops/0/5/7/8/5/158750/158750-xiang_gang-zi_se_de-dian_li_ta_kuai-ren_ti_nei_de_shui-3840x2160.jpg');"><div class="why-text"><h3 class="why-title">本地深耕</h3><p class="why-desc">扎根香港，熟悉本地法規與商業環境，提供接地氣的專業建議。我們的本地網絡與經驗能幫助企業快速適應市場變化，降低風險。</p></div></div>
     <div class="why-block" style="background-image:url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/IMG_5357.jpeg');"><div class="why-text"><h3 class="why-title">敏捷反應</h3><p class="why-desc">快速響應市場變化，為客戶提供靈活且高效的解決方案。我們保持敏銳的市場觸覺，隨時調整策略以應對突發狀況。</p></div></div>
   </section>
 
   <section class="case-studies section">
     <div class="section-title"><h2 class="case-title">客戶案例</h2><div class="line"></div></div>
     <div class="case-grid">
-      <div class="case-card"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop" alt="案例一" class="case-img"><div class="case-content"><h4>留學顧問數據調研</h4><p>協助一間香港本地海外留學顧問公司，網站查詢量在3個月內增長了65%。</p></div></div>
-      <div class="case-card"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&auto=format&fit=crop" alt="案例二" class="case-img"><div class="case-content"><h4>零售品牌轉型策略</h4><p>為傳統零售品牌制定數字化轉型路線，整體營收回升22%。</p></div></div>
-      <div class="case-card"><img src="https://respic.3d66.com/coverimg/cache/7264/56b4dbb2411491b145f13adfea941883.jpg!medium-size-2?v=27058798&k=D41D8CD98F00B204E9800998ECF8427E" alt="案例三" class="case-img"><div class="case-content"><h4>星級餐廳開業</h4><p>開業首月即獲得米芝蓮指南推薦，營運首年毛利率達到38%，成為區內熱門預約餐廳。</p></div></div>
+      <div class="case-card" onclick="window.location.href='cases.html'">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&auto=format&fit=crop" alt="案例一" class="case-img">
+        <div class="case-content"><h4>科技初創市場進入</h4><p>協助一家海外科技公司成功打入香港市場，半年內營收增長120%。</p></div>
+      </div>
+      <div class="case-card" onclick="window.location.href='cases.html'">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&auto=format&fit=crop" alt="案例二" class="case-img">
+        <div class="case-content"><h4>零售品牌轉型策略</h4><p>為傳統零售品牌制定數字化轉型路線，實現線上線下融合。</p></div>
+      </div>
+      <div class="case-card" onclick="window.location.href='cases.html'">
+        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&auto=format&fit=crop" alt="案例三" class="case-img">
+        <div class="case-content"><h4>金融機構風險管理</h4><p>為大型金融機構建立全面風險框架，有效降低合規成本。</p></div>
+      </div>
     </div>
   </section>
 
-  <section class="about"><div class="about-content" id="aboutContent"><h2>銳鋒顧問</h2><div class="line"></div><p>深耕香港，以銳見洞察行業，用鋒利攻破市場。我們不只是顧問，更是你並肩的商業夥伴。</p><div class="quote">精準 · 務實 · 持續</div></div></section>
+  <section class="about"><div class="about-content" id="aboutContent"><h2>銳鋒顧問</h2><div class="line"></div><p>深耕香港，以銳見洞察行業，用鋒利攻破市場。我們不只是顧問，更是你並肩的商業夥伴。</p><div class="quote">精準 · 務實 · 可持續</div></div></section>
 
   <footer class="footer">
     <div class="footer-social">
+      <!-- WeChat - 經典品牌 Logo -->
       <a href="#">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#07C160"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-7.76 5.27c-.47-.27-.74-.68-.74-1.13 0-.45.27-.86.74-1.13C7.13 13.27 8.5 12.5 12 12.5s4.87.77 6.26 1.51c.47.27.74.68.74 1.13 0 .45-.27.86-.74 1.13-1.39.74-3.76 1.51-6.26 1.51s-4.87-.77-6.26-1.51zM12 2C6.48 2 2 6.48 2 12c0 2.07.63 4 1.7 5.59L2.5 22l4.62-1.29c1.42.82 3.05 1.29 4.88 1.29 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#07C160">
+          <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm-5.34 9.097c-1.446 0-2.762.512-3.803 1.362l-1.072.628a.176.176 0 0 1-.09.029c-.09 0-.16-.072-.16-.16 0-.04.012-.08.025-.12l.212-.806a.323.323 0 0 0-.116-.365C.667 15.104 0 13.732 0 12.25 0 9.508 2.586 7.286 5.776 7.286c3.19 0 5.776 2.222 5.776 4.964 0 2.742-2.586 4.964-5.776 4.964-.24 0-.477-.017-.712-.05a4.96 4.96 0 0 1-.39.018zm2.424-3.586a.902.902 0 0 1 0 1.804.902.902 0 0 1 0-1.804zm4.004 0a.902.902 0 0 1 0 1.804.902.902 0 0 1 0-1.804z"/>
+          <path d="M17.5 10.5c3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5a6.38 6.38 0 0 1-2.215-.398l-1.248.73a.206.206 0 0 1-.105.034.19.19 0 0 1-.188-.188c0-.047.014-.094.03-.141l.248-.944a.379.379 0 0 0-.136-.427C12.5 21.5 11 20.5 11 17c0-3.584 2.916-6.5 6.5-6.5zm-2.275 4.875a1.056 1.056 0 0 0 0 2.111 1.056 1.056 0 0 0 0-2.111zm4.55 0a1.056 1.056 0 0 0 0 2.111 1.056 1.056 0 0 0 0-2.111z"/>
+        </svg>
         WeChat
       </a>
-      <a href="#">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.54-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      <!-- WhatsApp - 點擊打開對話框 -->
+      <a href="https://wa.me/85212345678" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.54-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
         WhatsApp
       </a>
-      <a href="#">
-        <svg width="20" height="20" viewBox="0 0 24 24"><defs><linearGradient id="igGradFooter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F58529"/><stop offset="50%" style="stop-color:#DD2A7B"/><stop offset="100%" style="stop-color:#8134AF"/></linearGradient></defs><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="url(#igGradFooter)"/></svg>
+      <!-- Instagram - 點擊打開賬戶首頁 -->
+      <a href="https://instagram.com/topmarkethk" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="igGradFooter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F58529"/><stop offset="50%" style="stop-color:#DD2A7B"/><stop offset="100%" style="stop-color:#8134AF"/></linearGradient></defs><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="url(#igGradFooter)"/></svg>
         Instagram
       </a>
     </div>
     <p class="copyright">© 2026 銳鋒有限公司 Top Market HK Limited</p>
-</footer>
+  </footer>
 
   <script>
     window.addEventListener('scroll', () => { const h = document.getElementById('header'); if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); });
     document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
-    
+
     const cardData = [
       { img:'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop', title:'商業策劃', desc:'從計劃書到投資架構，我們以數據驅動的策略，為你的業務注入清晰方向。' },
       { img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop', title:'市場數據分析與調研', desc:'運用大數據與行業洞察，提供精準的市場分析、消費者行為研究及競爭情報。' },
       { img:'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop', title:'市場落地', desc:'香港市場調研、渠道搭建、品牌落地全流程，讓每一次進入都強而有力。' }
     ];
     const track=document.getElementById('cardTrack'), wrapper=document.getElementById('cardScrollWrapper'), leftArrow=document.getElementById('leftArrow'), rightArrow=document.getElementById('rightArrow');
-    function createCard(d,i){ const d1=document.createElement('div'); d1.className='service-card'; d1.dataset.card=i; d1.innerHTML=`<img class="card-img" src="${d.img}" alt="${d.title}"><div class="card-content"><h3>${d.title}</h3><p>${d.desc}</p><a href="business.html" class="card-link">了解更多 →</a></div>`; return d1; }
+    function createCard(d,i){ const d1=document.createElement('div'); d1.className='service-card'; d1.dataset.card=i; d1.innerHTML=`<img class="card-img" src="${d.img}" alt="${d.title}"><div class="card-content"><h3>${d.title}</h3><p>${d.desc}</p><a href="business.html" class="card-link">了解更多 →</a></div>`; d1.addEventListener('click', function(e){ if(!e.target.closest('.card-link')){ window.location.href='business.html'; } }); return d1; }
     const realCards=[]; for(let i=0;i<5;i++) cardData.forEach((d,idx)=>realCards.push(createCard(d,i*3+idx+1)));
     track.appendChild(createCard(cardData[2],'clone-last')); realCards.forEach(c=>track.appendChild(c)); track.appendChild(createCard(cardData[0],'clone-first'));
     const allCards=track.querySelectorAll('.service-card'); let ci=1, transitioning=false;
