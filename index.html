@@ -28,7 +28,6 @@
     .hero-content { max-width:1200px; margin:0 auto; position:relative; z-index:2; display:flex; align-items:center; gap:60px; flex-wrap:wrap; }
     .hero-text { flex:1 1 500px; }
 
-    /* Hero 文字動畫 */
     .hero-text h1 { font-size:clamp(3rem,6vw,4.5rem); font-weight:700; color:#ffffff; line-height:1.15; letter-spacing:-0.5px; margin-bottom:20px; opacity:0; transform:translateY(20px); }
     .hero-text h1.visible { animation:fadeUp 1s ease-out forwards; }
     .hero-text h1 .highlight { color:#3b82f6; display:block; }
@@ -41,22 +40,15 @@
     .btn-primary:hover { background:#2563eb; border-color:#2563eb; transform:translateY(-2px); box-shadow:0 10px 25px rgba(59,130,246,0.3); }
     .btn-outline:hover { background:#3b82f6; color:#fff; }
 
-    @keyframes fadeUp {
-      0% { opacity:0; transform:translateY(30px); }
-      100% { opacity:1; transform:translateY(0); }
-    }
+    @keyframes fadeUp { 0% { opacity:0; transform:translateY(30px); } 100% { opacity:1; transform:translateY(0); } }
 
     .gradient-bg { background:linear-gradient(to right, #1e3a8a 0%, #0c1119 80%); }
     .stats { max-width:1200px; margin:0 auto; padding:80px 20px 40px; display:flex; justify-content:center; gap:100px; text-align:center; flex-wrap:wrap; }
-
     .stat-item { opacity:0; }
     .stat-item.visible { animation:scaleIn 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards; }
     .stat-item:nth-child(2).visible { animation-delay:0.2s; }
     .stat-item:nth-child(3).visible { animation-delay:0.4s; }
-    @keyframes scaleIn {
-      0% { opacity:0; transform:scale(0.6); }
-      100% { opacity:1; transform:scale(1); }
-    }
+    @keyframes scaleIn { 0% { opacity:0; transform:scale(0.6); } 100% { opacity:1; transform:scale(1); } }
     .stat-number { font-size:3.2rem; font-weight:700; color:#ffffff; line-height:1; }
     .stat-label { font-size:0.9rem; color:#94a3b8; letter-spacing:1.5px; margin-top:6px; text-transform:uppercase; }
 
@@ -179,7 +171,8 @@
 
   <section class="why-us">
     <div class="why-block" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop');"><div class="why-text"><h3 class="why-title">數據驅動</h3><p class="why-desc">以真實數據為基底，結合行業洞察，制定可執行的策略方案。我們的分析團隊擅長從複雜數據中提煉關鍵信號，確保每一次決策都有據可依。</p></div></div>
-    <div class="why-block" style="background-image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?q=80&w=1600&auto=format&fit=crop');"><div class="why-text"><h3 class="why-title">本地深耕</h3><p class="why-desc">扎根香港，熟悉本地法規與商業環境，提供接地氣的專業建議。我們的本地網絡與經驗能幫助企業快速適應市場變化，降低風險。</p></div></div>
+    <!-- 本地深耕 - 使用您提供的香港海港城圖片 -->
+    <div class="why-block" style="background-image:url('https://irsc2025.com/wp-content/uploads/2025/05/ocean-terminal-deck-4-3.jpg');"><div class="why-text"><h3 class="why-title">本地深耕</h3><p class="why-desc">扎根香港，熟悉本地法規與商業環境，提供接地氣的專業建議。我們的本地網絡與經驗能幫助企業快速適應市場變化，降低風險。</p></div></div>
     <div class="why-block" style="background-image:url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=1600&auto=format&fit=crop');"><div class="why-text"><h3 class="why-title">敏捷反應</h3><p class="why-desc">快速響應市場變化，為客戶提供靈活且高效的解決方案。我們保持敏銳的市場觸覺，隨時調整策略以應對突發狀況。</p></div></div>
   </section>
 
@@ -230,19 +223,9 @@
     document.querySelectorAll('.service-card').forEach(card=>{card.addEventListener('mousemove',(e)=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,cx=r.width/2,cy=r.height/2,rx=((y-cy)/cy)*-8,ry=((x-cx)/cx)*8;card.style.transform=`scale(1) perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;});card.addEventListener('mouseleave',()=>{card.style.transform='scale(0.92) perspective(800px) rotateX(0deg) rotateY(0deg)';});});
     document.querySelectorAll('.case-card').forEach(card=>{card.addEventListener('mousemove',(e)=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,cx=r.width/2,cy=r.height/2,rx=((y-cy)/cy)*-5,ry=((x-cx)/cx)*5;card.style.transform=`perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;});card.addEventListener('mouseleave',()=>{card.style.transform='perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';});});
 
-    // 沉穩大方動畫觀察器
     const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -40px 0px" };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          entry.target.querySelectorAll('img').forEach(img => img.classList.add('visible'));
-        }
-      });
-    }, observerOptions);
-
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); entry.target.querySelectorAll('img').forEach(img => img.classList.add('visible')); } }); }, observerOptions);
     document.querySelectorAll('.hero-title, .hero-desc, .hero-btn, .stat-item, .service-title, .case-title, .why-block, .why-title, .why-desc, .case-card, .about-content').forEach(el => observer.observe(el));
-
     const allImages = document.querySelectorAll('img');
     const imageObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
     allImages.forEach(img => imageObserver.observe(img));
