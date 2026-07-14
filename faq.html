@@ -11,7 +11,7 @@
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
     body { background:#0c1119; color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 
-    .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.4s ease; padding:14px 0; }
+    .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.0); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.4s ease; padding:14px 0; }
     .header.scrolled { padding:8px 0; box-shadow:0 5px 25px rgba(0,0,0,0.3); }
     .nav-container { max-width:1280px; margin:0 auto; padding:0 40px 0 20px; display:flex; align-items:center; justify-content:space-between; }
     .logo { display:flex; align-items:baseline; gap:10px; margin-right:auto; }
@@ -56,9 +56,9 @@
       min-height:250px;
       display:flex; flex-direction:column; justify-content:flex-end;
     }
-    .faq-card::before { content:""; position:absolute; inset:0; background:rgba(10,15,25,0.75); z-index:1; transition:0.5s; }
+    .faq-card::before { content:""; position:absolute; inset:0; background:rgba(10,15,25,0.0); z-index:1; transition:0.5s; }
     .faq-card::after { content:""; position:absolute; top:-40%; right:-30%; width:180px; height:180px; background:radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%); border-radius:50%; z-index:2; pointer-events:none; transition:0.6s; }
-    .faq-card:hover::before { background:rgba(10,15,25,0.6); }
+    .faq-card:hover::before { background:rgba(10,15,25,0.0); }
     .faq-card:hover::after { top:-25%; right:-15%; width:240px; height:240px; }
     .faq-card:hover { border-color:rgba(59,130,246,0.5); box-shadow:0 25px 55px rgba(0,0,0,0.45); transform:translateY(-8px); }
     .faq-card.visible { opacity:1; transform:translateY(0); transition:0.8s ease; }
