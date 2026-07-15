@@ -21,13 +21,6 @@
     .nav-links a:hover { color:#3b82f6; } .nav-links a:hover::after { width:100%; }
     .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
     .menu-toggle span { width:26px; height:2px; background:#e2e8f0; transition:0.3s; }
-
-    .hero-page { width:100%; height:45vh; min-height:350px; background:linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.02)), url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=1600&auto=format&fit=crop') center/cover; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s ease-out; }
-    @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
-    .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.5); opacity:0; transform:translateY(20px); }
-    .hero-page h1.visible { animation:fadeUp 1s ease-out forwards; }
-    @keyframes fadeUp { 0% { opacity:0; transform:translateY(30px); } 100% { opacity:1; transform:translateY(0); } }
-
     /* 內容區域 - 加入背景圖片 */
     .content-wrapper {
       background:linear-gradient(0deg, rgba(10,15,25,0.0), rgba(10,15,25,0.0)), url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/%E8%A8%88%E5%8A%83%E6%B5%81%E7%A8%8B.jpg') center/cover fixed;
