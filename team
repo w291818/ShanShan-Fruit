@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>計劃流程 | 銳鋒顧問 Top Market</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
+    body { background:linear-gradient(to right, #1e3a8a 0%, #0c1119 80%); color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.4s ease; padding:14px 0; }
+    .header.scrolled { padding:8px 0; box-shadow:0 5px 25px rgba(0,0,0,0.3); }
+    .nav-container { max-width:1280px; margin:0 auto; padding:0 40px 0 20px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { display:flex; align-items:baseline; gap:10px; margin-right:auto; }
+    .logo a { text-decoration:none; display:flex; align-items:baseline; gap:8px; }
+    .logo .brand-cn { font-size:2.6rem; font-weight:800; color:#ffffff; letter-spacing:2px; line-height:1; }
+    .logo .brand-en { font-size:1.1rem; font-weight:600; color:#94a3b8; letter-spacing:1px; opacity:0.9; }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { text-decoration:none; color:#cbd5e1; font-weight:500; font-size:0.95rem; position:relative; padding:6px 0; transition:color 0.3s; }
+    .nav-links a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:2px; background:#3b82f6; transition:width 0.3s ease; }
+    .nav-links a:hover { color:#3b82f6; } .nav-links a:hover::after { width:100%; }
+    .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .menu-toggle span { width:26px; height:2px; background:#e2e8f0; transition:0.3s; }
+
+    /* Hero 區域 */
+    .hero-page { width:100%; height:45vh; min-height:350px; background:linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.02)), url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=1600&auto=format&fit=crop') center/cover; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s ease-out; }
+    @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
+    .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.5); opacity:0; transform:translateY(20px); }
+    .hero-page h1.visible { animation:fadeUp 1s ease-out forwards; }
+    @keyframes fadeUp { 0% { opacity:0; transform:translateY(30px); } 100% { opacity:1; transform:translateY(0); } }
+
+    /* 內容區域 */
+    .content { max-width:1000px; margin:60px auto; padding:0 20px; }
+
+    /* 流程介紹 */
+    .process-intro {
+      background:rgba(26,32,44,0.5); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      border-radius:20px; padding:35px 40px; margin-bottom:50px;
+      border:1px solid rgba(59,130,246,0.2);
+      box-shadow:0 15px 40px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.04);
+      opacity:0; transform:translateY(30px);
+    }
+    .process-intro.visible { opacity:1; transform:translateY(0); transition:0.8s ease; }
+    .process-intro p { color:#cbd5e1; font-size:1.05rem; line-height:1.9; text-align:center; }
+    .process-intro .highlight-note { display:inline-block; background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.3); border-radius:50px; padding:10px 30px; color:#60a5fa; font-weight:600; letter-spacing:0.5px; font-size:0.95rem; margin-top:20px; }
+
+    /* 流程時間軸 */
+    .timeline { position:relative; padding:20px 0; }
+    .timeline::before { content:""; position:absolute; left:50%; top:0; bottom:0; width:2px; background:linear-gradient(180deg, #3b82f6 0%, #1e3a8a 100%); transform:translateX(-50%); }
+
+    .timeline-item { display:flex; align-items:center; margin-bottom:50px; position:relative; opacity:0; transform:translateY(30px); }
+    .timeline-item.visible { opacity:1; transform:translateY(0); transition:0.8s ease; }
+    .timeline-item:nth-child(odd) { flex-direction:row-reverse; }
+
+    .timeline-content {
+      width:42%; background:rgba(26,32,44,0.5); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      padding:30px 35px; border-radius:20px;
+      border:1px solid rgba(59,130,246,0.2);
+      box-shadow:0 10px 30px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.04);
+      transition:all 0.4s ease;
+    }
+    .timeline-content:hover { border-color:rgba(59,130,246,0.5); box-shadow:0 20px 50px rgba(0,0,0,0.35); transform:translateY(-5px); }
+    .timeline-content h3 { font-size:1.5rem; color:#3b82f6; margin-bottom:12px; font-weight:700; }
+    .timeline-content p { color:#cbd5e1; font-size:0.95rem; line-height:1.8; }
+    .timeline-content .step-number { display:inline-block; background:#3b82f6; color:#fff; width:36px; height:36px; border-radius:50%; text-align:center; line-height:36px; font-weight:700; font-size:1rem; margin-bottom:12px; }
+
+    .timeline-dot { width:16px; height:16px; background:#3b82f6; border-radius:50%; position:absolute; left:50%; transform:translateX(-50%); z-index:2; box-shadow:0 0 20px rgba(59,130,246,0.6); flex-shrink:0; }
+
+    /* 監控機制卡片 */
+    .monitoring-card {
+      background:rgba(26,32,44,0.5); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      border-radius:20px; padding:40px 40px; margin-top:30px; text-align:center;
+      border:1px solid rgba(59,130,246,0.2);
+      box-shadow:0 15px 40px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.04);
+      opacity:0; transform:translateY(30px);
+    }
+    .monitoring-card.visible { opacity:1; transform:translateY(0); transition:0.8s ease; }
+    .monitoring-card h2 { font-size:1.8rem; color:#3b82f6; margin-bottom:15px; font-weight:700; }
+    .monitoring-card p { color:#cbd5e1; font-size:1rem; line-height:1.9; }
+
+    .footer { background:#ffffff; color:#1a202c; padding:50px 20px; text-align:center; }
+    .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; flex-wrap:wrap; }
+    .footer-social a { color:#333; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:10px; transition:0.3s; font-size:0.95rem; }
+    .footer-social a:hover { color:#2563eb; transform:translateY(-2px); }
+    .footer-social a svg { width:24px; height:24px; }
+    .copyright { font-size:0.9rem; color:#555; }
+
+    @media (max-width:768px) {
+      .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:#0c1119; padding:20px; box-shadow:0 10px 20px rgba(0,0,0,0.3); }
+      .nav-links.active { display:flex; }
+      .menu-toggle { display:flex; }
+      .hero-page { height:30vh; min-height:250px; padding:40px 5%; }
+      .timeline::before { left:30px; }
+      .timeline-item, .timeline-item:nth-child(odd) { flex-direction:column; align-items:flex-start; padding-left:60px; }
+      .timeline-content { width:100%; }
+      .timeline-dot { left:30px; }
+      .process-intro { padding:25px 20px; }
+      .monitoring-card { padding:25px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="nav-container">
+      <div class="logo"><a href="index.html"><span class="brand-cn">銳鋒</span><span class="brand-en">The Top Market</span></a></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="business.html">業務範圍</a></li><li><a href="cases.html">成功案例</a></li><li><a href="team.html">計劃流程</a></li><li><a href="faq.html">常見問題</a></li><li><a href="contact.html">聯絡我們</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <div class="hero-page"><h1 class="hero-title">計劃流程</h1></div>
+
+  <div class="content">
+    <!-- 流程介紹 -->
+    <div class="process-intro">
+      <p>我們建立了一套嚴謹且高效的工作流程，從客戶需求出發，透過多維度市場數據搜集、專業分析與策略制定，到長期監測與合作，確保每一個環節都精準到位。全程監控機制，確保每個環節的數據真實與專業性。</p>
+      <div class="highlight-note">全程監控 · 數據真實 · 專業執行</div>
+    </div>
+
+    <!-- 時間軸流程 -->
+    <div class="timeline">
+      <!-- 步驟一 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="step-number">1</div>
+          <h3>客戶提出需求</h3>
+          <p>我們與客戶進行深入溝通，了解業務目標、市場痛點與期望成果。透過專業的需求分析框架，精準界定專案範圍與關鍵指標，為後續工作奠定清晰基礎。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <!-- 步驟二 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="step-number">2</div>
+          <h3>多維度市場數據搜集</h3>
+          <p>根據專案需求，啟動多渠道數據搜集：量化問卷調查、電話抽樣訪問、街頭攔截訪談、深度一對一面談、社交平台輿論數據爬梳、電商平台銷售數據整合，以及政府與行業公開報告整理。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <!-- 步驟三 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="step-number">3</div>
+          <h3>數據整理與解讀</h3>
+          <p>由內部數據分析組負責統計核算、建模與圖表製作。我們設有嚴格的品質監控機制，包括抽樣覆核與採訪抽查，確保每一筆數據真實無誤。最終將複雜數據轉化為明確的市場洞察。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <!-- 步驟四 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="step-number">4</div>
+          <h3>制訂專屬市場顧問方案</h3>
+          <p>根據數據分析結果，由策略顧問團隊為客戶量身定制市場方案，涵蓋品牌定位、市場進入策略、定價建議、渠道選擇與宣傳推廣方向，確保方案與業務目標高度一致。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <!-- 步驟五 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="step-number">5</div>
+          <h3>按行業場景優化調整</h3>
+          <p>針對不同行業（零售、飲食、化妝品、母嬰家居等）的特定場景，進行方案微調與落地執行指導。我們提供持續的跟進服務，根據市場反饋動態調整策略，確保方案在實際營運中發揮最大效用。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <!-- 步驟六 -->
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="step-number">6</div>
+          <h3>長期市場監測與年度續約合作</h3>
+          <p>專案完成後，我們提供長期市場監察合約，按月或按季度更新行業數據，搭配固定消費小組持續追蹤消費者習慣變化。同時支持年度續約合作，確保品牌隨時掌握市場潮流動向，快速應對競爭環境。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+    </div>
+
+    <!-- 監控機制 -->
+    <div class="monitoring-card">
+      <h2>全程監控機制</h2>
+      <p>我們設有內部品質監控團隊，透過抽樣覆核、採訪抽查、數據交叉驗證等方式，確保每一個環節的數據收集、分析與報告都具有高度的真實性與專業性。從專案啟動到最終交付，每一步都經過嚴謹的品質把關，讓客戶放心依託我們的專業服務。</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <a href="contact.html">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#07C160">
+          <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm-5.34 9.097c-1.446 0-2.762.512-3.803 1.362l-1.072.628a.176.176 0 0 1-.09.029c-.09 0-.16-.072-.16-.16 0-.04.012-.08.025-.12l.212-.806a.323.323 0 0 0-.116-.365C.667 15.104 0 13.732 0 12.25 0 9.508 2.586 7.286 5.776 7.286c3.19 0 5.776 2.222 5.776 4.964 0 2.742-2.586 4.964-5.776 4.964-.24 0-.477-.017-.712-.05a4.96 4.96 0 0 1-.39.018z"/>
+          <path d="M17.5 10.5c3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5a6.38 6.38 0 0 1-2.215-.398l-1.248.73a.206.206 0 0 1-.105.034.19.19 0 0 1-.188-.188c0-.047.014-.094.03-.141l.248-.944a.379.379 0 0 0-.136-.427C12.5 21.5 11 20.5 11 17c0-3.584 2.916-6.5 6.5-6.5z"/>
+        </svg>
+        WeChat
+      </a>
+      <a href="https://wa.me/85212345678" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.54-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://instagram.com/topmarkethk" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="igGradTeam" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F58529"/><stop offset="50%" style="stop-color:#DD2A7B"/><stop offset="100%" style="stop-color:#8134AF"/></linearGradient></defs><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="url(#igGradTeam)"/></svg>
+        Instagram
+      </a>
+    </div>
+    <p class="copyright">© 2026 銳鋒有限公司 Top Market HK Limited</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => { const h = document.getElementById('header'); if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); });
+    document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
+
+    // Hero 標題動畫
+    const heroTitle = document.querySelector('.hero-title');
+    const heroObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); heroObserver.unobserve(entry.target); } }); }, { threshold: 0.5 });
+    if (heroTitle) heroObserver.observe(heroTitle);
+
+    // 通用淡入上移動畫
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -30px 0px" };
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, observerOptions);
+    document.querySelectorAll('.process-intro, .timeline-item, .monitoring-card').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
