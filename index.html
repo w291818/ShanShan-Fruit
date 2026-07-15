@@ -229,7 +229,7 @@
     const cardData = [
       { img:'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&auto=format&fit=crop', title:'商業策劃', desc:'從計劃書到投資架構，我們以數據驅動的策略，為你的業務注入清晰方向。' },
       { img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop', title:'市場數據分析與調研', desc:'運用大數據與行業洞察，提供精準的市場分析、消費者行為研究及競爭情報。' },
-      { img:'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop', title:'市場落地', desc:'香港市場調研、渠道搭建、品牌落地全流程，讓每一次服務都強而有力。' }
+      { img:'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop', title:'品牌營運服務', desc:'為現有品牌進行大眾認知度調查，負面口碑風險，定位偏差修正等，讓每一次優化都強而有力。' }
     ];
     const track=document.getElementById('cardTrack'), wrapper=document.getElementById('cardScrollWrapper'), leftArrow=document.getElementById('leftArrow'), rightArrow=document.getElementById('rightArrow');
     function createCard(d,i){ const d1=document.createElement('div'); d1.className='service-card'; d1.dataset.card=i; d1.innerHTML=`<img class="card-img" src="${d.img}" alt="${d.title}"><div class="card-content"><h3>${d.title}</h3><p>${d.desc}</p><a href="business.html" class="card-link">了解更多 →</a></div>`; d1.addEventListener('click', function(e){ if(!e.target.closest('.card-link')){ window.location.href='business.html'; } }); return d1; }
