@@ -4,4 +4,245 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>成功案例 | 銳鋒顧問 Top Market</title>
-  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
+    body { background:#020510; color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; cursor:none; }
+    .custom-cursor { width:30px; height:30px; border:2px solid #3b82f6; border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transition:transform 0.15s ease, border-color 0.3s; mix-blend-mode:difference; }
+    .custom-cursor.hover { transform:scale(2); border-color:#60a5fa; background:rgba(59,130,246,0.15); }
+
+    .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(2,5,16,0.85); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.04); padding:14px 0; transition:0.4s; }
+    .header.scrolled { padding:8px 0; }
+    .nav-container { max-width:1280px; margin:0 auto; padding:0 40px 0 20px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { display:flex; align-items:baseline; gap:10px; margin-right:auto; }
+    .logo a { text-decoration:none; display:flex; align-items:baseline; gap:8px; }
+    .logo .brand-cn { font-size:2.6rem; font-weight:800; color:#ffffff; letter-spacing:2px; line-height:1; }
+    .logo .brand-en { font-size:1.1rem; font-weight:600; color:#94a3b8; letter-spacing:1px; opacity:0.9; }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { text-decoration:none; color:#cbd5e1; font-weight:500; font-size:0.95rem; position:relative; padding:6px 0; transition:color 0.3s; }
+    .nav-links a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:2px; background:#3b82f6; transition:width 0.3s ease; }
+    .nav-links a:hover { color:#3b82f6; } .nav-links a:hover::after { width:100%; }
+    .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .menu-toggle span { width:26px; height:2px; background:#e2e8f0; transition:0.3s; }
+
+    /* 全屏案例 */
+    .case-screen { width:100%; min-height:100vh; position:relative; overflow:hidden; display:flex; align-items:center; }
+    .case-bg { position:absolute; inset:-10%; background-size:cover; background-position:center; z-index:0; transition:transform 12s ease; filter:saturate(0.6) brightness(0.5); }
+    .case-screen:hover .case-bg { transform:scale(1.08); filter:saturate(1) brightness(0.7); }
+    .case-bg::after { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 50%, rgba(10,15,30,0.3) 0%, rgba(2,5,16,0.9) 80%); }
+
+    .case-inner { position:relative; z-index:2; max-width:1400px; width:100%; margin:0 auto; padding:120px 60px; }
+
+    /* 浮動序號 */
+    .floating-num {
+      position:absolute; top:20px; right:40px; z-index:3;
+      font-size:20rem; font-weight:900; line-height:0.6;
+      background:linear-gradient(180deg, rgba(59,130,246,0.08) 0%, transparent 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      pointer-events:none; animation:floatNum 6s ease-in-out infinite;
+    }
+    @keyframes floatNum { 0%,100% { transform:translateY(0) rotate(0deg); } 50% { transform:translateY(-20px) rotate(1deg); } }
+
+    /* 標題 - 電影級排版 */
+    .case-title-area { margin-bottom:60px; position:relative; opacity:0; transform:translateY(40px); }
+    .case-title-area.visible { opacity:1; transform:translateY(0); transition:1.2s cubic-bezier(0.16,1,0.3,1); }
+    .case-kicker { font-size:0.8rem; letter-spacing:6px; text-transform:uppercase; color:#3b82f6; margin-bottom:20px; font-weight:600; display:flex; align-items:center; gap:15px; }
+    .case-kicker::after { content:""; flex:1; height:1px; background:linear-gradient(90deg, #3b82f6, transparent); }
+    .case-title-area h2 { font-size:clamp(3rem,6vw,5rem); font-weight:900; line-height:1; color:#ffffff; letter-spacing:-1px; }
+    .case-title-area h2 .outline { -webkit-text-stroke:1.5px #3b82f6; -webkit-text-fill-color:transparent; }
+    .case-title-area h2 .fill { color:#3b82f6; }
+
+    /* 內容佈局 - 大膽不對稱 */
+    .case-layout { display:grid; grid-template-columns:1.5fr 1fr; gap:40px; align-items:start; }
+    .case-layout.reverse { grid-template-columns:1fr 1.5fr; }
+    .case-layout.reverse .col-left { order:2; }
+    .case-layout.reverse .col-right { order:1; }
+
+    .col-left, .col-right { display:flex; flex-direction:column; gap:20px; }
+
+    /* 資訊碎片 */
+    .fragment {
+      background:rgba(255,255,255,0.02); backdrop-filter:blur(30px); -webkit-backdrop-filter:blur(30px);
+      border-radius:24px; padding:30px; border:1px solid rgba(255,255,255,0.06);
+      transition:all 0.6s cubic-bezier(0.16,1,0.3,1); opacity:0; transform:translateY(30px);
+      position:relative; overflow:hidden;
+    }
+    .fragment::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(59,130,246,0.08) 0%, transparent 60%); opacity:0; transition:opacity 0.5s; pointer-events:none; }
+    .fragment:hover::before { opacity:1; }
+    .fragment.visible { opacity:1; transform:translateY(0); }
+    .fragment:nth-child(1).visible { transition-delay:0s; }
+    .fragment:nth-child(2).visible { transition-delay:0.15s; }
+    .fragment:nth-child(3).visible { transition-delay:0.3s; }
+    .fragment:hover { border-color:rgba(59,130,246,0.4); transform:translateY(-4px); box-shadow:0 30px 60px rgba(0,0,0,0.4); }
+
+    .fragment h3 { font-size:1.1rem; color:#3b82f6; margin-bottom:12px; font-weight:700; letter-spacing:0.5px; display:flex; align-items:center; gap:8px; }
+    .fragment h3 .icon { width:8px; height:8px; background:#3b82f6; border-radius:2px; transform:rotate(45deg); }
+    .fragment p { color:#cbd5e1; font-size:0.9rem; line-height:1.9; }
+    .fragment ul { list-style:none; padding:0; }
+    .fragment ul li { color:#cbd5e1; font-size:0.9rem; line-height:1.9; padding:2px 0 2px 16px; position:relative; }
+    .fragment ul li::before { content:"—"; position:absolute; left:0; color:#3b82f6; }
+
+    /* 成果爆炸卡片 */
+    .result-blast {
+      background:linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0.02) 100%);
+      border:1px solid rgba(59,130,246,0.3); border-radius:30px; padding:35px;
+      position:relative; overflow:hidden; opacity:0; transform:scale(0.9);
+    }
+    .result-blast.visible { opacity:1; transform:scale(1); transition:0.8s cubic-bezier(0.34,1.56,0.64,1); }
+    .result-blast::after { content:""; position:absolute; top:-30%; right:-20%; width:200px; height:200px; background:radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%); border-radius:50%; }
+    .result-blast .big-number { font-size:4rem; font-weight:900; color:#3b82f6; line-height:1; }
+    .result-blast p { color:#e2e8f0; font-size:1rem; line-height:1.9; margin-top:10px; position:relative; z-index:1; }
+
+    .footer { background:#020510; color:#555; padding:50px 20px; text-align:center; border-top:1px solid rgba(255,255,255,0.04); }
+    .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; flex-wrap:wrap; }
+    .footer-social a { color:#777; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:10px; transition:0.3s; }
+    .footer-social a:hover { color:#3b82f6; }
+    .footer-social a svg { width:20px; height:20px; }
+
+    @media (max-width:900px) {
+      .case-layout, .case-layout.reverse { grid-template-columns:1fr; }
+      .case-layout.reverse .col-left, .case-layout.reverse .col-right { order:0; }
+      .case-inner { padding:100px 25px 60px; }
+      .floating-num { font-size:10rem; top:0; right:10px; }
+      .case-title-area h2 { font-size:2rem; }
+      .custom-cursor { display:none; }
+      body { cursor:auto; }
+    }
+    @media (max-width:768px) {
+      .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:#020510; padding:20px; }
+      .nav-links.active { display:flex; }
+      .menu-toggle { display:flex; }
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <header class="header" id="header">
+    <div class="nav-container">
+      <div class="logo"><a href="index.html"><span class="brand-cn">銳鋒</span><span class="brand-en">The Top Market</span></a></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="business.html">業務範圍</a></li><li><a href="cases.html">成功案例</a></li><li><a href="team.html">計劃流程</a></li><li><a href="faq.html">常見問題</a></li><li><a href="contact.html">聯絡我們</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- 案例一 -->
+  <div class="case-screen">
+    <div class="case-bg" style="background-image:url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?w=1600&auto=format&fit=crop');"></div>
+    <div class="case-inner">
+      <div class="floating-num">01</div>
+      <div class="case-title-area">
+        <div class="case-kicker">Market Research</div>
+        <h2><span class="outline">留學顧問</span><br><span class="fill">數據調研</span></h2>
+      </div>
+      <div class="case-layout">
+        <div class="col-left">
+          <div class="fragment"><h3><span class="icon"></span>客戶背景</h3><p>一家成立5年的香港本地海外留學顧問公司，主要協助中學生申請英國、澳洲及加拿大的寄宿學校與大學。公司有約10名顧問，每年服務約200名學生。</p></div>
+          <div class="fragment"><h3><span class="icon"></span>核心挑戰</h3><ul><li>同類公司在3年內增加近40%</li><li>傳統渠道轉換率持續下降</li><li>對目標客戶決策過程缺乏數據理解</li><li>希望拓展新服務但不確定市場需求</li></ul></div>
+        </div>
+        <div class="col-right">
+          <div class="fragment"><h3><span class="icon"></span>調研規模</h3><p>向800名家長發放問卷，回收512份有效樣本。與12位家長進行深度訪談。分析網上論壇與社交媒體討論內容。收集英國、澳洲、加拿大三國的最新留學簽證政策與大學錄取數據。</p></div>
+          <div class="result-blast">
+            <div class="big-number">+65%</div>
+            <p>網站查詢量在3個月內增長65%，新推出的加拿大大學申請服務在首年內帶來額外120萬港元營收。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 案例二 -->
+  <div class="case-screen">
+    <div class="case-bg" style="background-image:url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?w=1600&auto=format&fit=crop');"></div>
+    <div class="case-inner">
+      <div class="floating-num">02</div>
+      <div class="case-title-area">
+        <div class="case-kicker">Restaurant Launch</div>
+        <h2><span class="fill">米芝蓮</span><br><span class="outline">星級開業</span></h2>
+      </div>
+      <div class="case-layout reverse">
+        <div class="col-left">
+          <div class="fragment"><h3><span class="icon"></span>客戶背景</h3><p>一位曾在米芝蓮星級餐廳任職的日籍主廚，計劃在香港開設自己的第一家餐廳，主打現代懷石料理。他雖然擁有頂尖廚藝，但對香港餐飲市場的運營實務完全陌生。</p></div>
+          <div class="fragment"><h3><span class="icon"></span>服務範圍</h3><ul><li>選址分析（評估10+店舖）</li><li>餐飲牌照代辦</li><li>食材供應鏈建立</li><li>IG、Facebook、小紅書話題營銷</li></ul></div>
+        </div>
+        <div class="col-right">
+          <div class="result-blast">
+            <div class="big-number">38%</div>
+            <p>餐廳在6個月內順利開業，開業首月即獲得米芝蓮指南推薦，營運首年毛利率達到38%，成為區內熱門預約餐廳。客戶現正籌備第二間分店。</p>
+          </div>
+          <div class="fragment"><h3><span class="icon"></span>開業營銷</h3><p>制定開業營銷計劃，包括試菜活動與媒體公關策略。在社交平台建立網上話題，引導輿論，引起市場關注，成功吸引大量食客預約。</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 案例三 -->
+  <div class="case-screen">
+    <div class="case-bg" style="background-image:url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?w=1600&auto=format&fit=crop');"></div>
+    <div class="case-inner">
+      <div class="floating-num">03</div>
+      <div class="case-title-area">
+        <div class="case-kicker">Brand Transformation</div>
+        <h2><span class="outline">零售品牌</span><br><span class="fill">數位轉型</span></h2>
+      </div>
+      <div class="case-layout">
+        <div class="col-left">
+          <div class="fragment"><h3><span class="icon"></span>客戶背景</h3><p>一家擁有40年歷史的香港零售品牌，全盛時期在港擁有10間門店，近年因電商衝擊與消費習慣改變，生意大幅下滑。</p></div>
+          <div class="fragment"><h3><span class="icon"></span>面臨挑戰</h3><ul><li>近5年營收累計下跌超過40%</li><li>品牌形象老化</li><li>內部團隊缺乏數位化能力</li><li>需在不關閉現有門店下轉型</li></ul></div>
+        </div>
+        <div class="col-right">
+          <div class="fragment"><h3><span class="icon"></span>解決方案</h3><p>制定全渠道零售轉型策略，重新設計品牌形象，搭建電商平台並培訓內部團隊，引入會員數據管理系統。</p></div>
+          <div class="result-blast">
+            <div class="big-number">45%</div>
+            <p>轉型後18個月內，銷售額從零增長至佔總營收的45%，整體營收回升22%，30歲以下消費者佔比從8%提升至35%。品牌更獲網民稱為「打卡聖地」。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <a href="contact.html"><svg viewBox="0 0 24 24" fill="#07C160"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18z"/></svg> WeChat</a>
+      <a href="https://wa.me/85212345678" target="_blank"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.54-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg> WhatsApp</a>
+      <a href="https://instagram.com/topmarkethk" target="_blank"><svg viewBox="0 0 24 24"><defs><linearGradient id="igGradBold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F58529"/><stop offset="50%" style="stop-color:#DD2A7B"/><stop offset="100%" style="stop-color:#8134AF"/></linearGradient></defs><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 2C5.8 4 4 5.8 4 7.8v8.4C4 18.2 5.8 20 7.8 20h8.4c2 0 3.8-1.8 3.8-3.8V7.8C20 5.8 18.2 4 16.2 4H7.8zm9.2 2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="url(#igGradBold)"/></svg> Instagram</a>
+    </div>
+    <p>© 2026 銳鋒有限公司 Top Market HK Limited</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => { const h = document.getElementById('header'); if (window.scrollY > 50) h.classList.add('scrolled'); else h.classList.remove('scrolled'); });
+    document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('active'));
+
+    // 自定義光標
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+    document.querySelectorAll('.fragment,.result-blast,a,button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // 光標追蹤光暈
+    document.querySelectorAll('.fragment').forEach(frag => {
+      frag.addEventListener('mousemove', (e) => {
+        const rect = frag.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        frag.style.setProperty('--mx', x + '%');
+        frag.style.setProperty('--my', y + '%');
+      });
+    });
+
+    // 滾動動畫
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, observerOptions);
+    document.querySelectorAll('.case-title-area, .fragment, .result-blast').forEach(el => observer.observe(el));
+
+    // 背景視差
+    document.querySelectorAll('.case-bg').forEach(bg => {
+      window.addEventListener('scroll', () => { const rect = bg.parentElement.getBoundingClientRect(); const scrolled = rect.top / window.innerHeight; bg.style.transform = `scale(1.08) translateY(${scrolled * 30}px)`; });
+    });
+  </script>
+</body>
+</html>
