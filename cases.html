@@ -7,7 +7,7 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
     body { background:#020510; color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; cursor:auto; }
-    
+    
 
     .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(2,5,16,0.85); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.04); padding:14px 0; transition:0.4s; }
     .header.scrolled { padding:8px 0; }
@@ -25,7 +25,6 @@
 
     /* 全屏案例 */
     .case-screen { width:100%; min-height:100vh; position:relative; overflow:hidden; display:flex; align-items:center; }
-    /* 移除 filter:saturate/brightness 濾鏡，還原圖片原色原亮度 */
     .case-bg { position:absolute; inset:-10%; background-size:cover; background-position:center; z-index:0; transition:transform 12s ease; filter:none; }
     .case-screen:hover .case-bg { transform:scale(1.08); filter:none; }
     .case-bg::after { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 50%, rgba(10,15,30,0.0) 0%, rgba(2,5,16,0.75) 80%); }
@@ -113,7 +112,12 @@
     <div class="nav-container">
       <div class="logo"><a href="index.html"><span class="brand-cn">銳鋒</span><span class="brand-en">The Top Market</span></a></div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="business.html">業務範圍</a></li><li><a href="cases.html">成功案例</a></li><li><a href="team.html">計劃流程</a></li><li><a href="faq.html">常見問題</a></li><li><a href="contact.html">聯絡我們</a></li>
+        <li><a href="index.html">主頁</a></li>
+        <li><a href="business.html">業務範圍</a></li>
+        <li><a href="cases.html">成功案例</a></li>
+        <li><a href="team.html">計劃流程</a></li>
+        <li><a href="faq.html">常見問題</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
       </ul>
       <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
     </div>
@@ -204,10 +208,10 @@
   </footer>
 
   <script>
-    window.addEventListener('scroll', () => { 
-      const h = document.getElementById('header'); 
-      if (window.scrollY > 50) h.classList.add('scrolled'); 
-      else h.classList.remove('scrolled'); 
+    window.addEventListener('scroll', () => { 
+      const h = document.getElementById('header'); 
+      if (window.scrollY > 50) h.classList.add('scrolled'); 
+      else h.classList.remove('scrolled'); 
     });
     document.getElementById('menuToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('active');
@@ -226,10 +230,10 @@
 
     // 背景視差
     document.querySelectorAll('.case-bg').forEach(bg => {
-      window.addEventListener('scroll', () => { 
-        const rect = bg.parentElement.getBoundingClientRect(); 
-        const scrolled = rect.top / window.innerHeight; 
-        bg.style.transform = `scale(1.08) translateY(${scrolled * 30}px)`; 
+      window.addEventListener('scroll', () => { 
+        const rect = bg.parentElement.getBoundingClientRect(); 
+        const scrolled = rect.top / window.innerHeight; 
+        bg.style.transform = `scale(1.08) translateY(${scrolled * 30}px)`; 
       });
     });
   </script>
