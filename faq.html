@@ -7,7 +7,7 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
     body {
-      /* 使用您指定的圖片作為背景，並設置為不裁剪、完整鋪滿 */
+      
       background: url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/FAQ.jpg') center/cover fixed no-repeat;
       color:#e2e8f0;
       line-height:1.8;
@@ -16,7 +16,7 @@
       min-height:100vh;
       position:relative;
     }
-    /* 半透明遮罩，提高內容可讀性 */
+   
     body::before {
       content: "";
       position: fixed;
@@ -41,7 +41,7 @@
     .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
     .menu-toggle span { width:26px; height:2px; background:#e2e8f0; transition:0.3s; }
 
-    /* 移除原有 hero 背景圖，由 body 背景統一呈現 */
+  
     .hero-page { width:100%; height:70vh; min-height:320px; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s ease-out; }
     @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
     .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.7); opacity:0; transform:translateY(20px); }
