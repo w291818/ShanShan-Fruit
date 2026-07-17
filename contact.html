@@ -6,9 +6,33 @@
   <title>聯絡我們 | 銳鋒顧問 Top Market</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter','Segoe UI','Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif; }
-    body { background:linear-gradient(to left, #1e3a8a 0%, #0c1119 80%); color:#e2e8f0; line-height:1.8; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    body {
+      background: url('https://raw.githubusercontent.com/w291818/ShanShan-Fruit/refs/heads/main/FQA.com.jpg') center/cover fixed no-repeat;
+      background-color: #0c1119; /* fallback */
+      color: #e2e8f0;
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+    /* 半透明覆蓋層，讓文字更易閱讀 */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(10, 15, 25, 0.55);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* 所有主要內容在 z-index 上層 */
+    .header, .hero-page, .content, .footer {
+      position: relative;
+      z-index: 2;
+    }
 
-    .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.90); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.4s ease; padding:14px 0; }
+    .header { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(12,17,25,0.88); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); transition:all 0.4s ease; padding:14px 0; }
     .header.scrolled { padding:8px 0; box-shadow:0 5px 25px rgba(0,0,0,0.3); }
     .nav-container { max-width:1280px; margin:0 auto; padding:0 40px 0 20px; display:flex; align-items:center; justify-content:space-between; }
     .logo { display:flex; align-items:baseline; gap:10px; margin-right:auto; }
@@ -22,9 +46,9 @@
     .menu-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; }
     .menu-toggle span { width:26px; height:2px; background:#e2e8f0; transition:0.3s; }
 
-    .hero-page { width:100%; height:45vh; min-height:350px; background:linear-gradient(0deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url('https://cdn.create.vista.com/api/media/medium/680494868/stock-photo-website-page-contact-email-marketing-concept-customer-support-hotline-contact?token=') center/cover; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s ease-out; }
+    .hero-page { width:100%; height:45vh; min-height:350px; display:flex; align-items:flex-end; padding:60px 8%; animation:fadeIn 1.2s ease-out; background: transparent; }
     @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; } }
-    .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.5); opacity:0; transform:translateY(20px); }
+    .hero-page h1 { font-size:clamp(2.8rem,6vw,4rem); color:#fff; font-weight:800; text-shadow:0 4px 20px rgba(0,0,0,0.7); opacity:0; transform:translateY(20px); }
     .hero-page h1.visible { animation:fadeUp 1s ease-out forwards; }
     @keyframes fadeUp { 0% { opacity:0; transform:translateY(30px); } 100% { opacity:1; transform:translateY(0); } }
 
@@ -32,7 +56,7 @@
 
     .contact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:60px; }
     .contact-card {
-      background:rgba(26,32,44,0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      background:rgba(26,32,44,0.7); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
       border-radius:20px; padding:35px 30px; text-align:center;
       border:1px solid rgba(59,130,246,0.15);
       box-shadow:0 15px 40px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.04);
@@ -52,15 +76,14 @@
     .contact-icon .icon-ig { fill:url(#igGradient); }
     .contact-icon .icon-wechat { fill:#07C160; }
     .contact-icon .icon-email { fill:#3b82f6; }
-    .contact-icon .icon-xiaohongshu { fill:#FF2442; }
+    .contact-icon .icon-linkedin { fill:#0A66C2; }
 
     .contact-card h3 { font-size:1.3rem; color:#ffffff; margin-bottom:8px; font-weight:700; }
     .contact-card p { font-size:0.95rem; color:#94a3b8; word-break:break-all; }
 
-    /* 歡迎諮詢區塊 - 加入背景圖片 */
+    /* 歡迎諮詢區塊 - 背景透明，保留玻璃效果 */
     .welcome-block {
-      background:linear-gradient(0deg, rgba(10,15,25,0.0), rgba(10,15,25,0.0)), url('https://cdn.create.vista.com/api/media/medium/588151146/stock-photo-email-marketing-newsletter-concept-contact-newsletter-email-protect-your-personal?token=') center/cover;
-      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      background:rgba(26,32,44,0.7); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
       border-radius:24px; padding:45px 40px; text-align:center;
       border:1px solid rgba(59,130,246,0.2);
       box-shadow:0 20px 50px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.04);
@@ -74,12 +97,12 @@
     .welcome-block p { font-size:1.1rem; color:#e2e8f0; line-height:1.9; max-width:700px; margin:0 auto 25px; position:relative; z-index:2; }
     .welcome-block .highlight-info { display:inline-block; background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.3); border-radius:50px; padding:10px 30px; color:#60a5fa; font-weight:600; letter-spacing:0.5px; font-size:0.95rem; position:relative; z-index:2; }
 
-    .footer { background:#ffffff; color:#1a202c; padding:50px 20px; text-align:center; }
+    .footer { background:rgba(255,255,255,0.9); backdrop-filter:blur(8px); color:#1a202c; padding:50px 20px; text-align:center; border-top:1px solid rgba(255,255,255,0.15); }
     .footer-social { display:flex; justify-content:center; gap:40px; margin-bottom:25px; flex-wrap:wrap; }
-    .footer-social a { color:#333; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:10px; transition:0.3s; font-size:0.95rem; }
+    .footer-social a { color:#1a202c; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:10px; transition:0.3s; font-size:0.95rem; }
     .footer-social a:hover { color:#2563eb; transform:translateY(-2px); }
     .footer-social a svg { width:24px; height:24px; }
-    .copyright { font-size:0.9rem; color:#555; }
+    .copyright { font-size:0.9rem; color:#333; }
 
     @media (max-width:900px) { .contact-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:768px) {
@@ -108,7 +131,12 @@
     <div class="nav-container">
       <div class="logo"><a href="index.html"><span class="brand-cn">銳鋒</span><span class="brand-en">The Top Market</span></a></div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="business.html">業務範圍</a></li><li><a href="cases.html">成功案例</a></li><li><a href="team.html">計劃流程</a></li><li><a href="faq.html">常見問題</a></li><li><a href="contact.html">聯絡我們</a></li>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="business.html">業務範圍</a></li>
+        <li><a href="cases.html">成功案例</a></li>
+        <li><a href="team.html">計劃流程</a></li>
+        <li><a href="faq.html">常見問題</a></li>
+        <li><a href="contact.html">聯絡我們</a></li>
       </ul>
       <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
     </div>
@@ -143,10 +171,10 @@
         <h3>電郵</h3>
         <p>info@topmarket.hk</p>
       </a>
-      <a href="#" class="contact-card" data-delay="500">
-        <div class="contact-icon"><svg viewBox="0 0 24 24" class="icon-xiaohongshu"><rect x="2" y="2" width="20" height="20" rx="6" fill="#FF2442"/><text x="12" y="17" text-anchor="middle" fill="white" font-size="14" font-weight="700">紅</text></svg></div>
-        <h3>小紅書</h3>
-        <p>@TopMarketHK</p>
+      <a href="https://www.linkedin.com/company/topmarkethk" target="_blank" class="contact-card" data-delay="500">
+        <div class="contact-icon"><svg viewBox="0 0 24 24" class="icon-linkedin"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <h3>LinkedIn</h3>
+        <p>Top Market HK</p>
       </a>
     </div>
 
@@ -172,7 +200,7 @@
         Instagram
       </a>
     </div>
-    <p class="copyright">© 2026 銳鋒有限公司 Top Market HK Limited</p>
+    <p class="copyright">©️ 2026 銳鋒有限公司 Top Market HK Limited</p>
   </footer>
 
   <script>
@@ -198,3 +226,4 @@
   </script>
 </body>
 </html>
+```
